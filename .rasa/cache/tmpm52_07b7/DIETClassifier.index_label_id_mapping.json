@@ -1,0 +1,23 @@
+{
+  "0": "agradecer",
+  "1": "analizar_o_clasificar_gastos",
+  "2": "ayuda",
+  "3": "clasificar_gasto",
+  "4": "comparar_meses",
+  "5": "consultar_configuracion",
+  "6": "consultar_gasto",
+  "7": "consultar_ingreso",
+  "8": "consultar_resumen_mensual",
+  "9": "consultar_saldo",
+  "10": "despedirse",
+  "11": "eliminar_configuracion",
+  "12": "entrada_no_entendida",
+  "13": "exportar_informacion",
+  "14": "gestionar_presupuesto_o_alerta",
+  "15": "registrar_gasto",
+  "16": "registrar_ingreso",
+  "17": "resetear_categoria_gastos",
+  "18": "respuesta_binaria",
+  "19": "saludar",
+  "20": "ver_historial_completo"
+}

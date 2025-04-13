@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-categoria",
+      "2": "I-categoria",
+      "3": "L-categoria",
+      "4": "U-categoria",
+      "5": "B-fecha",
+      "6": "I-fecha",
+      "7": "L-fecha",
+      "8": "U-fecha",
+      "9": "B-medio",
+      "10": "I-medio",
+      "11": "L-medio",
+      "12": "U-medio",
+      "13": "B-monto",
+      "14": "I-monto",
+      "15": "L-monto",
+      "16": "U-monto",
+      "17": "B-periodo",
+      "18": "I-periodo",
+      "19": "L-periodo",
+      "20": "U-periodo",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-categoria": 1,
+      "I-categoria": 2,
+      "L-categoria": 3,
+      "U-categoria": 4,
+      "B-fecha": 5,
+      "I-fecha": 6,
+      "L-fecha": 7,
+      "U-fecha": 8,
+      "B-medio": 9,
+      "I-medio": 10,
+      "L-medio": 11,
+      "U-medio": 12,
+      "B-monto": 13,
+      "I-monto": 14,
+      "L-monto": 15,
+      "U-monto": 16,
+      "B-periodo": 17,
+      "I-periodo": 18,
+      "L-periodo": 19,
+      "U-periodo": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]
