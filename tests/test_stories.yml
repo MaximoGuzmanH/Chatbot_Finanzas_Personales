@@ -1,0 +1,167 @@
+version: "3.1"
+
+stories:
+
+- story: Test analizar_o_clasificar_gastos
+  steps:
+  - intent: analizar_o_clasificar_gastos
+    user: |
+      ¿Puedes analizar mis gastos?
+  - action: action_analizar_o_clasificar_gastos
+
+- story: Test clasificar_gasto
+  steps:
+  - intent: clasificar_gasto
+    user: |
+      Clasifica 100 soles como gasto en transporte
+  - action: action_clasificar_gasto
+
+- story: Test comparar_meses
+  steps:
+  - intent: comparar_meses
+    user: |
+      ¿Gaste más en marzo o abril?
+  - action: action_comparar_meses
+
+- story: Test consultar_configuracion
+  steps:
+  - intent: consultar_configuracion
+    user: |
+      ¿Qué alertas tengo configuradas?
+  - action: action_consultar_configuracion
+
+- story: Test consultar_gasto
+  steps:
+  - intent: consultar_gasto
+    user: |
+      ¿Cuánto gasté en comida este mes?
+  - action: action_consultar_gasto
+
+- story: Test consultar_ingreso
+  steps:
+  - intent: consultar_ingreso
+    user: |
+      ¿Qué ingresos tuve en abril?
+  - action: action_consultar_ingreso
+
+- story: Test consultar_resumen_mensual
+  steps:
+  - intent: consultar_resumen_mensual
+    user: |
+      Dame un resumen de mi actividad financiera de marzo
+  - action: action_consultar_resumen_mensual
+
+- story: Test configurar_presupuesto
+  steps:
+  - intent: configurar_presupuesto
+    user: |
+      Quiero configurar un presupuesto para entretenimiento
+  - action: action_configurar_presupuesto
+
+- story: Test eliminar_alerta
+  steps:
+  - intent: eliminar_alerta
+    user: |
+      Elimina la alerta de transporte
+  - action: action_eliminar_alerta
+
+- story: Test eliminar_presupuesto
+  steps:
+  - intent: eliminar_presupuesto
+    user: |
+      Elimina el presupuesto de comida
+  - action: action_eliminar_presupuesto
+
+- story: Test entrada_no_entendida
+  steps:
+  - intent: entrada_no_entendida
+    user: |
+      asdasd asdkjas
+  - action: action_entrada_no_entendida
+
+- story: Test error_de_escritura
+  steps:
+  - intent: error_de_escritura
+    user: |
+      Cuamto gaste en comoda?
+  - action: action_error_de_escritura
+
+- story: Test exportar_informacion
+  steps:
+  - intent: exportar_informacion
+    user: |
+      Exporta mi información financiera
+  - action: action_exportar_informacion
+
+- story: Test registrar_gasto
+  steps:
+  - intent: registrar_gasto
+    user: |
+      Registra un gasto de 50 soles en transporte con tarjeta débito
+  - action: action_registrar_gasto
+
+- story: Test registrar_ingreso
+  steps:
+  - intent: registrar_ingreso
+    user: |
+      Recibí 1000 soles por salario con débito
+  - action: action_registrar_ingreso
+
+- story: Test resetear_categoria_gastos
+  steps:
+  - intent: resetear_categoria_gastos
+    user: |
+      Quiero resetear mis categorías de gasto
+  - action: action_resetear_categoria_gastos
+
+- story: Test ver_historial_completo
+  steps:
+  - intent: ver_historial_completo
+    user: |
+      Muéstrame todo mi historial financiero
+  - action: action_ver_historial_completo
+
+- story: Seguir sugerencia después de una afirmación
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "500"
+        - categoria: "sueldo"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_saldo"
+    - intent: affirm
+    - action: action_follow_suggestion
+    - action: action_consultar_saldo
+  
+- story: Test - Confirmación de sugerencia
+  steps:
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: Seguir sugerencia después de registrar gasto
+  steps:
+    - intent: registrar_gasto
+      entities:
+        - monto: "200"
+        - categoria: "comida"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_saldo"
+    - intent: affirm
+    - action: action_follow_suggestion
+    - action: action_consultar_saldo
+
+- story: Seguir sugerencia después de consultar gasto
+  steps:
+    - intent: consultar_gasto
+    - action: action_consultar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_analizar_o_clasificar_gastos"
+    - intent: affirm
+    - action: action_follow_suggestion
+    - action: action_analizar_o_clasificar_gastos
