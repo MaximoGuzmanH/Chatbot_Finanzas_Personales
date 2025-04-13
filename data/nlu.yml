@@ -1,0 +1,2142 @@
+version: '3.1'
+nlu:
+  - intent: analizar_o_clasificar_gastos
+    examples: |
+      - Revisar mis hábitos de gasto [este mes](periodo)
+      - ¿Cómo he estado gastando [en marzo](fecha)?
+      - Analiza mis egresos por patrón de consumo
+      - ¿Cuál es mi comportamiento financiero [ultimamente](periodo)?
+      - Quiero conocer mis hábitos de consumo
+      - ¿En qué suelo gastar más dinero?
+      - Muéstrame un resumen de mis comportamientos financieros
+      - Dame un análisis de mi comportamiento financiero
+      - ¿Podrías analizar mis patrones de gasto?
+      - ¿En qué áreas gasto más cada mes?
+      - Desglosa mis hábitos financieros
+      - Explícame mis hábitos de consumo
+      - Haz un desglose de cómo gasto mi dinero
+      - Quiero saber en qué categorías gasto más
+      - ¿Cómo se distribuyen mis gastos mensuales?
+      - ¿Podrías mostrarme un análisis de mis gastos personales?
+      - Enséñame cómo distribuyo mis gastos
+      - ¿Podrías ayudarme a entender mis gastos?
+      - Dame un detalle de mis comportamientos de consumo
+      - ¿Cuáles son mis principales áreas de gasto?
+      - Informa sobre mis patrones de gasto
+      - ¿Qué tanto varían mis gastos cada mes?
+      - Revisa y analiza cómo suelo gastar
+      - Hazme un resumen de mis finanzas mensuales
+      - Analiza mi historial financiero
+      - Necesito conocer mis hábitos financieros
+      - ¿Cómo han sido mis gastos [ultimamente](periodo)?
+      - Dame un desglose de cómo suelo gastar mes a mes
+      - ¿En qué categorías suelo gastar más cada mes?
+      - Haz un análisis de mis gastos frecuentes
+      - Explícame mis tendencias financieras
+      - Revisa mis hábitos de compra y gasto
+      - ¿Cómo varían mis gastos a lo largo del tiempo?
+      - Necesito un informe de mis hábitos financieros
+      - ¿Puedes ver en qué gasto más dinero normalmente?
+      - Muestra mis patrones financieros de los últimos meses
+      - Dame un resumen mensual de mis hábitos de consumo
+      - ¿En qué categoría gasto más?
+      - ¿He gastado mucho en [comida](categoria)?
+      - Estoy gastando más en [entretenimiento](categoria)?
+      - Haz un gráfico de mis gastos [mes a mes](periodo)
+      - Mi patrón de gastos cambió este [año](periodo)?
+      - Compara mis hábitos actuales y los del [año pasado](periodo)
+      - Estoy gastando más este [mes](periodo)?
+      - ¿Podrías hacerme un diagnóstico financiero?
+      - Haz un perfil de mis gastos
+      - ¿Tengo patrones de consumo definidos?
+      - Detecta gastos frecuentes
+      - ¿En qué suelo gastar más al [mes](periodo)?
+      - Compara mis gastos con el [mes pasado](periodo)
+      - ¿Cuál ha sido mi comportamiento de gasto?
+      - Hazme un análisis [mensual](periodo) de gastos
+      - Quiero ver en qué gasto más
+      - Haz un análisis de mis gastos de [abril](periodo)
+      - Revisa cómo gasto cada [semana](periodo)
+      - Evalúa si tengo gastos impulsivos
+      - ¿Cómo están mis hábitos de gasto?
+      - Revisa mis hábitos de gasto este [mes](periodo)
+      - Mis hábitos cambiaron este [año](periodo)
+      - ¿Estoy gastando mucho en [entretenimiento](categoria)?
+      - ¿Qué tanto gasto en [servicios](categoria)?
+      - Muéstrame si mis gastos han aumentado
+      - ¿Estoy equilibrando bien mis gastos?
+      - Explora mi consumo este [trimestre](periodo)
+      - ¿Estoy gastando más que el mes pasado?
+      - Dame una vista general de mis gastos
+      - ¿Tengo algún patrón de gasto?
+      - ¿Puedes analizar mis gastos?
+      - ¿He tenido gastos inesperados?
+      - ¿Mi consumo en [marzo](periodo) fue alto?
+      - Analiza mis gastos del último [trimestre](periodo)
+      - Me gustaría ver un resumen de mis gastos más comunes
+      - ¿Puedes hacer un análisis sobre en qué gasto más?
+      - Quiero que analices mis consumos más frecuentes
+      - ¿Cómo distribuyo mis gastos actualmente?
+      - Hazme un reporte de mis gastos personales
+      - ¿Cuáles son mis hábitos financieros más marcados?
+      - Dime en qué categoría gasto más plata
+      - Evalúa mi comportamiento de consumo del último [mes](periodo)
+      - Necesito una visión general de mis gastos [recientes](periodo)
+      - ¿Puedes decirme si gasto demasiado en [ropa](categoria)?
+      - ¿Mis gastos están concentrados en alguna categoría?
+      - Ayúdame a ver mis patrones de consumo este [mes](periodo)
+      - ¿Tengo alguna categoría de gasto predominante?
+      - Quiero saber en qué gasto más seguido
+      - Analiza cómo distribuyo mis egresos
+      - ¿Cuál es la categoría que más uso para gastar?
+      - Examina mis finanzas para ver en qué gasto más
+      - ¿En qué categoría se concentra mi dinero?
+      - Muéstrame las áreas donde gasto más en el [último trimestre](periodo)
+      - ¿Estoy gastando mucho en [servicios de streaming](categoria)?
+      - ¿En qué [categoría](categoria) estoy gastando más últimamente?
+      - Dime las [categorías](categoria) donde gasto más
+      - ¿Cuáles son mis principales [gastos](categoria)?
+      - Clasifica mis [egresos](categoria) por tipo
+      - ¿Dónde se va la mayoría de mi dinero?
+      - Quiero un resumen por [categoría](categoria)
+      - ¿Cuáles son las [categorías](categoria) con mayor gasto este [mes](periodo)?
+      - ¿Qué tipo de [gasto](categoria) tengo más frecuente?
+      - ¿Qué [categoría](categoria) lidera mis egresos?
+      - ¿Qué porcentaje gasto en [restaurantes](categoria)?
+      - ¿Dónde he gastado más en [abril](periodo)?
+      - Clasifícame lo que gasto por [mes](periodo)
+      - ¿Cuáles son mis gastos por [fecha](fecha)?
+      - Agrupa mis egresos según [categoría](categoria)
+      - ¿Qué parte de mis [gastos](categoria) va a [transporte](categoria)?
+      - ¿Cómo se distribuyen mis gastos este [mes](periodo)?
+      - ¿Cuánto gasto en [ocio](categoria) cada [mes](periodo)?
+      - ¿Dónde estoy gastando más [últimamente](periodo)?
+      - ¿Gasto más en [comida](categoria) o en [transporte](categoria)?
+      - ¿En qué gasté más [el mes pasado](periodo)?
+      - Dame un ranking de gastos por [categoría](categoria)
+      - ¿Dónde se fueron más [soles](monto)?
+      - ¿Dónde gasté más en [marzo](periodo)?
+      - ¿Cuál fue el gasto más alto por rubro?
+      - ¿En qué categoría se va la mayor parte de mi dinero?
+      - ¿Cuál fue el gasto predominante en [febrero](periodo)?
+      - ¿Dónde fue el mayor egreso?
+      - ¿Qué rubro consume más dinero?
+      - Muestra los gastos por [categoría](categoria) [abril](periodo)
+      - ¿Puedes enseñarme cómo están distribuidos mis gastos?
+      - ¿Tengo más gastos en alguna [categoría](categoria)?
+      - ¿Cómo están organizados mis gastos por [categoría](categoria)?
+      - ¿Cómo están clasificados mis gastos por tipo?
+      - ¿Cuáles son las [categorías](categoria) de mis gastos?
+      - ¿Tengo más gasto en una categoría que en otra?
+      - ¿Cómo están separados mis gastos?
+      - ¿Puedes mostrarme la organización de mis gastos?
+      - ¿Dónde se han concentrado mis egresos?
+      - Haz una tabla con mis gastos por [categoría](categoria)
+      - ¿Qué porcentaje gasté en [alimentos](categoria)? [marzo](periodo) [efectivo](medio)
+      - ¿Cómo están clasificados mis egresos en [junio](periodo)? [crédito](medio)
+      - Lista mis gastos por [categoría](categoria) del mes pasado [febrero](periodo) [crédito](medio)
+      - ¿Cuánto gasté en cada [categoría](categoria) este trimestre?
+      - ¿En qué categoría gasté más esta [quincena](periodo)?
+      - ¿Cómo se clasifica el gasto en [restaurantes](categoria)?
+      - ¿A qué categoría pertenece el gasto en [libros](categoria)?
+      - Clasificación de gasto en [gimnasio](categoria)
+      - ¿Qué tipo de gasto es un [préstamo](categoria)?
+      - ¿Dónde clasifico el gasto en [lavandería](categoria)?
+      - ¿El gasto en delivery de [pizza](categoria) es [comida](categoria)?
+      - ¿La reparación del [celular](categoria) entra en alguna categoría?
+      - ¿Un gasto en [pasajes aéreos](categoria) en qué categoría entra?
+      - ¿Dónde entra el gasto en [útiles escolares](categoria)?
+      - ¿El gasto en [transporte público](categoria) a dónde va?
+      - ¿La compra en [bodega](categoria) es qué tipo de gasto?
+      - ¿Dónde entra una [recarga de celular](categoria)?
+      - ¿Dónde se va más mi dinero?
+      - ¿Puedes decirme qué [categoría](categoria) fue la de mayor gasto?
+      - ¿Cómo van mis gastos este mes por [categoría](categoria) [3/10/2025](fecha) [marzo](periodo)?
+      - ¿En qué [categoría](categoria) gasté más este mes [marzo](periodo)?
+      - ¿En qué [categorías](categoria) he gastado más este mes? [marzo](periodo) [crédito](medio)
+      - Muéstrame cómo se han repartido mis gastos en [abril](periodo) [débito](medio)
+      - Clasifícame los gastos de [febrero](periodo) [crédito](medio)
+      - Ver informe de gastos clasificados por [categoría](categoria)
+      - Quiero saber cuánto gasté en cada [categoría](categoria)
+      - ¿Qué tipo de gasto es la compra en [supermercado](categoria)?
+      - ¿Dónde entra el pago de [Netflix](categoria)?
+      - ¿Qué categoría asignas a [reparación auto](categoria)?
+      - ¿Cuál fue la [categoría](categoria) con más egresos en [febrero](periodo)? [crédito](medio)
+      - ¿Dónde se concentraron mis consumos en [enero](periodo)? [efectivo](medio)
+      - ¿Dónde se fue mi dinero este mes? [marzo](periodo) [efectivo](medio)
+      - Desglosa mis gastos del mes [3/5/2025](fecha) [marzo](periodo)
+      - ¿Cómo están clasificados mis consumos?
+      - Clasifícame los consumos de este mes
+      - ¿Puedes separar mis egresos por [categorías](categoria)?
+      - Quiero saber en qué se me va el dinero
+      - ¿Puedes mostrarme mis gastos clasificados?
+      - ¿Puedes mostrarme cómo se reparten mis gastos?
+      - ¿Cómo se agrupan los egresos que he tenido?
+      - Muéstrame la categorización de mis consumos
+      - ¿Cuál es la categoría que absorbe más de mis gastos?
+      - ¿Cómo se reparten mis egresos entre las distintas categorías?
+      - Enséñame cómo se dividen mis gastos por tipo
+      - ¿Qué proporción se va a cada [categoría](categoria)?
+      - ¿Dónde están mis mayores gastos clasificados?
+      - ¿Qué categorías están recibiendo más dinero?
+      - Haz un desglose por tipo de gasto
+      - ¿Puedes separarme los gastos por grupo?
+      - ¿Cuál fue el rubro más fuerte este [mes](periodo)?
+      - ¿En qué categoría se gasta más con [crédito](medio)?
+      - ¿Cómo se ve la distribución de gastos este [mes](periodo)?
+      - ¿Qué porcentaje de mis egresos se fue a [comida](categoria)?
+      - ¿Qué categoría tiene más movimiento financiero?
+      - ¿Qué parte de mi dinero va a [educación](categoria)?
+      - ¿Cuáles son las clasificaciones de mis consumos actuales?
+      - ¿Dónde estás viendo más gasto este [trimestre](periodo)?
+      - Dame el detalle de mis gastos divididos por [categoría](categoria)
+      - ¿En qué tipo de cosas gasto más plata?
+      - ¿Hay alguna categoría que destaque en mis egresos?
+      - ¿Cuáles son las áreas donde estoy gastando más?
+      - ¿Cuánto gasté en [ropa](categoria) durante el [mes pasado](periodo)?
+      - ¿Cuál fue el [medio](medio) más usado en mis gastos de [marzo](periodo)?
+      - ¿Qué categoría tuvo más gasto con [débito](medio) este [mes](periodo)?
+      - ¿Puedes clasificar mis gastos en [abril](periodo)?
+      - ¿Cuál fue el patrón de gasto más repetido este [mes](periodo)?
+      - ¿En qué categoría debería ahorrar más según mi historial?
+      - ¿Qué porcentaje gasté en [hogar](categoria) este [trimestre](periodo)?
+      - Dame un resumen visual de mis gastos de [febrero](periodo)
+      - ¿Qué tan equilibrado está mi consumo mensual?
+      - Clasifica mis egresos usando las categorías registradas
+      - ¿Puedes analizar mis gastos del [mes pasado](periodo)?
+      - Hazme un análisis financiero de este [abril](periodo)
+      - Revisa cómo están mis gastos en [mayo](periodo)
+      - ¿Cómo fue mi comportamiento de gasto en [junio](periodo)?
+      - Necesito una evaluación de mis egresos en [marzo](periodo)
+      - ¿Qué categoría lideró mis gastos en [abril](periodo)?
+      - Dame un reporte de mis consumos de [febrero](periodo)
+      - ¿Estoy gastando más este [mes](periodo) que el anterior?
+      - Haz un desglose de mis gastos de [abril](periodo)
+      - ¿Puedes revisar mis patrones de gasto del [mes pasado](periodo)?
+      - Analiza mis gastos del [mes pasado](periodo)
+      - Quiero ver mis hábitos de este [mes](periodo)
+      - ¿Cómo están mis gastos de [abril](periodo)?
+      - Revisa mis hábitos de gasto de [hoy](periodo)
+      - Evalúa mis gastos del [último mes](periodo)
+      - Qué hábitos de consumo tuve este [mes](periodo)
+      - Clasifica [100](monto) soles como gasto en [educacion](categoria)
+      - Quiero marcar [150](monto) soles como gasto [medico](categoria)
+      - Etiquetar [200](monto) soles como gasto de [transporte](categoria)
+      - Registrar [120](monto) soles como gasto en [educacion](categoria)
+      - Categorizar [300](monto) soles como gasto en [salud](categoria)
+      - Asociar [80](monto) soles a [transporte](categoria)
+      - Quiero clasificar [250](monto) soles como gasto de [entretenimiento](categoria)
+      - Marca [400](monto) soles como gasto en [alimentacion](categoria)
+      - Poner [90](monto) soles como gasto de [servicios](categoria)
+      - Registra [150](monto) soles en la categoria [ropa](categoria)
+      - Clasifica un gasto de [220](monto) soles en [tecnologia](categoria)
+      - Asigna [180](monto) soles a la categoria [salud](categoria)
+      - Quiero asignar [200](monto) soles como gasto en [transporte](categoria)
+      - Por favor clasifica [200](monto) soles bajo la categoria [transporte](categoria)
+      - Registra un gasto de [200](monto) soles como [transporte](categoria)
+      - Incluye [120](monto) soles dentro de la categoria [educacion](categoria)
+      - Etiqueta un gasto de [120](monto) soles en [educacion](categoria)
+      - Registra un gasto de [300](monto) soles como [salud](categoria)
+      - Asocia [80](monto) soles a la categoria de [transporte](categoria)
+      - Incluye [80](monto) soles dentro de la categoria [transporte](categoria)
+      - Etiqueta un gasto de [250](monto) soles en [entretenimiento](categoria)
+      - Registra un gasto de [400](monto) soles como [alimentacion](categoria)
+      - Marca [90](monto) soles como pertenecientes a [servicios](categoria)
+      - Anota [90](monto) soles como un gasto relacionado con [servicios](categoria)
+      - Etiqueta un gasto de [150](monto) soles en [ropa](categoria)
+      - Registra un gasto de [220](monto) soles como [tecnologia](categoria)
+      - Clasifica el monto de [220](monto) soles como [tecnologia](categoria)
+      - Anota [70](monto) soles como un gasto relacionado con [educacion](categoria)
+      - Quiero asignar [70](monto) soles como gasto en [educacion](categoria)
+      - Clasifica [100](monto) soles en la categoria [educacion](categoria)
+      - Registra [100](monto) soles como un gasto [educacion](categoria)
+      - Cargar [100](monto) soles en [educacion](categoria) como gasto
+      - Clasifica este gasto como [entretenimiento](categoria)
+      - Este gasto corresponde a [comida rapida](categoria)
+      - Puedes poner este gasto en la categoria [transporte](categoria)
+      - Clasificalo como [salud](categoria)
+      - Registra esta compra como [hogar](categoria)
+      - Este gasto es de tipo [servicios](categoria)
+      - Anota [100 soles](monto) en [transporte](categoria) [3/1/2024](fecha) [Marzo](periodo) [debito](medio)
+      - Ese gasto de [50 soles](monto) va en [entretenimiento](categoria) [3/2/2024](fecha) [Marzo](periodo) [credito](medio)
+      - Clasifica [60 soles](monto) en [salud](categoria) [3/3/2024](fecha) [Marzo](periodo) [debito](medio)
+      - Registra [45 soles](monto) en [servicios](categoria) [3/5/2024](fecha) [Marzo](periodo) [efectivo](medio)
+      - Apunta [30 soles](monto) en [educacion](categoria) [3/8/2024](fecha) [Marzo](periodo) [efectivo](medio)
+      - Clasifica ese gasto de [farmacia](categoria) [55 soles](monto) [3/11/2024](fecha) [Marzo](periodo) [efectivo](medio)
+      - Categoriza [40 soles](monto) en [salud](categoria) [3/14/2024](fecha) [Marzo](periodo) [efectivo](medio)
+      - Clasifica mi compra en librería como [libros](categoria)
+      - Organiza el gasto en gasolina bajo [transporte](categoria)
+      - Asigna mi gasto en Netflix como [entretenimiento](categoria)
+      - El gasto en App Store debería ir en [tecnologia](categoria)
+      - Pon el gasto de peluquería en [cuidado personal](categoria)
+      - Clasifica los gastos en Delivery como [comida](categoria)
+      - Agrupa gastos en panadería como [alimentos](categoria)
+      - Reubica lo de la farmacia como [salud](categoria)
+      - Coloca el gasto en cine como [ocio](categoria)
+      - Marca mis gastos en hotel como [viajes](categoria)
+      - Clasifica el gasto en Starbucks como [cafe](categoria)
+      - Ese gasto en veterinaria debería ir como [mascotas](categoria)
+      - Pon lo que gasté en gimnasio como [salud](categoria)
+      - Lo del cine clasifícalo en [entretenimiento](categoria)
+      - Cambia el gasto en librería a [educacion](categoria)
+      - Clasifica el gasto en Netflix como [streaming](categoria)
+      - Lo de la lavandería debería estar en [hogar](categoria)
+      - Gasto de comida china ponlo como [comida](categoria)
+      - Quiero agrupar Uber Eats en [comida rapida](categoria)
+      - Clasifica lo de la tienda de mascotas en [mascotas](categoria)
+      - Lo del banco ponlo en [comisiones](categoria)
+      - El cargo de Amazon va en [tecnologia](categoria)
+      - Clasifica el gasto de la discoteca en [ocio](categoria)
+      - Ese gasto en librería quiero que vaya a [libros](categoria)
+      - Pon el gasto de delivery en [comida](categoria)
+      - Gasto en Adidas va como [ropa](categoria)
+      - Lo de Spotify clasifícalo como [musica](categoria)
+      - Agrupa el gasto en peluquería como [cuidado personal](categoria)
+      - Reetiqueta la salida en Dominos como [comida](categoria)
+      - Lo de la pastelería va en [alimentos](categoria)
+      - Ese pago en la tienda de electrónica debe ir en [tecnologia](categoria)
+      - La compra en el minimarket va como [abarrotes](categoria)
+      - Clasifica [75 soles](monto) de gasto en [salud](categoria) realizado el [10/04/2024](fecha) usando [débito](medio)
+      - Marca [95 soles](monto) como [entretenimiento](categoria) del día [1/03/2024](fecha)
+      - Quiero etiquetar el gasto de [transporte](categoria) del [5 de marzo](fecha) de [50 soles](monto)
+      - Clasifica [110 soles](monto) gastados en [hogar](categoria) este [mes](periodo)
+      - Registra una compra de [65 soles](monto) como [cuidado personal](categoria)
+      - Gasto de [25 soles](monto) en [cafe](categoria), ¿puedes clasificarlo?
+      - Este consumo de [alimentos](categoria) fue de [40 soles](monto), ponlo en su categoría
+      - Clasifica gasto de [200 soles](monto) en [ropa](categoria) hecho con [efectivo](medio) en [febrero](periodo)
+      - Quiero que pongas mi pago de [Netflix](categoria) de [35 soles](monto) en [streaming](categoria)
+      - El gasto en [educacion](categoria) de [90 soles](monto) debe quedar registrado
+  - intent: comparar_meses
+    examples: |
+      - ¿Gaste mas en [marzo](periodo) o en [abril](periodo)?
+      - Comparar mis ingresos entre [febrero](periodo) y [marzo](periodo)
+      - ¿En qué mes tuve mayores gastos: [enero](periodo) o [febrero](periodo)?
+      - ¿En qué mes gasté más dinero: [marzo](periodo) o [abril](periodo)?
+      - Quiero comparar mis finanzas entre [enero](periodo) y [febrero](periodo)
+      - Muéstrame la diferencia de gastos entre [febrero](periodo) y [marzo](periodo)
+      - Compara mis ingresos y egresos de [marzo](periodo) y [abril](periodo)
+      - ¿Tuve más ingresos en [enero](periodo) o en [febrero](periodo)?
+      - ¿Cuál fue el mes con más ahorro: [marzo](periodo) o [abril](periodo)?
+      - ¿En qué mes gasté menos?
+      - Compara mi balance entre [enero](periodo) y [marzo](periodo)
+      - ¿Gaste más dinero en [febrero](periodo) o en [abril](periodo)?
+      - Analiza mis gastos entre [enero](periodo) y [marzo](periodo)
+      - ¿Qué mes fue mejor en ingresos: [enero](periodo) o [febrero](periodo)?
+      - ¿Cuál mes fue más rentable: [enero](periodo) o [febrero](periodo)?
+      - Compara mis ingresos entre [enero](periodo) y [febrero](periodo)
+      - Compara mis egresos entre [febrero](periodo) y [marzo](periodo)
+      - ¿En qué mes tuve más gastos: [febrero](periodo) o [marzo](periodo)?
+      - ¿Gasté más en [febrero](periodo) o en [marzo](periodo)?
+      - ¿En qué mes gasté más: [marzo](periodo) o [abril](periodo)?
+      - ¿En qué mes tuve mayores egresos: [enero](periodo) o [marzo](periodo)?
+      - Compara mis egresos entre [abril](periodo) y [mayo](periodo)
+      - ¿Gasté más en [mayo](periodo) o en [junio](periodo)?
+      - ¿Qué mes tuvo más ingresos: [julio](periodo) o [agosto](periodo)?
+      - Analiza mi balance financiero entre [junio](periodo) y [julio](periodo)
+      - ¿Tuve más gastos en [septiembre](periodo) o en [octubre](periodo)?
+      - ¿Qué mes tuvo más ahorro: [noviembre](periodo) o [diciembre](periodo)?
+      - ¿En qué mes gasté más en [transporte](categoria): [marzo](periodo) o [abril](periodo)?
+      - ¿Mi gasto en [educación](categoria) fue mayor en [junio](periodo) o en [julio](periodo)?
+      - ¿En qué mes gasté más en [restaurantes](categoria): [enero](periodo) o [febrero](periodo)?
+      - ¿Los gastos en [entretenimiento](categoria) aumentaron de [mayo](periodo) a [junio](periodo)?
+      - ¿Gaste más en [salud](categoria) en [agosto](periodo) o en [septiembre](periodo)?
+      - ¿Mi gasto en [ropa](categoria) fue mayor en [abril](periodo) o en [marzo](periodo)?
+      - ¿En qué mes usé más la [tarjeta de crédito](medio)?
+      - ¿Gaste más en [educación](categoria) en [febrero](periodo) o [abril](periodo)?
+      - ¿Mis egresos en [tecnología](categoria) crecieron de [noviembre](periodo) a [diciembre](periodo)?
+      - ¿Mis ingresos aumentaron de [enero](periodo) a [marzo](periodo)?
+      - ¿Qué mes fue más equilibrado financieramente?
+      - ¿En qué mes gasté menos en [comida](categoria)?
+      - ¿Mis gastos en [abril](periodo) fueron mayores que en [junio](periodo)?
+      - ¿Comparar ingresos de [abril](periodo) y [mayo](periodo)?
+      - ¿Qué mes tuve más compras impulsivas?
+      - ¿Cuál mes fue más costoso?
+      - ¿Gasté más en vacaciones o en meses normales?
+      - ¿Hubo más egresos en [febrero](periodo) o [abril](periodo)?
+      - ¿Aumentaron mis egresos de [abril](periodo) a [mayo](periodo)?
+      - ¿Qué mes fue más caro: [febrero](periodo) o [marzo](periodo)?
+      - ¿Qué mes gaste menos?
+      - Compara mis salidas de dinero en [mayo](periodo) y [septiembre](periodo)
+      - ¿En qué mes gasté más, [julio](periodo) o [agosto](periodo)?
+      - Haz una tabla de comparación entre [mayo](periodo) y [junio](periodo)
+      - ¿Comparar gastos mensuales entre [marzo](periodo) y [junio](periodo)?
+      - ¿Qué mes fue más caro: [junio](periodo) o [agosto](periodo)?
+      - ¿Comparar gastos por categoría entre [enero](periodo) y [febrero](periodo)?
+      - ¿En qué mes tuve más movimientos financieros?
+      - ¿Compara gastos en [comida rápida](categoria) entre [abril](periodo) y [mayo](periodo)?
+      - ¿Gaste más en [pasajes](categoria) en [marzo](periodo) o en [abril](periodo)?
+      - ¿Mis gastos en [libros](categoria) fueron mayores en [septiembre](periodo) o [octubre](periodo)?
+      - Comparar [ropa](categoria) entre [abril](periodo) y [marzo](periodo)
+      - ¿Mi gasto en [gasolina](categoria) subió de [enero](periodo) a [febrero](periodo)?
+      - Comparar egresos en [gimnasio](categoria) de [febrero](periodo) a [marzo](periodo)
+      - ¿Gasté más con [crédito](medio) en [abril](periodo) o con [efectivo](medio) en [mayo](periodo)?
+      - ¿Hubo más gastos con [débito](medio) en [marzo](periodo) o en [abril](periodo)?
+      - ¿Compara gastos en [entretenimiento](categoria) usando [efectivo](medio) entre [junio](periodo) y [julio](periodo)?
+      - ¿Mi gasto en [ropa](categoria) fue mayor en [mayo](periodo) usando [tarjeta de crédito](medio)?
+      - ¿Hubo más egresos con [efectivo](medio) en [abril](periodo) que en [junio](periodo)?
+  - intent: consultar_configuracion
+    examples: |
+      - ¿Qué alertas tengo configuradas?
+      - Muéstrame las notificaciones activas
+      - Quiero ver las alertas de gasto que están activas
+      - Enséñame las alertas que tengo configuradas
+      - ¿Cuáles son mis notificaciones de gasto?
+      - Ver alertas que están activas ahora
+      - Consulta mis alertas de gasto
+      - Revisar mis notificaciones de alerta
+      - ¿Tengo alguna alerta activa?
+      - Mostrar las alertas que están encendidas
+      - ¿Puedes mostrarme mis alertas?
+      - Dime si tengo alguna alerta configurada
+      - Ver mis notificaciones financieras activas
+      - ¿Hay alguna alerta activa para mis gastos?
+      - Haz una lista de mis alertas activas
+      - ¿Puedes revisar mis alertas de notificación?
+      - Muestrame qué alertas tengo disponibles
+      - Consulta mis notificaciones configuradas
+      - ¿Qué alertas están funcionando en este momento?
+      - ¿Tengo activas notificaciones de gasto?
+      - ¿Qué notificaciones tengo habilitadas?
+      - Mostrar todas las alertas que tengo encendidas
+      - ¿Puedo ver todas mis alertas de gasto?
+      - Necesito ver mis alertas activas
+      - Quiero ver mis alertas
+      - ¿Hay alguna alerta para [marzo](periodo)?
+      - ¿Qué alertas tengo para [comida](categoria)?
+      - Ver alertas de mi [tarjeta de crédito](medio)
+      - ¿Cuántas alertas tengo activadas?
+      - Consulta de alertas de presupuesto
+      - ¿Tengo alertas en [entretenimiento](categoria)?
+      - Muestrame las alertas de este [mes](periodo) [abril](periodo)
+      - Consultar alertas del [último](periodo) periodo
+      - ¿Hay alertas relacionadas con [transporte](categoria)?
+      - Revisar alertas de [marzo](periodo)
+      - ¿Qué alertas tengo para [supermercado](categoria)?
+      - Ver alertas con [tarjeta débito](medio)
+      - ¿Existen alertas por pasar presupuesto?
+      - Mostrar alertas configuradas
+      - ¿Puse alguna alerta en [salud](categoria)?
+      - Consulta mis alertas del [mes pasado](periodo) [marzo](periodo)
+      - ¿Hay alerta por gasto de más de [500](monto) soles?
+      - Alertas por categoría [vivienda](categoria)
+      - Muestrame las alertas con fecha [4/10/2024](fecha)
+      - Consulta de alertas para el mes de [abril](periodo)
+      - Alertas activas con [tarjeta](medio) [tarjeta crédito](medio)
+      - ¿Hay alguna alerta pendiente?
+      - ¿Superé algún límite de gasto?
+      - ¿Tengo alertas por sobregiro?
+      - ¿Hay alguna alerta por sobrepasar presupuesto?
+      - ¿Se activó alguna alerta hoy?
+      - Consulta mis avisos de [tarjeta débito](medio)
+      - Mostrar alertas sobre consumo excesivo
+      - ¿Hay alertas que ignoré?
+      - Estado actual de mis alertas
+      - Alertas asociadas a mis [tarjetas de crédito](medio)
+      - ¿Hay alguna alerta urgente?
+      - ¿Alguna alerta nueva?
+      - ¿Qué alertas tengo?
+      - Ver mis alertas configuradas
+      - Alertas disponibles, por favor
+      - ¿Hay alguna alerta vigente?
+      - Consulta de alertas activas
+      - Ver todas mis alertas
+      - Dime qué alertas he creado
+      - ¿Qué alertas están funcionando ahora?
+      - Revisar alertas de presupuesto
+      - ¿Cuántas alertas tengo?
+      - Alertas de este [mes](periodo)
+      - Estado de mis alertas
+      - ¿Tengo alertas de gastos?
+      - Alertas en funcionamiento
+      - Alertas por categoría
+      - Alertas pendientes por [comida](categoria)
+      - ¿Tengo alguna alerta de [educación](categoria) con [tarjeta débito](medio)?
+      - ¿Qué alertas están asociadas al mes de [abril](periodo)?
+      - ¿Puedes verificar si hay alertas por gastos de más de [1000](monto)?
+      - ¿Qué alertas tengo activadas con mi [tarjeta crédito](medio)?
+      - Quiero ver alertas que tengan fecha [4/1/2024](fecha)
+      - ¿Hay alguna alerta activa para el periodo [abril](periodo)?
+      - Revisa alertas asociadas a [ropa](categoria)
+      - ¿Tengo alertas recientes en [marzo](periodo) con [tarjeta débito](medio)?
+      - ¿Qué alertas se activaron este [trimestre](periodo)?
+      - Muestra las alertas por montos mayores a [300](monto) soles
+      - ¿Tengo alguna alerta por consumo en [viajes](categoria)?
+      - ¿Puedo ver las alertas de este [mes](periodo) usando [efectivo](medio)?
+      - Quiero ver si tengo alertas por uso de [tarjeta de crédito](medio)
+      - ¿Qué alertas están relacionadas con la categoría [hogar](categoria)?
+      - Ver todas mis alertas activas con [débito](medio)
+      - Estado de mis alertas para el mes de [mayo](periodo)
+  - intent: consultar_informacion_financiera
+    examples: |
+      - ¿Cuánto gasté en [comida](categoria) este [mes](periodo)?
+      - ¿Cuál fue mi [gasto](categoria) total el [lunes pasado](fecha)?
+      - Quiero ver los [gastos](categoria) que hice con [tarjeta de crédito](medio)
+      - ¿Qué [gasto](categoria) tuve en [transporte](categoria) la semana pasada?
+      - Listado de [egresos](categoria) de [febrero](periodo)
+      - ¿He gastado más en [supermercado](categoria) o [ocio](categoria)?
+      - ¿Qué gastos tengo asociados a [tarjeta de débito](medio)?
+      - ¿Cuánto fue el gasto de [ayer](fecha)?
+      - ¿Qué gasté usando [efectivo](medio)?
+      - ¿Cuáles son mis [egresos](categoria) en [abril](periodo)?
+      - ¿Hay algún gasto en [transporte](categoria) esta semana?
+      - ¿Gasté algo el [sábado](fecha)?
+      - Revisa los gastos con [tarjeta de débito](medio) en [enero](periodo)
+      - ¿Qué [compras](categoria) hice con [tarjeta de crédito](medio)?
+      - ¿Cuánto he gastado en [ropa](categoria)?
+      - ¿Cuánto se fue en [restaurantes](categoria) este [mes](periodo)?
+      - ¿Cuál fue el monto total de [egresos](categoria) el [15/03/2024](fecha)?
+      - ¿Hay gastos registrados en [marzo](periodo)?
+      - ¿Cuánto gasté con [efectivo](medio) el [lunes](fecha)?
+      - ¿Tuve gastos el [10 de marzo](fecha)?
+      - Dame el detalle de mis gastos con [tarjeta de débito](medio)
+      - ¿Cuáles fueron los egresos con [tarjeta de crédito](medio) esta semana?
+      - ¿Cuánto suman mis gastos en [entretenimiento](categoria)?
+      - Gasto total por [categoría](categoria) en [abril](periodo)
+      - ¿Cuánto gasté en [transporte](categoria) este [marzo](periodo)?
+      - Consulta mis gastos por [categoría](categoria) en [abril](periodo)
+      - ¿Cuánto gasté en [abril](periodo)?
+      - ¿Cuáles fueron mis gastos por [comida](categoria)?
+      - Dime cuánto he gastado este mes
+      - Quiero ver cuánto gasté en [entretenimiento](categoria)
+      - Mostrar mis gastos de [marzo](periodo)
+      - Ver gastos entre [febrero](periodo) y [abril](periodo)
+      - Quiero revisar mis gastos de [supermercado](categoria)
+      - ¿Cuánto dinero he gastado hasta ahora?
+      - Ver desglose de gastos recientes
+      - ¿Qué gastos tengo registrados en [febrero](periodo)?
+      - Enséñame mis gastos por categoría de [ropa](categoria)
+      - Consulta total de gastos registrados
+      - Muéstrame mis gastos por mes
+      - Ver mis compras del último mes
+      - Historial de gastos por [servicios](categoria)
+      - Ver todos mis gastos en [salud](categoria)
+      - ¿Cuáles fueron mis gastos más altos?
+      - Dame detalle de los gastos del trimestre
+      - Mostrar mis gastos por monto
+      - ¿Puedo ver los gastos agrupados por fecha?
+      - Consulta de gastos por [entretenimiento](categoria)
+      - Necesito el registro de mis últimos gastos
+      - Dime cuánto gasté este trimestre
+      - ¿En qué me gasté más este mes?
+      - Necesito ver mis gastos por [rubro](categoria)
+      - Muéstrame los gastos de [febrero](periodo) por [transporte](categoria)
+      - Quiero saber cuánto gasté en [comida](categoria) el mes pasado
+      - ¿Hay registro de mis compras recientes?
+      - Ver cuánto se ha ido en [ocio](categoria) este [abril](periodo)
+      - ¿Puedes mostrarme cuánto gasté con mi [tarjeta de débito](medio)?
+      - Gastos de [supermercado](categoria) en [marzo](periodo), porfa
+      - Necesito el historial de gastos de los últimos 10 días
+      - Desglosa mis egresos por categoría de [enero](periodo)
+      - Consulta completa de mis gastos agrupados por mes
+      - Quisiera ver cuánto gasté en [salud](categoria)
+      - Muéstrame todos los gastos del [primer trimestre](periodo)
+      - Enséñame mis gastos altos
+      - ¿Tengo muchos gastos este año?
+      - Ver mis gastos de [entretenimiento](categoria) del mes pasado
+      - Resumen general de gastos, por fa
+      - ¿En qué rubros gasté más este [trimestre](periodo)?
+      - Ver cuánto he gastado con tarjeta de [crédito](medio)
+      - Necesito ver mis compras de [febrero](periodo)
+      - Consulta de egresos por [categoría](categoria)
+      - ¿Qué tanto he gastado este fin de mes?
+      - Mis egresos en [educación](categoria), por favor
+      - Revisa cuánto gasté en [snacks](categoria) en [abril](periodo)
+      - Detalle de gastos por fecha, gracias
+      - ¿Puedes listar mis gastos por tipo?
+      - Total gastado en [marzo](periodo)
+      - ¿Cuánto fue mi egreso en [transporte](categoria) este mes?
+      - Muéstrame qué compré esta semana
+      - Consulta por categoría de [servicios](categoria)
+      - Ver gastos recientes por monto
+      - ¿Cuánto gasté en [transporte](categoria) esta [semana](periodo)?
+      - Dime mis egresos del día de [hoy](fecha)
+      - ¿Gasté algo en [comida](categoria) el [15 de marzo](fecha)?
+      - ¿Cuánto gasté este mes? [marzo](periodo) con [crédito](medio)
+      - Muéstrame el total que he gastado en [febrero](periodo) con [débito](medio)
+      - ¿Cuánto gasté en [supermercados](categoria) este [mes](fecha)?
+      - Consulta de gastos del [primer trimestre](fecha)
+      - ¿Cuáles son mis gastos frecuentes?
+      - ¿Cuánto he gastado en total?
+      - Ver todos los gastos de [marzo](periodo)
+      - ¿Cuánto gasté en [transporte](categoria) la [semana pasada](periodo)? [45](monto) el [3/18/2025](fecha) con [tarjeta débito](medio)
+      - Gastos en [restaurantes](categoria) este [fin de semana](periodo): [120](monto) el [3/16/2025](fecha) con [tarjeta crédito](medio)
+      - ¿Cuánto me costó el [mercado](categoria) este [mes](fecha)? [250](monto) el [3/10/2025](fecha)
+      - ¿Cuánto gasté en [entretenimiento](categoria)? [180](monto) el [3/8/2025](fecha) con [tarjeta débito](medio)
+      - Gastos por [suscripciones](categoria) [mensuales](periodo): [50](monto) el [3/1/2025](fecha) con [tarjeta crédito](medio)
+      - ¿Cuánto gasté el [15 de marzo](fecha)? [95](monto) en [compras](categoria) con [tarjeta crédito](medio)
+      - Revisar cuánto he gastado en [comida](categoria): [200](monto) el [3/11/2025](fecha) con [tarjeta débito](medio)
+      - ¿Cuánto desembolsé por [salud](categoria) en [febrero](periodo)? [300](monto) el [2/12/2025](fecha) por [transferencia](medio)
+      - ¿Qué ingresos tuve en [abril](periodo)?
+      - Muéstrame los ingresos registrados durante [marzo](periodo)
+      - ¿Cuánto ingresé en [abril](periodo)?
+      - Quiero ver mis ingresos por [consultoría](categoria)
+      - Muéstrame mis ingresos del [mes pasado](periodo)
+      - ¿Cuáles fueron mis ingresos por [comisiones](categoria)?
+      - Consulta mis ingresos registrados en [marzo](periodo)
+      - ¿Cuánto dinero gané en [febrero](periodo)?
+      - Quiero revisar mis ingresos [laborales](categoria)
+      - Ver ingresos que tuve por [freelance](categoria)
+      - Necesito saber cuánto gané en los últimos tres meses
+      - Listar ingresos por [categoría](categoria)
+      - Dame el total de ingresos por [ventas](categoria)
+      - Consulta los ingresos que obtuve por [clases](categoria)
+      - ¿Cuánto recibí en [enero](periodo)?
+      - Mostrar mis ingresos mensuales
+      - ¿Puedo ver todos los ingresos de [2024](fecha)?
+      - ¿Qué ingresos tengo en [abril](periodo)?
+      - Enséñame mis ingresos por [salario](categoria)
+      - Consulta ingresos por categoría [consultoría](categoria)
+      - Ver ingresos detallados del [primer trimestre](periodo)
+      - Mostrar ingresos entre [febrero](periodo) y [abril](periodo)
+      - Ver ingresos de [marzo](periodo) por [comisión](categoria)
+      - Dame el ingreso por [proyectos personales](categoria)
+      - ¿Cuáles son mis ingresos actuales?
+      - Resumen de ingresos hasta la fecha
+      - Consulta ingresos por [asesoría](categoria)
+      - ¿Qué ingresos están registrados este mes?
+      - Quiero revisar ingresos por tipo
+      - Ver todos los ingresos que tengo guardados
+      - Muestra ingresos por [honorarios](categoria)
+      - ¿Cuánto he ingresado este año?
+      - ¿Cuáles son mis ingresos por [alquiler](categoria)?
+      - Consulta de ingresos por [servicios](categoria) profesionales
+      - ¿Me puedes mostrar lo que gané en [marzo](periodo)?
+      - Revisar ingresos registrados en [enero](periodo)
+      - Quiero ver cuánto gané este mes
+      - Mostrar mis ingresos por categoría este año
+      - ¿Podrías enseñarme lo que recibí por [proyectos](categoria)?
+      - Dame detalle de mis ingresos de [febrero](periodo)
+      - ¿Cuánto gané en total durante [abril](periodo)?
+      - Lista de ingresos por tipo
+      - ¿Puedo ver lo que recibí en [comisiones](categoria) este mes?
+      - Dame todos los ingresos registrados este año
+      - Consultar ingresos de mis fuentes laborales [salario](categoria)
+      - Ver ingresos recibidos en [abril](periodo)
+      - Mostrar ingresos agrupados por mes
+      - Dime qué ingresé por [clases particulares](categoria)
+      - ¿Cuánto he ganado este [trimestre](periodo)?
+      - Ver ingresos por venta de [productos](categoria)
+      - Muéstrame mis ingresos por mes
+      - Consulta ingresos por actividad [freelance](categoria)
+      - Quiero ver mis ingresos registrados recientemente
+      - Mostrar ingresos detallados por fuente
+      - ¿Cuáles fueron mis ingresos mayores?
+      - Revisar entradas de dinero de este año
+      - Lista ingresos mensuales
+      - Dame todos los ingresos que figuran como [salario](categoria)
+      - Consulta de ingresos correspondientes a [abril](periodo)
+      - ¿Cuánto recibí por [consultorías](categoria)?
+      - Mostrar entradas registradas durante el [primer semestre](periodo)
+      - ¿Cuánto he recibido este [mes](fecha)?
+      - Muéstrame los ingresos del [mes pasado](periodo)
+      - ¿Cuáles fueron mis ingresos en [febrero](periodo)?
+      - Ver ingresos totales de [abril](periodo)
+      - ¿Cuánto gané la [quincena pasada](periodo)?
+      - Quiero ver mis ingresos [recientes](periodo)
+      - ¿Cuánto dinero entró a mi cuenta este [mes](fecha)?
+      - Dame un resumen de mis entradas de dinero
+      - Ver [historial](fecha) de ingresos
+      - ¿Cuánto recibí por [salario](categoria) este mes? [2300](monto) el [3/15/2025](fecha) con [tarjeta débito](medio)
+      - Mostrar ingresos por [freelance](categoria) en [abril](periodo): [850](monto) el [4/12/2025](fecha) por [transferencia](medio)
+      - ¿Cuánto me depositaron por [renta](categoria) este mes? [1200](monto) el [3/1/2025](fecha) por [transferencia](medio)
+      - Consulta de ingresos con [tarjeta débito](medio)
+      - Ingresos por [comisiones](categoria) en [mayo](periodo): [700](monto) el [5/20/2025](fecha) con [tarjeta crédito](medio)
+      - Quiero saber lo que gané en [enero](periodo)
+      - Total de ingresos del [mes actual](fecha)
+      - Consulta mis ingresos bancarios del [mes](fecha) con [transferencia](medio)
+      - Ver ganancias por trabajos eventuales
+      - Ingresos por [ventas](categoria) este [trimestre](periodo): [1800](monto) el [2/25/2025](fecha)
+      - Consulta los depósitos realizados este [mes](fecha) por [transferencia](medio)
+      - Consultar todos los ingresos de [marzo](periodo)
+      - Mostrar solo ingresos de [salario](categoria): [2500](monto) el [3/10/2025](fecha)
+      - ¿Cuánto me pagaron este [mes](fecha)?
+      - Ingresos recibidos esta [semana](periodo)
+      - Ver mis entradas económicas de este [año](periodo)
+      - Ganancias del [mes](fecha) con [tarjeta de crédito](medio)
+      - Monto total recibido este [mes](fecha)
+      - ¿Cuánto gané en los [últimos 30 días](periodo)?
+      - Consulta ingreso mensual por [alquiler](categoria): [1000](monto) el [3/5/2025](fecha)
+      - Ver detalle de ingresos [quincenales](periodo)
+      - ¿Podrías decirme cuánto gané en [marzo](periodo)? [salario](categoria)
+      - ¿Cuánto recibí en [febrero](periodo) por [salario](categoria)?
+      - Dime los ingresos que tuve en [enero](periodo) por [salario](categoria)
+      - Quiero ver mis ingresos por [freelance](categoria)
+      - ¿Ingresé algún dinero esta [semana](periodo)?
+      - Muéstrame el ingreso por [venta](categoria)
+      - ¿Cuánto dinero recibí este [año](periodo)?
+      - Tengo ingresos anotados por [consultoría](categoria)
+      - ¿Cuánto recibí por [transferencia](medio)?
+      - ¿Hay algún ingreso el [15 de febrero](fecha)?
+      - ¿Cuánto me depositaron en mi cuenta del BBVA?
+      - ¿Ingresé algo por la app en [enero](periodo)?
+      - Dame los ingresos de [marzo](periodo), por favor
+      - ¿Cuáles fueron mis ingresos [más recientes](periodo)?
+      - Necesito revisar los ingresos de [ayer](fecha)
+      - Consulta de ingresos por [otros](categoria)
+      - ¿Puedes mostrarme lo que gané por [honorarios](categoria)?
+      - Quiero ver mis entradas de dinero de [abril](periodo)
+      - Tengo ingresos con tarjeta [Interbank](medio)
+      - ¿Cuánto gané el [1 de marzo](fecha)?
+      - Revisa si tengo algún ingreso en [febrero](periodo)
+      - ¿Me llegó algún pago de [clientes](categoria)?
+      - ¿Qué ingresos recibí esta [quincena](periodo)?
+      - Mis ingresos por [comisiones](categoria) aparecen
+      - ¿Cuánto cobré en [febrero](periodo)?
+      - Muestra ingresos asociados a [PayPal](medio)
+      - Dime si hay ingresos por [devolución](categoria)
+      - Tengo ingresos con tarjeta [Diners](medio)
+      - Quiero saber lo que recibí como [reembolso](categoria)
+      - Mis entradas de [efectivo](medio) están registradas
+      - ¿Cuánto recibí este [mes](periodo)?
+      - ¿Qué ingresos tuve en [abril](periodo)?
+      - Muéstrame mis ingresos del [mes pasado](periodo)
+      - ¿Ingresos del [año](periodo)?
+      - ¿Cuánto recibí en total este [año](periodo)?
+      - ¿Tengo ingresos registrados este [mes](periodo)?
+      - ¿Cuáles fueron mis ingresos en la [última semana](periodo)?
+      - Ingresos [recientes](periodo) por favor
+      - Resumen de ingresos de [marzo](periodo)
+      - Total que ingresé esta [quincena](periodo)
+      - ¿Cuánto gané el [lunes](fecha)?
+      - ¿Qué cantidad ingresé en [diciembre](periodo)?
+      - ¿Qué plata recibí este [mes](periodo)?
+      - Ver ingresos en [efectivo](medio)
+      - Ver ingresos por [transferencia](medio)
+      - Resumen de ingresos por fuente
+      - Mostrar todo lo que gané este [mes](periodo)
+      - Revisar mis ingresos por categoría
+      - Ver ingresos de mi [cuenta principal](medio)
+      - Consulta de ingresos de [enero](periodo)
+      - ¿Qué recibí esta [semana](periodo)?
+      - Ingresos por [semana](periodo)
+      - Total de entradas de dinero en [febrero](periodo)
+      - Todo lo que recibí en pagos
+      - Ganancias del [mes actual](periodo)
+      - ¿Tengo ingresos este [año](periodo)?
+      - Mis ingresos del [15 de marzo](fecha)
+      - Ver entradas del sistema
+      - Mis ingresos por [salario](categoria)
+      - Quiero ver todos los ingresos que registré este [mes](periodo), fue en [2024-03](fecha), con [tarjeta de débito](medio)
+      - Muéstrame cuánto recibí en [febrero](periodo) con [tarjeta de débito](medio)
+      - Revisar ingresos del [último mes](periodo), fue en [2024-02](fecha), con [tarjeta de débito](medio)
+      - ¿Cuánto ingresé en [enero](periodo) con [tarjeta de débito](medio)?
+      - Mis ingresos del [mes pasado](periodo) fueron en [2024-03](fecha) con [tarjeta de débito](medio)
+      - Necesito ver mis entradas de dinero recientes en [2024-03](fecha) con [tarjeta de débito](medio)
+      - ¿Cuánto he recibido últimamente en [2024-03](fecha) con [tarjeta de débito](medio)?
+      - ¿Cuál fue mi ingreso en [abril](periodo) con [tarjeta de débito](medio)?
+      - Ingreso de dinero en [junio](periodo) con [tarjeta de débito](medio)
+      - Quiero saber mis ingresos en [julio](periodo) con [tarjeta de débito](medio)
+      - Consúltame los ingresos de [diciembre](periodo) con [tarjeta de débito](medio)
+      - ¿Cómo fueron mis ingresos en [noviembre](periodo) con [tarjeta de débito](medio)?
+      - ¿Cuáles fueron mis ingresos en [septiembre](periodo) con [tarjeta de débito](medio)?
+      - Ver ingresos anteriores de [2024-02](fecha) con [tarjeta de débito](medio)
+      - ¿Qué recibí como ingreso este [mes](periodo), fue en [2024-03](fecha) con [tarjeta de débito](medio)?
+      - Necesito saber cuánto ingresé en [octubre](periodo) con [tarjeta de débito](medio)
+      - Quiero ver los depósitos recibidos este [mes](periodo), fueron en [2024-03](fecha) con [tarjeta de débito](medio)
+      - Dame el historial de ingresos desde [2024-01](fecha) con [tarjeta de débito](medio)
+      - ¿Cuánto sumé en ingresos este [año](periodo), fue en [2024](fecha) con [tarjeta de débito](medio)?
+      - ¿Cuáles son mis ingresos este [año](periodo), son de [2024](fecha) con [tarjeta de débito](medio)?
+      - Ingresos anuales por favor, del [2024](fecha) con [tarjeta de débito](medio)
+      - Mi total de ingresos en [2023](fecha) con [tarjeta de débito](medio)
+      - Muéstrame mis entradas del [año pasado](periodo), es decir [2023](fecha), con [tarjeta de débito](medio)
+      - ¿Qué ingresos tuve en el [2022](fecha) con [tarjeta de débito](medio)?
+      - Total de ingresos en el [segundo trimestre](periodo), fue en [2024-Q2](fecha) con [tarjeta de débito](medio)
+      - Ver mis ingresos [trimestrales](periodo), por ejemplo de [2024-Q1](fecha), con [tarjeta de débito](medio)
+      - ¿Cuánto ingresé en el [tercer trimestre](periodo), fue en [2023-Q3](fecha) con [tarjeta de débito](medio)?
+      - Ingreso mensual promedio en [2024](fecha) con [tarjeta de débito](medio)
+      - Ver ingreso acumulado en [marzo](periodo) con [tarjeta de débito](medio)
+      - ¿Cuánto ingresé este [trimestre](periodo), fue en [2024-Q1](fecha) con [tarjeta de débito](medio)?
+      - ¿Puedes mostrarme mis ingresos registrados este mes con [tarjeta de débito](medio)?
+      - Dame el resumen de mis ingresos por [freelance](categoria) de este [trimestre](periodo)
+      - ¿Cuánto recibí en total por [salario](categoria) en [2024](fecha) usando [transferencia](medio)?
+      - Consulta de ingresos por mes, desde [enero](periodo) hasta [abril](periodo)
+      - Mostrar ingresos del último año con [tarjeta débito](medio)
+      - ¿Recibí ingresos por [consultorías](categoria) en [febrero](periodo)?
+      - Ingresos que recibí con [PayPal](medio) en [enero](periodo)
+      - ¿Cuánto gané por [servicios](categoria) este [mes](periodo)?
+      - Ingresos confirmados en [febrero](periodo)
+      - Mostrar ingresos por [clientes](categoria) desde [enero](periodo)
+      - Mostrar lista de ingresos por [educación](categoria) durante [2023](fecha)
+      - ¿Cuánto recibí en total por [proyectos](categoria) este [año](periodo)?
+      - ¿Tengo alguna entrada registrada el [4/5/2024](fecha)?
+      - Muéstrame ingresos de [diciembre](periodo) pagados en [efectivo](medio)
+      - ¿Cuánto recibí en la [primera quincena](periodo) de [abril](periodo)?
+      - Mostrar ingresos con [tarjeta crédito](medio) de [marzo](periodo)
+      - Mostrar historial mensual de ingresos de [2024](fecha)
+      - ¿Cuál fue mi ingreso mayor en lo que va del [año](periodo)?
+      - Consulta ingresos individuales por [tipo de trabajo](categoria)
+      - Quiero ver ingresos de [proyectos personales](categoria) con [transferencia](medio)
+      - Muéstrame ingresos por [asesorías](categoria) del [último trimestre](periodo)
+      - ¿Cuánto ingresé por [ventas online](categoria) en [marzo](periodo)?
+      - Dame los ingresos recientes de [febrero](periodo) con [tarjeta débito](medio)
+      - Ver ingresos obtenidos con [tarjeta Interbank](medio) en [abril](periodo)
+      - ¿Cuánto gané por [honorarios profesionales](categoria) este [mes](periodo)?
+      - Dame un reporte de mis ingresos por [servicios independientes](categoria)
+      - ¿Cuánto recibí el [1 de abril](fecha) por [salario](categoria)?
+      - Muestra los ingresos realizados en [febrero](periodo) con [efectivo](medio)
+      - Ver ingresos mensuales del [primer trimestre](periodo) usando [tarjeta de débito](medio)
+      - Consulta mis entradas en [abril](periodo) con tarjeta [BBVA](medio)
+      - ¿Qué montos recibí por [consultoría](categoria) este año?
+      - Mostrar ingresos registrados por [clases virtuales](categoria)
+      - ¿Cuánto recibí en [enero](periodo) por [renta](categoria)?
+      - Dame el total de ingresos con [transferencia](medio) en [marzo](periodo)
+      - Consulta ingresos recibidos el [2/2/2025](fecha) en [efectivo](medio)
+      - Ver ingresos provenientes de [proyectos freelance](categoria)
+      - ¿Recibí algún ingreso en [abril](periodo) con [tarjeta Diners](medio)?
+      - Mostrar mis ingresos laborales con [tarjeta crédito](medio)
+      - Historial de ingresos de [enero](periodo) con [transferencia](medio)
+      - Dame mis ingresos por [consultoría educativa](categoria) del [mes pasado](periodo)
+      - Mostrar ingresos del [primer trimestre](periodo) en [2025](fecha)
+      - Quiero ver ingresos agrupados por [fuente](categoria)
+      - Dame ingresos por [venta de servicios](categoria) en [febrero](periodo)
+      - ¿Recibí algo por [alquiler](categoria) en [marzo](periodo)?
+      - Mostrar ingresos de [2024-Q1](fecha) con [tarjeta de débito](medio)
+      - Ver mis ingresos en [efectivo](medio) del [mes pasado](periodo)
+      - ¿Cuánto gané este mes usando [tarjeta de débito](medio)?
+      - Dame ingresos de [enero](periodo) por [proyectos personales](categoria)
+      - Mostrar ingresos registrados en [febrero](periodo) por [trabajo remoto](categoria)
+      - Ingresos generados por [servicios profesionales](categoria)
+      - Mostrar detalles de ingresos registrados esta [semana](periodo)
+      - Consulta ingresos individuales de los [últimos días](periodo)
+      - Mostrar entradas recibidas por [PayPal](medio) durante [marzo](periodo)
+      - Ingresos registrados a través de [transferencia](medio) este mes
+      - ¿Cuánto recibí en pagos por [freelance](categoria) en [abril](periodo)?
+      - Ver movimientos de ingresos por [tarjeta Interbank](medio)
+      - Mostrar ingresos en [enero](periodo) pagados en [efectivo](medio)
+      - Quiero el total ganado este mes por [ventas](categoria)
+      - Muéstrame lo que gané este mes con [tarjeta crédito](medio)
+      - Ingresos de [consultorías](categoria) en los [últimos tres meses](periodo)
+      - ¿Qué ingresos tuve en [marzo](periodo) con [tarjeta débito](medio)?
+      - Mostrar mis ingresos de [freelance](categoria) en [enero](periodo)
+      - Quiero ver mis ingresos con [tarjeta de débito](medio) en [febrero](periodo)
+      - Dame los montos de ingresos recibidos en [abril](periodo)
+      - Consulta mis ingresos en [2023](fecha) por [consultoría](categoria)
+      - Mostrar ingresos por [clases](categoria) de [febrero](periodo)
+      - ¿Cuánto recibí con [transferencia](medio) por [proyectos](categoria)?
+      - Mostrar entradas de dinero en [febrero](periodo) por [alquiler](categoria)
+      - ¿Recibí pagos en [febrero](periodo) por [servicios online](categoria)?
+      - Ver entradas de [marzo](periodo) con [tarjeta crédito](medio)
+      - Consulta ingresos con [tarjeta débito](medio) durante [abril](periodo)
+      - Ver ingresos por [venta de productos](categoria) este [trimestre](periodo)
+      - Dame los ingresos obtenidos el [5 de marzo](fecha)
+      - Muestrame mis ingresos detallados por categoría
+      - ¿Cuánto he recibido por [rentas](categoria) este año?
+      - Ver mis ingresos de [marzo](periodo) con [tarjeta débito](medio)
+      - ¿Qué monto recibí por [clases particulares](categoria) en [febrero](periodo)?
+      - Consulta ingresos ingresados con [transferencia](medio)
+      - Dame detalle de ingresos recibidos con [tarjeta de crédito](medio)
+      - Mostrar ingresos de [consultoría](categoria) pagados en [efectivo](medio)
+      - ¿Cuáles fueron los ingresos por [freelance](categoria) en [abril](periodo)?
+      - Ingresos registrados con [tarjeta Interbank](medio)
+      - Ver mis ingresos por [asesorías](categoria) este trimestre
+      - Consulta pagos recibidos por [servicios](categoria) profesionales
+      - Quiero ver los ingresos por [educación](categoria)
+      - Mostrar todo lo que gané este [mes](periodo) usando [tarjeta débito](medio)
+      - ¿Cuánto gané en [febrero](periodo) con [tarjeta crédito](medio)?
+      - Mostrar ingresos recibidos por [clientes](categoria)
+      - Detalle de ingresos con [tarjeta Diners](medio)
+      - Ver ingresos de [enero](periodo) usando [transferencia](medio)
+      - ¿Cuáles fueron los montos recibidos en [febrero](periodo)?
+      - Dame ingresos por [ventas de productos](categoria)
+      - Lista ingresos registrados con [tarjeta BBVA](medio)
+      - ¿Qué monto recibí con [efectivo](medio) en [abril](periodo)?
+      - Mostrar ingresos con [PayPal](medio) este año
+      - Consulta completa de ingresos anuales [2024](fecha)
+      - ¿Recibí pagos por [comisiones](categoria) en [febrero](periodo)?
+      - Dame resumen de ingresos recientes en [abril](periodo)
+      - Mostrar mis ingresos por [consultoría digital](categoria)
+      - ¿Cuánto fue mi ingreso en [enero](periodo) usando [tarjeta de débito](medio)?
+      - Ingresos por [servicios digitales](categoria) en [febrero](periodo)
+      - Mostrar ingresos registrados con [tarjeta de débito](medio)
+      - Dame el historial de ingresos semanales
+      - ¿Tuve ingresos por [renta](categoria) este [mes](periodo)?
+      - Mostrar detalle mensual de ingresos recibidos
+      - ¿Qué ingresos recibí el día [3 de abril](fecha)?
+      - Dame mis ingresos por [clases particulares](categoria)
+      - ¿Cuánto recibí en [enero](periodo) por [servicios online](categoria)?
+      - Consulta mis ingresos del mes actual [abril](periodo)
+      - Mostrar entradas de dinero por [tarjeta Diners](medio)
+      - ¿Cuánto fue depositado por [consultoría](categoria) en [marzo](periodo)?
+      - Ingresos recibidos el [5/3/2025](fecha) con [transferencia](medio)
+      - ¿Qué monto ingresó el [10 de abril](fecha)?
+      - Muéstrame mis ingresos de los últimos [30 días](periodo)
+      - Consulta de ingresos recibidos por [clientes](categoria)
+      - Mostrar ingresos por [alquiler](categoria) pagados en [efectivo](medio)
+      - Ver mis entradas en [abril](periodo) con [tarjeta crédito](medio)
+      - Consulta de todos los ingresos por [honorarios](categoria)
+      - Historial de ingresos con [tarjeta de crédito](medio)
+      - Ver los depósitos hechos en [febrero](periodo)
+      - ¿Cuánto gané por [servicios de diseño](categoria) este trimestre?
+      - Mostrar total de ingresos por [freelance](categoria)
+      - Detalle mensual de ingresos por [consultoría](categoria)
+      - ¿Qué ingresos tengo por [venta de artesanías](categoria)?
+      - Ver ingresos del [mes pasado](periodo) con [tarjeta crédito](medio)
+      - ¿Cuánto gané con [consultoría](categoria) en [abril](periodo)?
+      - Mostrar mis ingresos del [primer trimestre](periodo) de [2025](fecha)
+      - Consulta de ingresos por [reembolsos](categoria)
+      - ¿Cuánto ingresé por [proyectos personales](categoria) en [enero](periodo)?
+      - Detalle de ingresos con [tarjeta BBVA](medio) en [marzo](periodo)
+      - ¿Qué ingresos he tenido este [año](periodo)?
+      - Mostrar ingresos de [febrero](periodo) por [transferencia](medio)
+      - Dame ingresos recibidos el [15 de marzo](fecha)
+      - Consulta los ingresos por [actividades freelance](categoria)
+      - Mostrar entradas de [marzo](periodo) pagadas con [efectivo](medio)
+      - ¿Cuánto me pagaron por [consultoría financiera](categoria)?
+      - Historial de ingresos en [abril](periodo) con [tarjeta débito](medio)
+      - ¿Cuáles fueron mis ingresos en la [quincena pasada](periodo)?
+      - Ver ingresos diarios registrados en [abril](periodo)
+      - Dame resumen de ingresos por [venta de cursos](categoria)
+      - Mostrar ganancias de este [trimestre](periodo)
+      - ¿Qué ingresos recibí por [talleres](categoria) en [febrero](periodo)?
+      - Ver pagos ingresados en [enero](periodo) con [transferencia](medio)
+      - Mostrar todos los ingresos en [abril](periodo) usando [tarjeta de débito](medio)
+      - ¿Recibí pagos por [trabajos temporales](categoria) este mes?
+      - Consultar entradas de dinero por [tarjeta Diners](medio)
+      - Mostrar ingresos relacionados con [proyectos digitales](categoria)
+      - ¿Cuánto he recibido por [asesorías](categoria) en [abril](periodo)?
+      - Ver ingresos del día [1/4/2025](fecha)
+      - Consulta mensual de ingresos registrados por [salario](categoria)
+      - Mostrar mis entradas de [febrero](periodo) usando [efectivo](medio)
+      - ¿Qué ingresos recibí este mes con [tarjeta Interbank](medio)?
+      - Historial de ingresos recibidos en [marzo](periodo) por [proyectos](categoria)
+      - Consulta completa de ingresos por [alquiler](categoria)
+      - Mostrar detalle por [freelance](categoria) del mes de [abril](periodo)
+      - ¿Qué ingresos tuve por [servicios creativos](categoria)?
+      - Ver todos los ingresos de [marzo](periodo) por [transferencia](medio)
+      - Mostrar mis ingresos de [enero](periodo) con [tarjeta crédito](medio)
+      - Consulta total de entradas por [ventas](categoria)
+      - Dame todos los ingresos registrados en [febrero](periodo)
+      - ¿Cuánto gané en [abril](periodo) con [tarjeta débito](medio)?
+      - Mostrar pagos de [consultoría legal](categoria) en [enero](periodo)
+      - Dame historial de ingresos semanales con [efectivo](medio)
+      - ¿Qué ingresos tengo anotados este mes por [freelance](categoria)?
+      - Mostrar entradas registradas con [transferencia](medio)
+      - ¿Recibí dinero el [10 de febrero](fecha)?
+      - Consulta de ingresos por [tarjeta crédito](medio) este [mes](periodo)
+      - Ingresos por [clases virtuales](categoria) en [abril](periodo)
+      - Ver mis ingresos del [último trimestre](periodo)
+      - ¿Cuánto me depositaron por [proyectos freelance](categoria) en [marzo](periodo)?
+      - Mostrar mis ingresos del [2023](fecha)
+      - ¿Qué gané el [3/2/2025](fecha)?
+      - Dame detalle de ingresos diarios por [trabajo remoto](categoria)
+      - Dame un resumen de mi actividad financiera de [marzo](periodo)
+      - ¿Cuál es el resumen del [mes pasado](periodo)?
+      - Muestra el resumen de ingresos y gastos de [abril](periodo)
+      - ¿Cómo fue mi flujo de dinero en [enero](periodo)?
+      - Quiero ver el resumen mensual
+      - ¿Resumen financiero del [último mes](periodo)?
+      - ¿Cuánto ingresé y cuánto gasté en [febrero](periodo)?
+      - Necesito el balance mensual
+      - ¿Cuál fue mi balance en [marzo](periodo)?
+      - Muestra el resumen de [marzo](periodo)
+      - ¿Cómo estuve en ingresos y egresos durante [abril](periodo)?
+      - Dame un resumen mensual de mis finanzas
+      - Ver balance de ingresos y gastos de [febrero](periodo)
+      - ¿Cuánto gané y cuánto gasté en [enero](periodo)?
+      - ¿Cuál fue mi saldo final en [abril](periodo)?
+      - Muéstrame el resumen financiero del [mes pasado](periodo)
+      - Balance de [marzo](periodo), por favor
+      - ¿Puedes mostrarme un resumen de mi economía en [abril](periodo)?
+      - Quiero un resumen mensual de ingresos y gastos
+      - Dame un reporte de mis finanzas del [mes anterior](periodo)
+      - ¿Cómo fue mi comportamiento financiero en [enero](periodo)?
+      - Revisa mi resumen mensual
+      - ¿Cómo estuvo mi presupuesto en [febrero](periodo)?
+      - ¿Cuál fue el total de ingresos y egresos en [marzo](periodo)?
+      - ¿Resumen de transacciones del [mes actual](periodo)?
+      - ¿Qué dice el resumen de [abril](periodo)?
+      - ¿Cómo me fue financieramente en [enero](periodo)?
+      - Quiero ver cómo estuvo mi economía en el último mes
+      - Muéstrame los totales de ingresos y gastos mensuales
+      - Informe financiero de [febrero](periodo), por favor
+      - ¿Cuál fue mi resumen financiero en [febrero](periodo)?
+      - ¿Puedes mostrarme mi balance de [febrero](periodo)?
+      - Muestra el resumen financiero del mes de [febrero](periodo)
+      - Consulta de movimientos financieros del mes de [febrero](periodo)
+      - ¿Puedes revisar mi resumen del mes de [febrero](periodo)?
+      - Balance financiero detallado del mes de [febrero](periodo)
+      - ¿Qué ocurrió con mis finanzas en [febrero](periodo)?
+      - Resumen general del [mes actual](fecha)
+      - Dame mi resumen financiero de [marzo](periodo)
+      - Estado de mis finanzas de esta [quincena](periodo)
+      - Balance de gastos e ingresos del [último mes](fecha)
+      - Revisión financiera [mensual](periodo)
+      - Resumen de actividad económica de [abril](periodo)
+      - Balance mensual con [tarjetas de crédito](medio) este [mes](fecha)
+      - ¿Cuáles fueron mis ingresos y gastos este [mes](fecha)?
+      - Mi resumen mensual con detalle por categoría
+      - ¿Puedes darme mi resumen [mensual](periodo) actualizado?
+      - Resumen económico detallado del [mes](fecha)
+      - Muestra el resumen de mis ingresos y egresos
+      - Hazme un resumen mensual, por favor
+      - Dame detalles de mis finanzas este mes
+      - ¿Qué tal fue mi mes en gastos e ingresos?
+      - Reporte financiero del último mes
+      - Ver gráfico de ingresos y gastos del mes
+      - Revisión de mis finanzas del mes
+      - Dame un resumen mensual detallado
+      - Balance mensual general, porfa
+      - ¿Cuál fue mi total gastado este mes?
+      - ¿Cuál fue mi ingreso total del mes?
+      - Ver actividad mensual agrupada
+      - Mi resumen del mes, por favor
+      - Reporte del último mes, por favor
+      - Resumen completo del mes
+      - ¿Cuánto gané y gasté en [marzo](periodo)?
+      - Comparar ingresos y egresos [mensual](periodo)
+      - Resumen de [abril](periodo)
+      - ¿Cuál es mi saldo actual?
+      - ¿Cuánto dinero tengo disponible?
+      - Muéstrame cuánto tengo en mi cuenta
+      - ¿Me puedes decir mi balance actual?
+      - ¿Cuánto tengo ahorita?
+      - ¿Podrías mostrarme mi saldo?
+      - Revisa cuánto dinero tengo
+      - Consulta mi saldo actual por favor
+      - Dime cuánto tengo disponible
+      - Quiero saber cuánto dinero tengo en mi cuenta
+      - ¿Puedes verificar mi saldo?
+      - Consulta de saldo disponible
+      - Estado actual de mi cuenta
+      - Saldo disponible en mi cuenta, por favor
+      - ¿Cuál es el monto actual en mi cuenta?
+      - Necesito saber cuánto tengo disponible
+      - ¿Puedes mostrarme el saldo que tengo hoy?
+      - Estado actualizado de mi cuenta bancaria
+      - Consulta mi balance, por favor
+      - ¿Qué saldo tengo en este momento?
+      - Quiero revisar mis fondos actuales
+      - ¿Puedes revisar mi saldo disponible?
+      - Balance de mi cuenta al día de hoy
+      - ¿Cuánto hay en mi cuenta ahorita?
+      - Verifica el saldo que tengo registrado
+      - Consulta el monto disponible en mi cuenta
+      - ¿Cuánto dinero tengo en la cuenta?
+      - Muéstrame el saldo de mi tarjeta
+      - ¿Qué monto tengo ahora en mi cuenta corriente?
+      - Verificar saldo en [tarjeta débito](medio)
+      - Consultar saldo actual en [tarjeta](medio) [tarjeta crédito](medio)
+      - Saldo de [marzo](periodo)
+      - Consulta de saldo del [mes pasado](periodo)
+      - ¿Cuánto me queda en [tarjeta](medio)? [tarjeta débito](medio)
+      - Mostrar saldo del [mes actual](fecha)
+      - ¿Cuánto tengo en [tarjeta débito](medio)?
+      - ¿Cuál es el saldo que tengo?
+      - ¿Cuánto tengo disponible en mi [tarjeta de débito](medio)?
+      - ¿Me puedes decir el saldo de mi [tarjeta de crédito](medio)?
+      - ¿Saldo disponible en [efectivo](medio)?
+      - Revisa el saldo de mi tarjeta [débito](medio)
+      - Dime cuánto tengo ahorita
+      - Mostrar saldo tarjeta [crédito](medio)
+      - Ver saldo de mi tarjeta de [débito](medio)
+      - ¿Tengo fondos disponibles en [tarjeta débito](medio)?
+      - Mostrar saldo disponible en [cuenta de ahorros](medio)
+      - ¿Cuál es mi saldo disponible en [mi cuenta digital](medio)?
+      - Saldo actual en mi cuenta de [ahorros](medio)
+      - ¿Cuánto hay de saldo en mi [cuenta digital](medio)?
+      - Ver saldo vinculado a mi cuenta principal
+      - ¿Tengo saldo en mi [tarjeta](medio) [tarjeta de crédito](medio)?
+      - ¿Cuánto tengo en [efectivo](medio)?
+      - ¿Cuál es el saldo que tengo en mi [billetera digital](medio)?
+      - Mostrar saldo disponible en cuenta [BBVA](medio)
+      - Dime cuál es el saldo vinculado a mi [tarjeta Mastercard](medio)
+      - Consulta de saldo actual en mi [tarjeta Diners](medio)
+      - ¿Cuánto hay en mi cuenta de [ahorros](medio)?
+      - ¿Cuál es mi saldo hoy en [tarjeta Interbank](medio)?
+      - Muéstrame cuánto dinero tengo en [mi cuenta BBVA](medio)
+      - ¿Tengo saldo positivo en mi cuenta de [ahorros](medio)?
+      - Consulta de saldo de cuenta de [ahorros](medio)
+      - ¿Cuál es mi saldo en la cuenta de [ahorros](medio)?
+      - Consulta del total disponible
+      - Mostrar saldo en [tarjeta de crédito](medio)
+      - Mostrar saldo disponible con [tarjeta Interbank](medio)
+      - Verificar fondos disponibles con [tarjeta de crédito](medio)
+      - Ver saldo restante de este mes
+      - ¿Cuánto tengo como saldo en [mi cuenta digital](medio)?
+      - Verificar si tengo saldo disponible en la [tarjeta de débito](medio)
+      - Mostrar saldo restante en [tarjeta crédito](medio)
+      - Mostrar saldo disponible en mi cuenta [ahorros](medio)
+      - ¿Cuánto me queda este mes?
+      - Revisa el saldo que tengo este [mes](fecha)
+      - ¿Cuál es mi saldo restante en [tarjeta de débito](medio)?
+  - intent: gestionar_configuracion
+    examples: |
+      - Cambia mi presupuesto de [ropa](categoria) a [700](monto) soles en [marzo](periodo)
+      - Actualiza la alerta de [transporte](categoria) a un límite de [1000](monto) soles
+      - Ajusta la alerta configurada para [ropa](categoria) con un nuevo tope de [1000](monto) soles en [febrero](periodo)
+      - Edita la alerta de [salud](categoria) y colócala en [300](monto) soles en [abril](periodo)
+      - Quiero modificar el presupuesto de [tecnología](categoria) en [abril](periodo) a [700](monto) soles
+      - Cambia mi presupuesto de [servicios](categoria) a [1000](monto) soles en [marzo](periodo)
+      - Ajusta la alerta configurada para [alimentación](categoria) con un nuevo tope de [700](monto) soles en [abril](periodo)
+      - Ajusta la alerta configurada para [entretenimiento](categoria) con un nuevo tope de [700](monto) soles en [marzo](periodo)
+      - Ajusta la alerta configurada para [tecnología](categoria) con un nuevo tope de [1000](monto) soles en [marzo](periodo)
+      - Modifica el presupuesto de [entretenimiento](categoria) en [junio](periodo) a [200](monto) soles
+      - Actualiza el límite de gasto para [transporte](categoria) a [1000](monto) soles en [abril](periodo)
+      - Aumenta el presupuesto en [transporte](categoria) a [250](monto) soles
+      - Reduce el límite de alerta para [compras](categoria) a [150](monto) soles
+      - Cambia la alerta de [restaurantes](categoria) a [450](monto) soles
+      - Reconfigura el presupuesto en [viajes](categoria) a [600](monto) soles
+      - Edita el presupuesto de [supermercado](categoria) a [350](monto) soles
+      - Modifica la alerta que puse para [educación](categoria) a [200](monto)
+      - Modifica el presupuesto de [ropa](categoria) en [febrero](periodo) a [600](monto) soles
+      - Ajuste el presupuesto mensual en [transporte](categoria) a [375](monto) soles
+      - Pon el nuevo presupuesto para [entretenimiento](categoria) en [280](monto) soles
+      - Cambie mi alerta en [salud](categoria) a [300](monto) soles
+      - Reasigné el presupuesto de [comida](categoria) a [300](monto)
+      - Mi nuevo presupuesto para [entretenimiento](categoria) es [350](monto) soles
+      - Establecí un nuevo presupuesto en [salud](categoria) de [470](monto) soles
+      - Bajé la alerta de [transporte](categoria) a [190](monto) soles
+      - Recalculé mi presupuesto de [entretenimiento](categoria) a [280](monto) soles
+      - Subí el límite de [comida](categoria) a [290](monto) soles
+      - Cambia el límite de gasto en [comida rápida](categoria) a [80](monto) soles
+      - Reemplaza mi presupuesto de [salud](categoria) por [250](monto) soles
+      - Redefine la alerta de [entretenimiento](categoria) a [180](monto) soles
+      - Cambia el presupuesto de [compras online](categoria) a [300](monto) soles
+      - Ajustar alerta de [tecnología](categoria) a [500](monto) soles
+      - Actualiza el límite de gastos en [salidas](categoria) a [120](monto) soles
+      - Quiero editar el presupuesto de [educación](categoria) a [200](monto) soles
+      - Cambia la alerta de gasto de [abril](periodo) a [500](monto) soles
+      - Cambiar presupuesto en [ropa](categoria)
+      - Actualizar control de gastos de [hogar](categoria)
+      - Quiero cambiar la alerta del [celular](categoria)
+      - Editar alerta de [compras online](categoria)
+      - Cambiar alerta de [comidas rápidas](categoria)
+      - Modificar límite de gasto en [bebidas](categoria)
+      - Cambiar el monto del presupuesto de [mascotas](categoria)
+      - Editar límite de alerta para [vacaciones](categoria)
+      - Actualizar control de [gastos escolares](categoria)
+      - Cambiar presupuesto [familiar](categoria)
+      - Modificar alerta de [servicios](categoria)
+      - Cambiar límite mensual en [transporte](categoria)
+      - Actualizar el control de [ahorro](categoria)
+      - Modificar meta de [ahorro](categoria)
+      - Editar el control para [gastos mayores](categoria)
+      - Actualizar [gasto previsto](categoria) en [salud](categoria)
+      - Modificar alerta para [educación](categoria)
+      - Establecer un presupuesto de [500 soles](monto) para [ocio](categoria) en [abril](periodo) el [4/1/2024](fecha) con [tarjeta debito](medio)
+      - Asignar [400 soles](monto) a [transporte](categoria) en [marzo](periodo) el [3/1/2024](fecha) usando [tarjeta credito](medio)
+      - Quiero definir un límite de [350 soles](monto) para [entretenimiento](categoria) este [abril](periodo) el [3/1/2025](fecha) con [efectivo](medio)
+      - Pon un presupuesto de [600 soles](monto) en [comida](categoria) para [junio](periodo) el [6/1/2024](fecha) mediante [tarjeta debito](medio)
+      - Fijar tope de [250 soles](monto) para [ropa](categoria) en [julio](periodo) el [7/1/2024](fecha) con [tarjeta credito](medio)
+      - Establece un presupuesto de [700 soles](monto) para [salud](categoria) durante [mayo](periodo) el [5/1/2024](fecha) con [tarjeta debito](medio)
+      - Configura un presupuesto mensual de [1000 soles](monto) para [alquiler](categoria) en [marzo](periodo) el [3/1/2025](fecha) usando [efectivo](medio)
+      - Define [300 soles](monto) para [educacion](categoria) este mes el [3/1/2025](fecha) con [tarjeta credito](medio)
+      - Quiero configurar [150 soles](monto) para [supermercado](categoria) en [junio](periodo) el [6/1/2024](fecha) con [tarjeta debito](medio)
+      - Agrega un presupuesto de [450 soles](monto) para [tecnologia](categoria) este mes el [3/1/2025](fecha) con [efectivo](medio)
+      - Deseo establecer [600 soles](monto) para [cuidado personal](categoria) en [abril](periodo) el [4/1/2024](fecha) mediante [tarjeta debito](medio)
+      - Define presupuesto de [500 soles](monto) para [ocio](categoria) en [marzo](periodo) el [3/1/2025](fecha) usando [tarjeta debito](medio)
+      - Asigna [550 soles](monto) para [mascotas](categoria) durante [agosto](periodo) el [8/1/2024](fecha) con [tarjeta credito](medio)
+      - Quiero limitar mis gastos de [diversion](categoria) a [300 soles](monto) este mes el [3/1/2025](fecha) con [efectivo](medio)
+      - Planeo gastar máximo [500 soles](monto) en [restaurantes](categoria) este [septiembre](periodo) el [9/1/2024](fecha) con [tarjeta debito](medio)
+      - Configura presupuesto de [380 soles](monto) para [ropa](categoria) este mes el [3/1/2025](fecha) usando [tarjeta credito](medio)
+      - Necesito establecer un límite de [700 soles](monto) para [servicios publicos](categoria) este [diciembre](periodo) el [12/1/2024](fecha) con [efectivo](medio)
+      - Fija un presupuesto de [120 soles](monto) para [libros](categoria) durante [abril](periodo) el [4/1/2024](fecha) con [tarjeta debito](medio)
+      - Establece un tope de [800 soles](monto) para [viajes](categoria) en [julio](periodo) el [7/1/2024](fecha) con [tarjeta credito](medio)
+      - Define un presupuesto de [350 soles](monto) para [gimnasio](categoria) este [enero](periodo) el [1/1/2025](fecha) mediante [efectivo](medio)
+      - Me gustaría fijar un presupuesto de [90 soles](monto) para [cafe](categoria) este mes el [3/1/2025](fecha) con [tarjeta debito](medio)
+      - Pon un límite mensual de [650 soles](monto) para [gasolina](categoria) en [abril](periodo) el [4/1/2024](fecha) usando [tarjeta credito](medio)
+      - Quiero asignar [410 soles](monto) como presupuesto para [panaderia](categoria) en [junio](periodo) el [6/1/2024](fecha) con [efectivo](medio)
+      - Establece [210 soles](monto) para [bebidas](categoria) en [abril](periodo) el [4/1/2024](fecha) con [tarjeta debito](medio)
+      - Registrar [300 soles](monto) para [utiles escolares](categoria) en [marzo](periodo) el [3/1/2025](fecha) mediante [tarjeta credito](medio)
+      - Establece un presupuesto de [680 soles](monto) para [compras online](categoria) en [abril](periodo) el [4/1/2024](fecha) con [efectivo](medio)
+      - Define [880 soles](monto) para [regalos](categoria) este [diciembre](periodo) el [12/1/2024](fecha) con [tarjeta debito](medio)
+      - Haz un presupuesto de [770 soles](monto) para [mascotas](categoria) este mes el [3/1/2025](fecha) usando [tarjeta credito](medio)
+      - Quiero [380 soles](monto) para [accesorios](categoria) este mes el [3/1/2025](fecha) con [efectivo](medio)
+      - Establece un presupuesto para [snacks](categoria) de [220 soles](monto) este mes el [3/1/2025](fecha) con [tarjeta credito](medio)
+      - Quita la alerta que tengo en [transporte](categoria)
+      - Borra una alerta configurada en [entretenimiento](categoria)
+      - Cancela la notificación que tengo configurada en [tecnología](categoria)
+      - Elimina la alerta para [salud](categoria)
+      - Deseo remover la notificación activa de [servicios](categoria)
+      - Quita la alerta que configuré para [entretenimiento](categoria)
+      - Anula la alerta que tenía en [gastos médicos](categoria)
+      - Ya no necesito la alerta en [supermercado](categoria)
+      - Desactiva la alerta del [cine](categoria)
+      - Remueve la alerta que puse en [servicios](categoria)
+      - Quita la alerta de [restaurante](categoria)
+      - Borra la alerta que me avisa por [compras](categoria)
+      - Ya no quiero alerta para [farmacia](categoria)
+      - Elimina mi alerta de [suscripciones](categoria)
+      - Anula la alerta en [transporte](categoria)
+      - Borra alerta de categoría [gasolina](categoria)
+      - Desactiva la alerta de categoría [viajes](categoria)
+      - Quiero eliminar mi alerta del [colegio](categoria)
+      - Elimina mi alerta mensual de [entretenimiento](categoria)
+      - Quita esa alerta de [cafés](categoria)
+      - Anula la alerta de categoría [mascotas](categoria)
+      - Ya no quiero tener alerta para [gimnasio](categoria)
+      - Quita la notificación de control en [entretenimiento](categoria)
+      - Remueve alerta puesta en [diversión](categoria)
+      - Desactiva alerta de [restaurantes](categoria)
+      - Eliminar la alerta del [celular](categoria)
+      - Ya no quiero alerta para [compras en línea](categoria)
+      - Borra notificación de [comida](categoria)
+      - Anula el recordatorio en [entretenimiento](categoria)
+      - Quitar la alerta del [cine mensual](categoria)
+      - Desactiva la alerta configurada para [juguetes](categoria)
+      - Quiero quitar la alerta de [supermercado](categoria)
+      - Borra la alerta que puse para [entretenimiento](categoria)
+      - Borra la alerta que puse en [salud](categoria)
+      - Desactiva la alerta de [compras](categoria)
+      - Borrar alerta en [educación](categoria)
+      - Suprime la alerta de [viajes](categoria)
+      - Quiero quitar la alerta por gastos en [ropa](categoria)
+      - Elimina la alerta de gastos para [tecnología](categoria)
+      - Quita la alerta de gasto en [restaurantes](categoria)
+      - Cancela la alerta de [salud](categoria)
+      - Desactiva alerta en [tecnología](categoria)
+      - Quitar aviso de gastos en [transporte](categoria)
+      - Elimina la alerta de gastos
+      - Borra la alerta del mes pasado [febrero](periodo)
+      - Quita la alerta de mi cuenta
+      - Quiero eliminar la alerta de [comida](categoria)
+      - Borra la alerta de [salud](categoria)
+      - Cancela la alerta de [entretenimiento](categoria)
+      - Desactiva la alerta de [ropa](categoria)
+      - Eliminar alerta de [gastos generales](categoria)
+      - Borra la alerta de [marzo](periodo)
+      - Quiero quitar la alerta que puse ayer
+      - Saca la alerta de [compras online](categoria)
+      - Eliminar la alerta de [viajes](categoria)
+      - Anula la alerta que tengo en [bebidas](categoria)
+      - Elimina la alerta que hice hace días
+      - Quita la alerta asignada a [hogar](categoria)
+      - Borrar alerta del [mes pasado](periodo)
+      - Eliminar la alerta de [útiles escolares](categoria)
+      - Sacar la alerta para [mascotas](categoria)
+      - Remover alerta de [gastos innecesarios](categoria)
+      - Quiero desactivar la alerta del [celular](categoria)
+      - Eliminar todas las alertas
+      - Eliminar solo la alerta del [alquiler](categoria)
+      - Cancelar alerta de [gimnasio](categoria)
+      - Quitar la alerta sobre el presupuesto del [auto](categoria)
+      - Elimina la alerta de [exceso en gastos](categoria)
+      - Borrar la alerta automática de [gastos](categoria)
+      - Quitar la alerta de [comidas rápidas](categoria)
+      - Cancelar aviso de exceso de [gasto](categoria)
+      - Quitar control de gasto de [enero](periodo)
+      - Desactivar la alerta de [compras grandes](categoria)
+      - Elimina el presupuesto de [salud](categoria) en [abril](periodo)
+      - Quiero quitar el límite de gasto para [tecnología](categoria) correspondiente a [mayo](periodo)
+      - Deseo borrar el presupuesto asignado a [ropa](categoria) en [mayo](periodo)
+      - Quita el presupuesto mensual de [alimentación](categoria) correspondiente a [febrero](periodo)
+      - Borra la configuración de límite para [salud](categoria) este [mayo](periodo)
+      - Quiero eliminar el presupuesto de [salud](categoria) que configuré en [mayo](periodo)
+      - Cancela el presupuesto para la categoría [transporte](categoria) del mes de [mayo](periodo)
+      - Deseo borrar el presupuesto asignado a [entretenimiento](categoria) en [junio](periodo)
+      - Quita el presupuesto mensual de [tecnología](categoria) correspondiente a [junio](periodo)
+      - Borra ese presupuesto raro de [transporte](categoria) ([abril](periodo))
+      - Elimina el límite de [servicios](categoria) ([abril](periodo))
+      - Quitar el límite que puse para [salud](categoria) este [junio](periodo)
+      - Kita el presupuesto de [entretenimiento](categoria) en [mayo](periodo)
+      - Quitar el límite que puse para [entretenimiento](categoria) este [junio](periodo)
+      - Cancela el presupuesto mal puesto de [ropa](categoria) en [marzo](periodo)
+      - Deseo eliminar el límite de gasto para [salud](categoria) en el mes de [junio](periodo)
+      - Saca el presupuesto de [entretenimiento](categoria) configurado en [junio](periodo)
+      - Anula el límite de [ropa](categoria) en [enero](periodo)
+      - Elimina el presupuesto de [ocio](categoria) en [abril](periodo)
+      - Quitar el límite que puse para [salud](categoria) este [febrero](periodo)
+      - Quita el presupuesto de [tecnología](categoria) en [enero](periodo)
+      - Elimina el límite de [ropa](categoria) ([febrero](periodo))
+      - Kita el presupuesto de [ocio](categoria) ([junio](periodo))
+      - Quiero eliminar el presupuesto de [entretenimiento](categoria)
+      - Borra el presupuesto que puse para [salud](categoria)
+      - Quita el presupuesto asignado a [restaurantes](categoria)
+      - Eliminar presupuesto de [compras](categoria)
+      - Quisiera quitar el límite de gasto en [tecnología](categoria)
+      - Anula el presupuesto que puse en [educación](categoria)
+      - No quiero más presupuesto en [supermercado](categoria)
+      - Desactiva el presupuesto de [ocio](categoria)
+      - Elimina el presupuesto del mes de [mayo](periodo)
+      - Borra mi presupuesto mensual [marzo](periodo)
+      - Eliminar presupuesto de [comida](categoria)
+      - Ya no quiero el presupuesto en [hogar](categoria)
+      - Suprime presupuesto en [ocio](categoria)
+      - Quitar presupuesto en [servicios](categoria)
+      - Eliminar presupuesto de [salud](categoria)
+      - Borrar el límite en [comida](categoria)
+      - Cancela el presupuesto asignado a [servicios](categoria)
+      - Elimina presupuesto de [marzo](periodo) en [transporte](categoria)
+      - Ya no usaré presupuesto para [educación](categoria)
+      - Quitar el control de gasto en [ocio](categoria)
+      - Borra ese presupuesto viejo de [salud](categoria)
+      - Anula presupuesto en [entretenimiento](categoria)
+      - Eliminar plan de gastos en [hogar](categoria)
+      - Cancelar presupuesto de [marzo](periodo) en [servicios](categoria)
+      - Eliminar meta de gasto en [educación](categoria)
+      - No quiero límite en [comida](categoria)
+      - Eliminar control de gasto para [transporte](categoria)
+      - Eliminar límite en [educación](categoria)
+      - Eliminar tope en [servicios](categoria)
+      - Eliminar previsión en [hogar](categoria)
+      - Quita el presupuesto para [marzo](periodo) en [comida](categoria)
+      - Eliminar presupuesto mensual en [salud](categoria)
+      - Eliminar configuración de gasto en [ocio](categoria)
+      - Quitar límite de gasto en [hogar](categoria)
+      - Eliminar presupuesto registrado para [transporte](categoria)
+      - Eliminar meta mensual en [entretenimiento](categoria)
+      - Quitar control mensual en [salud](categoria)
+      - Eliminar gasto programado en [comida](categoria)
+      - Eliminar tope de [marzo](periodo) en [servicios](categoria)
+      - Eliminar rango de gasto en [educación](categoria)
+      - Quitar presupuesto planificado en [ocio](categoria)
+      - Eliminar objetivo mensual en [hogar](categoria)
+      - Elimina el presupuesto para [transporte](categoria)
+      - Cancela el presupuesto de [entretenimiento](categoria)
+      - Borra el presupuesto de [educación](categoria)
+      - Cancela el presupuesto de [transporte](categoria)
+      - Quitar el presupuesto en [salud](categoria)
+  - intent: entrada_no_entendida
+    examples: |
+      - Resumen financiero mensual
+      - Gastos de [comida](categoria)?
+      - [Ingreso](categoria) por trabajo [1200 soles](monto) [salario](categoria)
+      - Gaste [70 soles](monto)
+      - Cuanto tengo
+      - revisar gasto
+      - Recibi [600 soles](monto) el [5 de mayo](fecha) con [tarjeta de debito](medio)
+      - [Gasto](categoria) de [50 soles](monto) en [comida](categoria) con [tarjeta de debito](medio)
+      - Me pagaron [ayer](fecha)
+      - Hola
+      - Necesito ayuda
+      - Me transfirieron
+      - quiero ver algo
+      - dinero de transporte
+      - He gastado
+      - gasto comida
+      - ingreso
+      - He recibido un pago
+      - Mis egresos
+      - ¿Qué hice hoy?
+      - Cuánto tengo en tarjeta
+      - Ver ingresos
+      - gasté en algo
+      - Consulta
+      - comida transporte abril
+      - el pago que hice ayer
+      - quiero saber algo de mis finanzas
+      - mi resumen
+      - mis movimientos
+      - lo que ingresó ayer
+      - gasto ayer muchos soles pero no se donde fue
+      - Puse algo en cuenta pero no lo veo
+      - Transferencia como la de la semana pasada pero diferente
+      - Registrar gasto
+      - Ingrese dinero
+      - Mostrar resumen
+      - no encuentro un gasto que Hice hace poco
+      - Creo que Registre algo pero no estoy seguro
+      - Paso algo con mis finanzas pero no recuerdo bien
+      - Vi una operacion pero ya no la veo
+      - Hubo una Transferencia y no se si se registro
+      - Creo que se duplico un ingreso o no se guardo
+      - Registre algo pero no figura en El historial
+      - ayer Anote algo y ya no esta
+      - no recuerdo si Puse ese pago o no
+      - Habia algo en la lista y desaparecio
+      - Registrar ingreso
+      - Mostrar gastos
+      - Configurar presupuesto
+      - Registrar tarjeta
+      - Crear alerta
+      - Registrar transferencia
+      - Crear recordatorio
+      - Clasificar gasto
+      - Ver ingresos
+      - No encuentro un movimiento que hice recientemente
+      - Vi algo raro en el historial pero ya no esta
+      - Hubo algo en la app que ya no aparece
+      - Creo que olvide registrar un pago
+      - Habia una transferencia y desaparecio
+      - Parece que algo no se guardo bien
+      - Registre algo ayer y hoy no esta
+      - No me aparece un movimiento que deberia estar
+      - Anote un gasto pero ya no figura
+      - ¿Y la operacion que hice esta semana?
+      - Vi un ingreso pero luego no lo encontre
+      - Puse una nota y no se guardo
+      - No estoy seguro si se registro lo que ingrese
+      - Habia un cargo reciente que ya no veo
+      - ¿Donde esta el gasto que puse ayer?
+      - Me falta decirte el [monto](monto)
+      - No te puse en qué [categoria](categoria) fue
+      - No escribí la [fecha](fecha) exacta
+      - No mencioné si fue ingreso o gasto
+      - Olvidé el [monto](monto) del ingreso
+      - Gasté pero no te dije cuánto
+      - Me equivoqué, solo escribí que compré [ropa](categoria)
+      - No sé si puse todo
+      - Creo que no puse la [tarjeta](medio)
+      - La [fecha](fecha) está incompleta
+      - Se me pasó anotar el [monto](monto) exacto
+      - Solo escribí [supermercado](categoria)
+      - Me olvidé de agregar los datos completos
+      - Faltan detalles en el registro
+      - No recuerdo si te puse el día
+      - ¿Te dije en qué lo gasté?
+      - Faltó el dato del [medio](medio) de pago
+      - No escribí todos los campos
+      - Olvidé decir la cantidad
+      - Solo puse [comida](categoria)
+      - Dije el [monto](monto) pero no para qué: [45](monto)
+      - No dije si fue ingreso o gasto: [120](monto)
+      - No mencioné [tarjeta](medio): [90](monto) en [transporte](categoria) el [3/20/2025](fecha)
+      - Falta el [periodo](periodo) del gasto: [100](monto) en [servicios](categoria) el [3/5/2025](fecha)
+      - No aclaré si fue en efectivo: [80](monto) en [ropa](categoria) el [3/15/2025](fecha)
+      - Puse [restaurante](categoria) pero sin fecha: [75](monto)
+      - No puse la [categoria](categoria) del ingreso: [2000](monto) el [3/10/2025](fecha) [debito](medio)
+      - Me olvidé la [tarjeta](medio) usada: [120](monto) en [salud](categoria) el [3/11/2025](fecha)
+      - No escribí si es semanal o mensual: [130](monto) en [alimentacion](categoria) el [3/12/2025](fecha) [credito](medio)
+      - ¿Te puse qué tipo de ingreso era?: [1500](monto) el [3/5/2025](fecha) [debito](medio)
+      - Solo anoté gasto, sin [monto](monto) el [3/4/2025](fecha) [credito](medio)
+      - Escribí que fue en [servicios](categoria) pero nada más
+      - Aún no termino mi registro
+      - Faltó poner la [categoria](categoria): [200](monto) el [3/15/2025](fecha) [marzo](periodo) [debito](medio)
+      - Anoté un gasto pero no dije el día: [80](monto) en [ropa](categoria) [marzo](periodo) [efectivo](medio)
+      - Registré algo pero no dije si era ingreso o gasto
+      - Me olvidé de incluir cuánto fue en [comida](categoria) el [3/12/2025](fecha) [marzo](periodo) [credito](medio)
+      - Gasté ayer pero no dije en qué: [50](monto) el [3/25/2025](fecha) [marzo](periodo) [debito](medio)
+      - [Ingreso](categoria) no tiene [monto](monto) ni [fecha](fecha): [abril](periodo) [debito](medio)
+      - Hice un gasto de [100](monto) soles: [abril](periodo) [efectivo](medio)
+      - Anoté un pago pero no a qué fue: [60](monto) el [3/20/2025](fecha) [marzo](periodo) [credito](medio)
+      - Ingresé datos pero no terminé
+      - No indiqué el [periodo](periodo): [150](monto) en [transporte](categoria) el [3/5/2025](fecha) [debito](medio)
+      - Se me pasó poner la [tarjeta](medio): [90](monto) en [entretenimiento](categoria) el [3/10/2025](fecha) [marzo](periodo)
+      - Hice algo mal, no estoy seguro
+      - Incompleto, no puse [fecha](fecha): [75](monto) en [servicios](categoria) [abril](periodo) [credito](medio)
+      - Comencé a escribir pero no acabé
+      - Olvidé un campo: [45](monto) en [ropa](categoria) el [3/2/2025](fecha) [efectivo](medio)
+      - El [monto](monto) está pero no lo demás: [30](monto)
+      - Anoté [70 soles](monto) pero nada más
+      - No dije si fue débito o crédito: [150](monto) en [comida](categoria) el [3/14/2025](fecha) [marzo](periodo)
+      - Olvidé escribir la [categoria](categoria) y la [fecha](fecha): [200](monto) [abril](periodo) [debito](medio)
+      - Hice un gasto pero olvidé cuánto fue en [viajes](categoria) el [3/18/2025](fecha) [marzo](periodo) [credito](medio)
+      - Solo escribí la [fecha](fecha): [3/1/2025](fecha)
+      - No puse si fue gasto o ingreso: [85](monto) en [supermercado](categoria) el [3/8/2025](fecha) [marzo](periodo) [efectivo](medio)
+      - Falta información
+      - Creo que me olvidé de algo
+      - Ingresé mal el texto
+      - No hay datos suficientes
+      - No terminé de escribir
+      - No sé si ya lo registré
+      - Creo que gasté algo pero no me acuerdo
+      - Recibí algo, no sé si lo anoté
+      - Anoté una cosa pero ahora tengo dudas
+      - ¿Dónde está el gasto que hice ayer?
+      - Me olvidé si ingresé el [sueldo](categoria)
+      - No sé si puse bien lo de ayer
+      - No me acuerdo si ya lo anoté
+      - ¿Dónde está el ingreso del [15](fecha)?
+      - Hice algo en la app pero no sé qué fue
+      - No tengo claro si está guardado
+      - Registré un gasto pero no estoy seguro
+      - Me confundí con lo que puse
+      - Tal vez puse dos veces lo mismo
+      - No sé si ya está en la lista
+      - No sé si eso fue un ingreso
+      - No recuerdo si puse el [almuerzo](categoria)
+      - ¿Se guardó el gasto de [hoy](fecha)?
+      - ¿Está el ingreso del [sábado](fecha)?
+      - No sé qué pasó con el registro anterior
+      - Olvidé si lo registré ayer
+      - No estoy seguro si fue gasto
+      - Puse algo pero no sé qué fue
+      - Puede que lo haya duplicado
+      - Revisé y no veo lo que hice
+      - No aparece lo que registré
+      - No sé si puse eso
+      - ¿Eso fue gasto o ingreso?
+      - Registré algo pero no recuerdo qué
+      - Estoy confundido con lo que puse
+      - jfjdk
+      - mmmmm
+      - ghdjkslq
+      - ajsdnaks
+      - asdasd
+      - no sé qué poner
+      - solo puse algo
+      - no era eso
+      - mensaje sin sentido
+      - bla bla bla
+      - solo probando
+      - no tiene lógica
+      - error en la entrada
+      - asjdjasjdasjd
+  - intent: exportar_informacion
+    examples: |
+      - Muéstrame mi resumen de [febrero](periodo)
+      - Quiero ver mis datos de [mayo](periodo)
+      - Quiero ver toda mi información financiera
+      - Muéstrame mis movimientos
+      - Dame el historial completo de ingresos y gastos
+      - Necesito ver mis registros financieros
+      - Enséñame el resumen mensual
+      - Muestra mis datos en formato tabla
+      - Quiero ver todos los datos registrados
+      - ¿Puedo ver mis finanzas aquí?
+      - Quisiera revisar mi historial de transacciones
+      - Muestra toda mi actividad financiera
+      - Quiero ver mis datos financieros actuales
+      - ¿Puedes mostrarme mi información contable?
+      - Enséñame mi historial económico
+      - Genera un resumen con mis movimientos
+      - Muestra información de los últimos tres meses
+      - Quiero ver gastos e ingresos por [categoria](categoria)
+      - Muéstrame los presupuestos que tengo
+      - Quiero un resumen de mi historial financiero
+      - Muestra mi historial completo en pantalla
+      - Ver resumen financiero
+      - Mostrar ingresos y gastos registrados
+      - Dame los datos del [mes pasado](periodo)
+      - Mostrar toda la actividad financiera
+      - Mostrar todos mis registros
+      - Necesito ver todos mis movimientos
+      - Ver transacciones del [año](periodo)
+      - Mostrar mis finanzas personales
+      - ¿Puedes mostrar mi información financiera?
+      - Quiero ver mis datos financieros en el chat
+      - Quiero ver mis movimientos de este mes [marzo](periodo)
+      - Mostrar todos mis gastos del mes
+      - Mostrar todo mi historial
+      - Muéstrame los datos de gastos
+      - Genera un resumen con todos mis ingresos
+      - Mostrar movimientos financieros de [marzo](periodo)
+      - Ver mis registros de [alimentacion](categoria)
+      - Mostrar mis egresos
+      - Dame un resumen de mis finanzas
+      - Muestra todo lo que gasté en [febrero](periodo)
+      - Quiero ver mi información con tarjeta de [debito](medio)
+      - Ver gastos por [categoria](categoria)
+      - Mostrar datos financieros organizados
+      - Ver registro de gastos en [salud](categoria)
+      - Mostrar ingresos del último mes
+      - Mostrar mis gastos del 10 al 20 de [marzo](periodo)
+      - Ver detalles de mis movimientos
+      - Mostrar mis datos en formato lista
+      - Mostrar todo lo que he registrado
+      - Ver operaciones con tarjeta de [credito](medio)
+      - Mostrar gastos en [entretenimiento](categoria)
+      - Mostrar mis datos de [marzo](periodo) pagados con [efectivo](medio)
+      - Ver resumen de mis gastos trimestrales
+      - Mostrar base de datos personal
+      - Ver finanzas en forma de tabla
+      - Mostrar mis datos del [año](periodo)
+      - Ver ingresos y gastos combinados
+      - Mostrar movimientos de [enero](periodo)
+      - Ver información de gastos por mes
+      - Genera una tabla con mis registros financieros
+      - Ver gastos en [supermercado](categoria) con tarjeta [credito](medio)
+      - Mostrar todo en un solo resumen
+      - Quiero ver todos mis datos
+      - Mostrar movimientos de este mes
+      - Ver todos mis gastos juntos
+      - Muestra el reporte completo
+      - Enséñame el resumen financiero
+      - Mostrar mis datos como lista
+      - Ver resumen de ingresos
+      - Muéstrame todo lo que tengo registrado
+      - Pasar los datos al chat
+      - Mostrar resumen de este mes
+      - Ver datos recientes
+      - Mostrar solo ingresos
+      - Ver gastos del [mes pasado](periodo)
+      - Mostrar resumen general
+      - Mostrar historial completo
+      - Ver también mis alertas
+      - Mostrar los presupuestos
+      - Mostrar operaciones guardadas
+      - Ver datos de [marzo](periodo)
+      - Mostrar reporte de gastos
+      - Mostrar registros del [año](periodo)
+      - Mostrar datos agrupados
+      - Ver historial como tabla
+      - Mostrar datos filtrados
+      - Ver todo lo que tengo
+      - Mostrar historial de gastos
+      - Quiero ver mis ingresos y egresos
+      - Generar un resumen con mis movimientos
+      - Mostrar registro de finanzas
+      - Ver mis transacciones
+      - Mostrar mis datos
+      - Ver mis transacciones recientes
+      - Dame mis datos financieros aquí
+      - Generar vista financiera
+      - Ver información detallada
+      - Ver movimientos mensuales
+      - Mostrar historial en pantalla
+      - Mostrar detalles de cada gasto
+      - Ver respaldo de mis finanzas
+      - Mostrar resumen agrupado
+      - Ver transacciones por [tarjeta](medio)
+      - Ver información agrupada
+      - Mostrar listado de ingresos
+      - Generar informe aquí mismo
+      - Mostrar datos recientes
+      - Mostrar todo lo registrado
+      - Crear resumen y mostrarlo
+  - intent: registrar_gasto
+    examples: |
+      - Gaste [50](monto) soles en [restaurantes](categoria) el [5 de marzo](fecha)
+      - Hice un gasto de [50](monto) soles en [restaurantes](categoria) el [5 de marzo](fecha)
+      - El [5 de marzo](fecha) gaste [50](monto) soles comiendo fuera
+      - Anote [50](monto) soles de gasto en [restaurantes](categoria) el [5 de marzo](fecha)
+      - Gaste [120](monto) soles en [supermercado](categoria) el [10 de marzo](fecha)
+      - Hice una compra de [80](monto) soles en [farmacia](categoria) el [3 de marzo](fecha)
+      - Compre [ropa](categoria) por [200](monto) soles el [7 de marzo](fecha)
+      - El [15 de marzo](fecha) gaste [300](monto) soles en [tecnologia](categoria)
+      - Anote [90](monto) soles como gasto en [transporte](categoria) el [9 de marzo](fecha)
+      - Gaste [45](monto) soles en [snacks](categoria) el [5 de marzo](fecha)
+      - Tuve un gasto de [100](monto) soles en [libros](categoria) el [2 de marzo](fecha)
+      - El [20 de marzo](fecha) gaste [75](monto) soles en [estacionamiento](categoria)
+      - Registre un gasto de [60](monto) soles en [peluqueria](categoria) el [12 de marzo](fecha)
+      - Hice un gasto de [150](monto) soles en [cine](categoria) el [8 de marzo](fecha)
+      - Compre [ropa](categoria) por [120 soles](monto) con [tarjeta de credito](medio)
+      - Gaste [60 soles](monto) en [transporte](categoria) el [3 de abril](fecha)
+      - Pago de [95 soles](monto) en [restaurantes](categoria) el [5 de abril](fecha) con [efectivo](medio)
+      - Anote un gasto de [75](monto) soles en [comida rapida](categoria) el [6 de abril](fecha) con [efectivo](medio)
+      - Pague [110 soles](monto) en [salud](categoria) el [7 de abril](fecha) con [tarjeta de debito](medio)
+      - Use [70 soles](monto) en [viajes](categoria) el [8 de abril](fecha) con [tarjeta de credito](medio)
+      - Gaste [45 soles](monto) en [snacks](categoria) el [9 de abril](fecha) con [efectivo](medio)
+      - Hice una compra de [180](monto) soles en [tecnologia](categoria) el [10 de abril](fecha) con [tarjeta de credito](medio)
+      - Apunta un gasto de [90](monto) soles en [entretenimiento](categoria) el [11 de abril](fecha) con [tarjeta de debito](medio)
+      - Pague [60](monto) soles en [lavanderia](categoria) el [12 de abril](fecha) con [tarjeta de debito](medio)
+      - Gasto de [130](monto) soles en [zapatos](categoria) el [13 de abril](fecha) con [tarjeta de debito](medio)
+      - Compre una mochila por [85 soles](monto) en [ropa](categoria) el [14 de abril](fecha) con [tarjeta de credito](medio)
+      - Tuve un gasto de [75 soles](monto) en [heladeria](categoria) el [15 de abril](fecha) con [efectivo](medio)
+      - Hoy pague [100](monto) soles en una [consulta medica](categoria) con [tarjeta de debito](medio)
+      - Pague [135 soles](monto) en [consulta medica](categoria) el [16 de abril](fecha) con [tarjeta de debito](medio)
+      - Registre [90](monto) soles gastados en [bebidas](categoria) el [17 de abril](fecha) con [tarjeta de debito](medio)
+      - Use [100 soles](monto) en [suscripcion anual](categoria) el [18 de abril](fecha) con [tarjeta de credito](medio)
+      - Gaste [60 soles](monto) en [panaderia](categoria) el [19 de abril](fecha) con [efectivo](medio)
+      - Añade [47](monto) soles en [snacks](categoria) el [20 de abril](fecha) con [efectivo](medio)
+      - Anota gasto de [210](monto) soles en [hotel](categoria) el [21 de abril](fecha) con [tarjeta de credito](medio)
+      - Compre comida para el perro por [60 soles](monto) en [mascotas](categoria) el [22 de abril](fecha) con [tarjeta de credito](medio)
+      - Gasto de [29](monto) soles en [taxi](categoria) el [23 de abril](fecha) con [efectivo](medio)
+      - Hoy use [40](monto) soles para el [gimnasio](categoria) con [tarjeta de debito](medio)
+      - He hecho un gasto de [135](monto) soles en [muebles](categoria) el [24 de abril](fecha) con [tarjeta de debito](medio)
+      - Anotar [85](monto) soles que gaste en [utiles escolares](categoria) el [25 de abril](fecha) con [efectivo](medio)
+      - Gaste [90](monto) soles en [electricidad](categoria) el [26 de abril](fecha) con [tarjeta de credito](medio)
+      - Gaste [60 soles](monto) en [lavanderia](categoria) el [27 de abril](fecha) con [tarjeta de debito](medio)
+      - Gaste [100](monto) soles en [supermercado](categoria) el [28 de abril](fecha) con [tarjeta de credito](medio)
+      - Realice un pago de [120](monto) soles en [salud](categoria) el [29 de abril](fecha) con [tarjeta de credito](medio)
+      - Apunta un gasto de [90](monto) soles en [entretenimiento](categoria) el [30 de abril](fecha) con [tarjeta de debito](medio)
+  - intent: registrar_ingreso
+    examples: |
+      - Recibi un ingreso de [1,200](monto) soles por [salario](categoria) el [1 de marzo](fecha)
+      - El [1 de marzo](fecha) me depositaron [1,200](monto) soles por [sueldo](categoria)
+      - Registre [1,200](monto) soles de ingreso por [trabajo](categoria) el [1 de marzo](fecha)
+      - Ingrese [1,200](monto) soles por mi [salario](categoria) mensual el [1 de marzo](fecha)
+      - Me pagaron [1,500](monto) soles de mi [trabajo](categoria) el [2 de marzo](fecha)
+      - Recibi [2,000](monto) soles de ingresos por [comisiones](categoria) el [3 de marzo](fecha)
+      - El [5 de marzo](fecha) ingrese [1,800](monto) soles por [honorarios](categoria)
+      - Deposite [1,000](monto) soles como ingreso por [consultoria](categoria) el [4 de marzo](fecha)
+      - Registre un ingreso de [750](monto) soles por [clases particulares](categoria) el [6 de marzo](fecha)
+      - Entraron [2,300](monto) soles por [ventas](categoria) el [7 de marzo](fecha)
+      - Hice un ingreso de [950](monto) soles por [proyecto freelance](categoria) el [8 de marzo](fecha)
+      - El [9 de marzo](fecha) registre un ingreso de [1,400](monto) soles por [asesoria](categoria)
+      - Recibi [1,250](monto) soles de mi [empresa](categoria) como ingreso mensual el [10 de marzo](fecha)
+      - Ingrese [1600](monto) soles por [servicios prestados](categoria) el [11 de marzo](fecha)
+      - Recibi [950](monto) soles por [clases particulares](categoria) el [15 de abril](fecha) con [tarjeta debito](medio)
+      - Hoy ingresaron [3000](monto) soles por [honorarios medicos](categoria) el [3/25/2025](fecha) con [tarjeta debito](medio)
+      - Me transfirieron [1000](monto) de [asesorias](categoria) el [10 de febrero](fecha) con [tarjeta debito](medio)
+      - Entraron [350](monto) soles por [venta de libros](categoria) el [lunes](fecha) con [tarjeta debito](medio)
+      - Recibí [600](monto) de [clases de inglés](categoria) el [3/20/2025](fecha) con [tarjeta débito](medio)
+      - Ingresé [1000](monto) por [consultoría](categoria) el [10 de enero](fecha) con [débito](medio)
+      - Me pagaron [450](monto) en concepto de [freelance](categoria) el [ayer](fecha) usando [tarjeta de débito](medio)
+      - Entró un ingreso de [300](monto) por [reembolso](categoria) el [mes pasado](periodo) a través de [efectivo](medio)
+      - Hoy gane [1200](monto) en [consultoria](categoria) el [3/25/2025](fecha) con [tarjeta debito](medio)
+      - Sumaron [1300](monto) por mi [salario](categoria) el [2/28/2025](fecha) con [tarjeta debito](medio)
+      - Gane [950](monto) con [servicios de limpieza](categoria) el [3/14/2025](fecha) con [tarjeta debito](medio)
+      - Hoy registre [400](monto) por [servicios tecnicos](categoria) el [3/18/2025](fecha) con [tarjeta debito](medio)
+      - Hoy ingrese [350](monto) por [costura](categoria) el [3/20/2025](fecha) con [tarjeta debito](medio)
+      - Hoy cobre [1800](monto) por [servicios prestados](categoria)
+      - Entro [2000 soles](monto) a mi cuenta por [freelance](categoria)
+      - Recibi un [bono](categoria) de [300 soles](monto)
+      - Pago de [alquiler](categoria) recibido por [1200 soles](monto)
+      - Me depositaron [900](monto) por [consultoria](categoria)
+      - Abono de [500 soles](monto) por [clases particulares](categoria)
+      - Recibi [700 soles](monto) por dar una [charla](categoria)
+      - Mi hermano me envio [400 soles](monto)
+      - Me llego una [transferencia](categoria) de [1300 soles](monto)
+      - Pago recibido por [mantenimiento de PC](categoria): [650 soles](monto)
+      - Hoy recibi [550 soles](monto) por [honorarios](categoria)
+      - Entraron [1750 soles](monto) por [proyectos freelance](categoria)
+      - Mi mama me envio [300 soles](monto)
+      - Cobro por [edicion de video](categoria): [710 soles](monto)
+      - Me abonaron [1020 soles](monto) por [diseño grafico](categoria)
+      - [Transferencia](categoria) de [860 soles](monto) por [clases online](categoria)
+      - Recibi [1500 soles](monto) de [salario](categoria) el [5 de abril](fecha)
+      - Ingreso de [1000](monto) por un [bono](categoria) recibido
+      - Me transfirieron [900 soles](monto) por [consultoria](categoria)
+      - Ganancia de [1300 soles](monto) el [10 de marzo](fecha)
+      - Me pagaron [1600](monto) por [honorarios](categoria)
+      - Me pagaron [1200 soles](monto) por un trabajo [freelance](categoria) el [3/15/2024](fecha)
+      - Recibi un deposito de [1800 soles](monto) de mi empresa el [3/5/2024](fecha)
+      - Mi papa me transfirio [400 soles](monto) por [ayuda familiar](categoria) el [3/10/2024](fecha)
+      - Me llego un ingreso de [750 soles](monto) por [clases particulares](categoria) el [3/18/2024](fecha)
+      - Entraron [600 soles](monto) como [reembolso](categoria) de gastos el [3/7/2024](fecha)
+      - Tuve un ingreso de [2000 soles](monto) este mes por [venta de productos](categoria) el [3/2/2024](fecha)
+      - Mi beca universitaria me dio [1100 soles](monto) este mes el [3/22/2024](fecha)
+      - Ingreso extra de [500 soles](monto) por [consultoria](categoria) el [3/14/2024](fecha)
+      - Transferencia de [1000 soles](monto) por [adelanto de sueldo](categoria) el [3/4/2024](fecha)
+      - Comisiones acumuladas de [950 soles](monto) recibidas este mes el [3/21/2024](fecha)
+      - Ingreso por [devolucion de impuestos](categoria) de [650 soles](monto) el [3/19/2024](fecha)
+      - Entraron [1400 soles](monto) por [pago de un cliente](categoria) el [3/1/2024](fecha)
+      - Ingrese [450 soles](monto) por enseñar [clases de baile](categoria) el [3/16/2024](fecha)
+      - Deposito de [800 soles](monto) por [trabajo eventual](categoria) el [3/9/2024](fecha)
+      - Mis padres me enviaron [500 soles](monto) este mes ([ayuda familiar](categoria)) el [3/3/2024](fecha)
+      - Ingreso por [reparacion de computadoras](categoria): [700 soles](monto) el [3/24/2024](fecha)
+      - Recibi [950 soles](monto) de un [cliente](categoria) frecuente el [3/25/2024](fecha)
+      - Entraron [720 soles](monto) por [comida delivery](categoria) el [3/26/2024](fecha)
+      - Ingreso adicional de [1300 soles](monto) por [asesoria](categoria) el [3/27/2024](fecha)
+      - Cobre [400 soles](monto) por [pintar una habitacion](categoria) el [3/28/2024](fecha)
+      - Ganancia de [850 soles](monto) por [venta de ilustraciones](categoria) el [3/30/2024](fecha)
+  - intent: resetear_categoria_gastos
+    examples: |
+      - Borra todos los gastos de [entretenimiento](categoria) en [febrero](periodo)
+      - Quiero reiniciar los datos de gasto en [ropa](categoria)
+      - Quiero reiniciar la categoria de [entretenimiento](categoria)
+      - Resetea todos los gastos registrados en [transporte](categoria)
+      - Borrar todos mis gastos de [comida](categoria)
+      - Eliminar el historial de gastos en [ropa](categoria)
+      - Reiniciar gastos de [salud](categoria) este [mes](periodo)
+      - Quiero empezar de cero con la categoria [tecnologia](categoria)
+      - Quita todos los gastos asignados a [supermercado](categoria)
+      - Limpia el historial de la categoria [restaurantes](categoria)
+      - Resetea mis gastos de [abril](periodo) en [servicios](categoria)
+      - Reinicia los gastos de [educacion](categoria)
+      - Reiniciar todo lo que gaste en [marzo](periodo)
+      - Eliminar gastos registrados por [tarjeta de credito](medio)
+      - Borrar todos los gastos de este [año](periodo)
+      - Eliminar gastos acumulados por categoria
+      - Quiero limpiar los registros de [ocio](categoria)
+      - Restablecer gastos de [entretenimiento](categoria)
+      - Limpiar todos los gastos de [febrero](periodo)
+      - Reiniciar la categoria [viajes](categoria)
+      - Reinicia mis gastos personales
+      - Eliminar todos los gastos que he hecho en [salud](categoria)
+      - Reiniciar gastos de [servicios publicos](categoria)
+      - Resetear lo que he gastado este [mes](periodo)
+      - Quiero borrar mis registros de gasto
+      - Quitar todo lo registrado como gasto
+      - Eliminar movimientos de gasto anteriores
+      - Reiniciar mis gastos categorizados
+      - Reestablecer todos los gastos del [mes pasado](periodo)
+      - Limpia mis datos de gasto
+      - Borra todos los gastos que tengo registrados
+      - Quiero resetear mis gastos del [primer trimestre](periodo)
+      - Elimina todos mis gastos del mes de [junio](periodo)
+      - Quiero borrar los gastos relacionados con [mascotas](categoria)
+      - Resetear los gastos de [transporte](categoria) este [mes](periodo)
+      - Borra el historial de gastos en [entretenimiento](categoria)
+      - Reiniciar todo lo gastado en [enero](periodo)
+      - Eliminar datos de gasto vinculados a [ropa](categoria)
+      - Quiero limpiar mis gastos pasados de [servicios](categoria)
+      - Borrar todos los gastos que hice por [tarjeta de credito](medio)
+      - Limpia lo que gaste el [ultimo trimestre](periodo)
+      - Quitar el registro de gastos en [delivery](categoria)
+      - Elimina el historial de gastos en [educacion](categoria)
+      - Borra todo lo registrado como [compras](categoria)
+      - Resetea mis gastos por categoria [ocio](categoria)
+      - Eliminar los gastos que tengo por [tecnologia](categoria)
+      - Reinicia los registros de [supermercado](categoria)
+      - Quita todo lo gastado este [año](periodo)
+      - Resetear mis gastos del [segundo trimestre](periodo)
+      - Borra los gastos que tengo por [salud](categoria)
+      - Limpia el historial de gastos en [hogar](categoria)
+      - Quiero reiniciar los gastos por [entretenimiento](categoria)
+      - Borrar datos de gasto de [abril](periodo)
+      - Elimina mis gastos clasificados en [viajes](categoria)
+      - Quiero borrar lo gastado en [efectivo](medio)
+      - Resetea mis gastos categorizados por [ocio](categoria)
+      - Quiero limpiar lo que he gastado este [mes actual](periodo)
+      - Eliminar registros de gasto del [primer semestre](periodo)
+      - Resetear todos los movimientos financieros del [año](periodo)
+      - Borrar historial de gastos en [alimentos](categoria)
+      - Reiniciar todo lo registrado en [transporte](categoria)
+      - Eliminar todos los movimientos por categoria
+      - Quiero borrar todas las categorias asignadas
+      - Borra lo que clasifique antes
+      - Reinicia mis gastos por favor
+      - Elimina todas las clasificaciones
+      - Quiero empezar de nuevo con mis gastos
+      - Restablece las categorias
+      - Pon las categorias en blanco
+      - Quita todas las etiquetas de mis gastos
+      - Quiero quitar las categorias mal puestas
+      - Elimina mis clasificaciones anteriores
+      - Empieza desde cero con los gastos
+      - Limpia mis gastos
+      - Borra los tags de gastos
+      - Quitar todo lo que organice
+      - Resetea toda la informacion de gastos
+      - Limpia lo registrado
+      - Quita los detalles de gastos
+      - Deja los gastos sin categoria
+      - Cancela la clasificacion que hice
+      - Saca las categorias antiguas
+      - Resetea por completo mis gastos
+      - Remueve lo que asigne
+      - Vacia la parte de categorias
+      - Restablece los datos de clasificacion
+      - Quiero reiniciar gastos
+      - Eliminar clasificaciones previas
+      - Resetea lo que registre
+      - Borra historial de categorias
+      - Haz un reinicio de las categorias
+      - Eliminar categorias manuales
+      - Resetea mis gastos del mes
+      - Quiero borrar todas mis categorias
+      - Limpia mi historial de gastos
+      - Empecemos de nuevo, borra todo
+      - Elimina los registros anteriores
+      - Quitar todas las clasificaciones de gasto
+      - Necesito comenzar desde cero
+      - Borra las alertas y presupuestos tambien
+      - Borra los movimientos viejos
+      - Resetear datos de este [mes](periodo)
+      - Quiero borrar todas las categorias
+      - Reinicia los gastos por favor
+      - Eliminar datos de gastos anteriores
+      - Quiero empezar de cero con mis categorias
+      - Borra mis gastos y categorias
+      - Resetear toda la clasificacion
+      - Reinicia todo lo que he registrado
+      - Limpiar historial de gastos
+      - Resetea categorias y presupuestos
+      - Quiero borrar mis datos de gastos
+      - Eliminar clasificacion y registros
+      - Quitar todos mis gastos anteriores
+      - Volver a comenzar
+      - Reiniciar configuracion de gastos
+      - Resetea mis datos financieros
+      - Borrar todo lo que gaste
+      - Reiniciar categorizacion
+      - Restablece mis categorias
+      - Eliminar gastos y alertas
+      - Resetear clasificacion
+      - Comenzar de nuevo con los gastos
+      - Limpiar todo
+      - Eliminar historial y categorias
+      - Resetear categorias personalizadas
+      - Borrar gastos por completo
+      - Quitar toda la data de gastos
+      - Resetear gastos de este [año](periodo)
+      - Resetea mis configuraciones
+      - Reset general
+      - Resetear mis gastos y categorias ya
+  - intent: ver_historial_completo
+    examples: |
+      - Muestrame todo mi historial de movimientos en [abril](periodo)
+      - Enseñame el historial financiero de [marzo](periodo)
+      - Muestrame todo mi historial financiero
+      - Quiero ver el historial completo de mis transacciones
+      - Enseñame todo lo que he registrado hasta ahora
+      - Ver todos mis ingresos y gastos sin filtro
+      - Necesito revisar todo el historial de movimientos
+      - Dame el detalle completo de mi historial financiero
+      - Consulta completa de todas mis operaciones
+      - Ver mi historial financiero sin ningun filtro
+      - Listar todas mis transacciones historicas
+      - Quiero una vista completa de todo lo que tengo registrado
+      - Ver todo el registro financiero acumulado
+      - Muestra el historial completo sin importar la fecha
+      - Listar historial completo de mis ingresos y egresos
+      - Dame acceso a todo el historial
+      - Necesito ver el historial total de movimientos
+      - Muestrame todo lo que se ha registrado en mi cuenta
+      - Quiero ver toda la actividad registrada
+      - Ver todas las entradas financieras
+      - Mostrar todos mis movimientos financieros registrados
+      - Dame el historial de todas las categorias
+      - Consulta el historial sin filtros
+      - Desglosa todo lo que tengo en el historial
+      - Quiero analizar el historial completo
+      - Ver el detalle de todo mi historial financiero
+      - Muestrame todo lo que he anotado hasta la fecha
+      - Ver resumen historico completo
+      - Consulta general de mi historial
+      - Visualizar todo mi historial economico
+      - Solicito ver el historial completo
+      - Muestra el detalle completo de todo lo que tengo registrado
+      - Quiero consultar todo el historial de mis registros
+      - Muestrame los movimientos registrados desde el inicio
+      - Enseñame el detalle historico de mis finanzas
+      - Dame todo el historial guardado
+      - Consulta completa de mis movimientos
+      - Visualiza todo lo que he registrado
+      - Quiero ver mi historial sin filtros ni fechas
+      - ¿Puedo revisar todo mi historial?
+      - Enseñame mis registros anteriores
+      - Ver mis movimientos desde que empece
+      - Listar todos mis ingresos y egresos
+      - Consulta historica total
+      - Accede al historial completo por favor
+      - Desglosa toda mi actividad financiera
+      - Mostrar mis operaciones financieras registradas
+      - Ver todo lo que he ingresado y gastado
+      - Ver mis movimientos completos de este año
+      - Necesito consultar todos mis datos financieros
+      - Ver historial consolidado
+      - Muestrame todos mis registros financieros
+      - Accede a todos mis movimientos guardados
+      - Quiero ver todo lo que he hecho
+      - Historial general sin filtros, por favor
+      - Ver todos los datos que se han guardado
+      - Revisar todo el historial de forma completa
+      - Consulta sin limites de fecha
+      - Muestra todo lo acumulado en mi cuenta
+      - Ver todas mis operaciones historicas
+      - Listar cada uno de mis registros
+      - Dame el resumen completo de movimientos
+      - Quiero revisar todo mi historial del [ultimo trimestre](periodo) con [Visa Debito](medio)
+      - Muestrame los movimientos de [agosto](periodo) con [Mastercard Credito](medio)
+      - Dame el historial de todos mis gastos del [año pasado](periodo) con [Efectivo](medio)
+      - Necesito ver mi historial del [15 de febrero](fecha) con [Visa Credito](medio)
+      - Enseñame mis transacciones del [ultimo mes](periodo) con [Mastercard Debito](medio)
+      - Muestrame lo que gaste la [semana pasada](periodo) con [Efectivo](medio)
+      - Quiero ver todos mis gastos desde [enero hasta marzo](periodo) con [Visa Credito](medio)
+      - Dame mi historial completo de [hoy](periodo) con [Mastercard Credito](medio)
+      - Quisiera ver todo mi historial de [gastos recientes](periodo) con [Visa Debito](medio)
+      - Enseñame mis gastos y entradas del [ultimo año](periodo) con [Mastercard Debito](medio)
+      - ¿Me muestras mis transacciones de [ayer](periodo)? con [Efectivo](medio)
+      - Muestrame todos mis movimientos de [abril](periodo) con [Visa Credito](medio)
+      - Enseñame el historial del [fin de semana pasado](periodo) con [Mastercard Credito](medio)
+      - ¿Puedo ver mis gastos del [mes actual](periodo)? con [Visa Debito](medio)
+      - Dame todas mis transacciones del [10 de mayo](fecha) con [Efectivo](medio)
+      - Quiero consultar todas las operaciones realizadas en [junio](periodo) con [Mastercard Credito](medio)
+      - Necesito todos mis gastos de esta [quincena](periodo) con [Visa Credito](medio)
+      - Muestrame las transacciones de los [ultimos tres meses](periodo) con [Mastercard Debito](medio)
+      - Quiero ver todos mis gastos del [dia lunes pasado](periodo) con [Efectivo](medio)
+      - Enseñame el historial completo del [mes pasado](periodo) con [Visa Debito](medio)
+      - Quiero revisar mi historial del [20 de abril](fecha) con [Mastercard Debito](medio)
+      - Dame el historial completo de [diciembre del año pasado](periodo) con [Visa Credito](medio)
+      - ¿Puedo ver mis transacciones del [fin de semana anterior](periodo)? con [Efectivo](medio)
+      - Muestrame los movimientos realizados en [octubre](periodo) con [Mastercard Credito](medio)
+      - Deseo consultar todas mis transacciones del [ultimo semestre](periodo) con [Visa Debito](medio)
+      - Quisiera revisar todos mis movimientos del [mes de febrero](periodo) con [Mastercard Credito](medio)
+      - Enseñame todas mis transacciones del [1 de enero](fecha) con [Efectivo](medio)
+      - Necesito ver todos los gastos del [mes anterior](periodo) con [Visa Debito](medio)
+      - Dame el historial completo de [hoy](periodo) con [Mastercard Credito](medio)
+      - ¿Me muestras todos mis gastos de la [ultima semana](periodo)? con [Efectivo](medio)
+      - Muestrame mi historial
+      - Quiero revisar todo lo que registre
+      - Dame mi historial completo
+      - Ver todas mis transacciones
+      - Muestra los movimientos de este año
+      - Revisa todos mis ingresos y gastos
+      - Listar todo lo que anote
+      - Historial general de mi cuenta
+      - Todas las operaciones realizadas
+      - Quiero ver mi resumen financiero
+      - Ver todos mis movimientos
+      - Mostrar historial de transacciones
+      - Ver mis registros
+      - Historial completo de mis finanzas
+      - Ver todo lo que he ingresado
+      - Ver historial
+      - Todo lo que hice hasta ahora
+      - Listado completo de mis finanzas
+      - Historial total
+      - Mostrar historial entero
+      - Ver todo
+      - Registro historico
+      - Resumen global de mis movimientos
+      - Ver historial de todos los meses
+      - Mostrar todo lo que anote
+      - Ver resumen general
+      - Ver historial de gastos e ingresos
+      - Revisar todas las transacciones
+      - Ver actividad financiera
+      - Mostrar todos los registros
+      - Todo lo que he registrado
+      - Quiero ver todas mis finanzas
+      - Ver todo lo guardado
+      - Resumen total
+      - Mostrar resumen completo
+      - Ver movimientos registrados
+  - intent: interaccion_general
+    examples: |
+      - hola
+      - buenas
+      - qué tal
+      - buen día
+      - hey
+      - holi
+      - saludos
+      - hello
+      - cómo estás
+      - qué hay
+      - qué onda
+      - cómo va
+      - buenas tardes
+      - buenas noches
+      - buenos días
+      - holis
+      - qué más
+      - qué fue
+      - hola, cómo estás
+      - hola, qué tal
+      - saludos cordiales
+      - muy buenas
+      - buen día, cómo estás
+      - hola, buenos días
+      - buenas noches, cómo estás
+      - qué tal, buenos días
+      - hola de nuevo
+      - hola chatbot
+      - hola asistente
+      - hola amigo
+      - hola, necesito ayuda
+      - hola, tengo una duda
+      - adiós
+      - chao
+      - chau
+      - hasta luego
+      - nos vemos
+      - bye
+      - gracias, eso es todo
+      - me despido
+      - hablamos después
+      - hasta pronto
+      - hasta la próxima
+      - que estés bien
+      - cuídate
+      - me voy
+      - gracias, nos vemos
+      - gracias por la ayuda, hasta luego
+      - eso era todo, gracias
+      - listo, gracias
+      - bueno, adiós
+      - hasta entonces
+      - fue todo, muchas gracias
+      - cierro sesión
+      - desconecto por ahora
+      - seguimos luego
+      - hablamos más tarde
+      - gracias, hablamos pronto
+      - terminamos por hoy
+      - gracias
+      - muchas gracias
+      - mil gracias
+      - muchísimas gracias
+      - infinitas gracias
+      - te agradezco
+      - te agradezco mucho
+      - se agradece
+      - muy amable
+      - muy agradecido
+      - estoy agradecido
+      - gracias por tu ayuda
+      - gracias por todo
+      - gracias de verdad
+      - gracias por la información
+      - gracias por responder
+      - gracias por el dato
+      - gracias por el soporte
+      - gracias por estar pendiente
+      - gracias por aclararme la duda
+      - muchas gracias por asistirme
+      - gracias por explicarlo
+      - agradezco tu apoyo
+      - agradezco mucho tu atención
+      - te agradezco la ayuda
+      - te agradezco tu tiempo
+      - valoro mucho tu ayuda
+      - necesito ayuda
+      - ¿puedes ayudarme?
+      - ayúdame por favor
+      - estoy perdido, necesito ayuda
+      - no sé qué hacer
+      - como funciona esto
+      - ¿cómo me puedes asistir?
+      - ¿me explicas cómo funciona?
+      - ¿puedes decirme cómo se usa esto?
+      - dime cómo usar el sistema
+      - no entiendo cómo usarlo
+      - ¿cómo puedo empezar?
+      - ¿cómo empiezo?
+      - ¿me das una guía?
+      - ¿qué opciones tengo?
+      - ¿qué herramientas tienes?
+      - ¿qué sabes hacer?
+      - ¿que puedes hacer?
+      - ¿para qué sirves?
+      - dime tus funciones
+      - ¿cuáles son tus funciones?
+      - explícame tus capacidades
+      - muéstrame lo que puedes hacer
+      - ¿con qué puedes asistirme?
+      - no se como usar esto
+      - ¿me puedes guiar?
+      - ¿me enseñas a usar esto?
+  - intent: affirm
+    examples: |
+      - sí
+      - claro
+      - por supuesto
+      - correcto
+      - exacto
+      - ok
+      - dale
+      - afirmativo
+      - obvio
+      - seguro
+      - desde luego
+      - sí, hazlo
+      - sí, por favor
+      - sí quiero
+      - confirmado
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - para nada
+      - negativo
+      - no quiero
+      - no gracias
+      - no es eso
+      - en absoluto
+      - de ninguna manera
+      - ni hablar
+      - no deseo eso
+      - no hace falta
+      - prefiero que no
+      - mejor no
+      - eso no
+      - no me interesa
+
+synonyms:
+  tarjeta débito:
+    - débito
+    - debito
+    - tarjeta debito
+    - tarjeta de débito
+    - con tarjeta débito
+    - con débito
+    - con debito
+    - débito bancario
+    - con débito bancario
+    - usando débito
+    - débito directo
+
+  tarjeta crédito:
+    - crédito
+    - credito
+    - tarjeta credito
+    - tarjeta de crédito
+    - con tarjeta de crédito
+    - con crédito
+    - con credito
+    - usando crédito
+    - crédito bancario
+    - con crédito bancario
+    - pago con crédito
+
+  efectivo:
+    - en efectivo
+    - con efectivo
+    - efectivo en mano
+    - pagado en efectivo
+    - pago en efectivo
+    - usando efectivo

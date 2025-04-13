@@ -1,0 +1,118 @@
+version: "3.1"
+
+rules:
+
+- rule: Analizar o Clasificar Gastos
+  steps:
+    - intent: analizar_o_clasificar_gastos
+    - action: action_analizar_o_clasificar_gastos
+
+- rule: Clasificar Gasto
+  steps:
+    - intent: analizar_o_clasificar_gastos
+    - action: action_analizar_o_clasificar_gastos
+
+- rule: Comparar Meses
+  steps:
+    - intent: comparar_meses
+    - action: action_comparar_meses
+
+- rule: Consultar Configuración
+  steps:
+    - intent: consultar_configuracion
+    - action: action_consultar_configuracion
+
+- rule: Consultar Gasto
+  steps:
+    - intent: consultar_informacion_financiera
+    - action: action_consultar_informacion_financiera
+
+- rule: Consultar Ingreso
+  steps:
+    - intent: consultar_informacion_financiera
+    - action: action_consultar_informacion_financiera
+
+- rule: Consultar Resumen Mensual
+  steps:
+    - intent: consultar_informacion_financiera
+    - action: action_consultar_informacion_financiera
+
+- rule: Consultar Saldo
+  steps:
+    - intent: consultar_informacion_financiera
+    - action: action_consultar_informacion_financiera
+
+- rule: Gestionar Presupuesto o Alerta
+  steps:
+    - intent: gestionar_configuracion
+    - action: action_gestionar_configuracion
+
+- rule: Eliminar Configuración
+  steps:
+    - intent: gestionar_configuracion
+    - action: action_gestionar_configuracion
+
+- rule: Entrada No Entendida
+  steps:
+    - intent: entrada_no_entendida
+    - action: action_entrada_no_entendida
+
+- rule: Exportar Información
+  steps:
+    - intent: exportar_informacion
+    - action: action_exportar_informacion
+
+- rule: Registrar Gasto
+  steps:
+    - intent: registrar_gasto
+    - action: action_registrar_gasto
+
+- rule: Registrar Ingreso
+  steps:
+    - intent: registrar_ingreso
+    - action: action_registrar_ingreso
+
+- rule: Resetear Categoría de Gastos
+  steps:
+    - intent: resetear_categoria_gastos
+    - action: action_resetear_categoria_gastos
+
+- rule: Ver Historial Completo
+  steps:
+    - intent: ver_historial_completo
+    - action: action_ver_historial_completo
+
+- rule: Saludo
+  steps:
+    - intent: interaccion_general
+    - action: utter_interaccion_general
+
+- rule: Despedida
+  steps:
+    - intent: interaccion_general
+    - action: utter_interaccion_general
+
+- rule: Agradecimiento
+  steps:
+    - intent: interaccion_general
+    - action: utter_interaccion_general
+
+- rule: Ayuda
+  steps:
+    - intent: interaccion_general
+    - action: utter_interaccion_general
+
+- rule: Ejecutar sugerencia después de afirmación
+  steps:
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- rule: Rechazar sugerencia
+  steps:
+    - intent: deny
+    - action: utter_ok_no_problem
+
+- rule: Después de seguir la sugerencia
+  steps:
+    - action: action_follow_suggestion
+    - action: action_listen
