@@ -1,2 +1,71 @@
 [
+  {
+    "tipo": "ingreso",
+    "monto": 950.0,
+    "categoria": "consultoría",
+    "fecha": "12 de abril",
+    "medio": null,
+    "dia": 12,
+    "mes": "abril",
+    "año": 2025,
+    "timestamp": "2025-04-16T00:58:31.879917",
+    "status": 1
+  },
+  {
+    "tipo": "ingreso",
+    "monto": 1100.0,
+    "categoria": "freelance",
+    "fecha": "16/04/2025",
+    "medio": "tarjeta débito",
+    "dia": 16,
+    "mes": "abril",
+    "año": 2025,
+    "timestamp": "2025-04-16T01:00:10.311514",
+    "status": 1
+  },
+  {
+    "tipo": "ingreso",
+    "monto": 1500.0,
+    "categoria": "sueldo",
+    "fecha": "1/03/2024",
+    "medio": null,
+    "dia": 1,
+    "mes": "marzo",
+    "año": 2024,
+    "timestamp": "2025-04-16T01:00:30.536828",
+    "status": 1
+  },
+  {
+    "tipo": "gasto",
+    "monto": 50.0,
+    "categoria": "restaurantes",
+    "fecha": "5 de marzo",
+    "medio": null,
+    "descripcion": "gaste 50 soles en restaurantes el 5 de marzo",
+    "dia": 5,
+    "mes": "marzo",
+    "año": 2025,
+    "timestamp": "2025-04-16T01:01:53.598127",
+    "status": 1
+  },
+  {
+    "tipo": "entrada_no_entendida",
+    "descripcion": "si",
+    "timestamp": "2025-04-16T01:34:31.414096",
+    "fecha": "16/04/2025",
+    "dia": 16,
+    "mes": "abril",
+    "año": 2025,
+    "status": 1
+  },
+  {
+    "tipo": "entrada_no_entendida",
+    "descripcion": "Consulta",
+    "timestamp": "2025-04-16T01:38:12.755315",
+    "fecha": "16/04/2025",
+    "dia": 16,
+    "mes": "abril",
+    "año": 2025,
+    "status": 1
+  }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "categoria": "salud",
+    "monto": 350.0,
+    "periodo": "mayo de 2024",
+    "status": 1,
+    "timestamp": "2025-04-16T01:18:00.121793"
+  },
+  {
+    "categoria": "restaurantes",
+    "periodo": "marzo 2025",
+    "monto": 0.0,
+    "timestamp": "2025-04-16T01:20:40.828594",
+    "status": 1
+  }
+]

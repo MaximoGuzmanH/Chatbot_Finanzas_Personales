@@ -2,15 +2,10 @@ version: "3.1"
 
 stories:
 
-- story: flujo_analizar_o_clasificar_gastos
+- story: flujo_analizar_gastos
   steps:
-    - intent: analizar_o_clasificar_gastos
-    - action: action_analizar_o_clasificar_gastos
-
-- story: flujo_analizar_o_clasificar_gastos
-  steps:
-    - intent: analizar_o_clasificar_gastos
-    - action: action_analizar_o_clasificar_gastos
+    - intent: analizar_gastos
+    - action: action_analizar_gastos
 
 - story: flujo_comparar_meses
   steps:
@@ -27,40 +22,30 @@ stories:
     - intent: consultar_informacion_financiera
     - action: action_consultar_informacion_financiera
 
-- story: flujo_consultar_informacion_financiera
+- story: flujo_crear_configuracion
   steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
+    - intent: crear_configuracion
+    - action: action_crear_configuracion
 
-- story: flujo_consultar_informacion_financiera
+- story: flujo_modificar_configuracion
   steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
+    - intent: modificar_configuracion
+    - action: action_modificar_configuracion
 
-- story: flujo_consultar_informacion_financiera
+- story: flujo_eliminar_configuracion
   steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
-
-- story: flujo_gestionar_configuracion
-  steps:
-    - intent: gestionar_configuracion
-    - action: action_gestionar_configuracion
-
-- story: flujo_gestionar_configuracion
-  steps:
-    - intent: gestionar_configuracion
-    - action: action_gestionar_configuracion
+    - intent: eliminar_configuracion
+    - action: action_eliminar_configuracion
 
 - story: flujo_entrada_no_entendida
   steps:
     - intent: entrada_no_entendida
     - action: action_entrada_no_entendida
 
-- story: flujo_exportar_informacion
+- story: flujo_ver_historial_completo
   steps:
-    - intent: exportar_informacion
-    - action: action_exportar_informacion
+    - intent: ver_historial_completo
+    - action: action_ver_historial_completo
 
 - story: flujo_registrar_gasto
   steps:
@@ -115,20 +100,109 @@ stories:
     - intent: affirm
     - action: action_follow_suggestion
 
-- story: flujo_consultar_informacion_financiera con sugerencia
+- story: flujo_usuario_rechaza_sugerencia
   steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
+    - intent: registrar_gasto
+      entities:
+        - monto: "150"
+        - categoria: "transporte"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
     - slot_was_set:
-        - sugerencia_pendiente: "action_analizar_o_clasificar_gastos"
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: utter_ok_no_problem
+
+- story: flujo_registrar_gasto con sugerencia rechazada
+  steps:
+    - intent: registrar_gasto
+      entities:
+        - monto: "200"
+        - categoria: "comida"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: utter_ok_no_problem
+
+- story: flujo_registrar_ingreso con sugerencia rechazada
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "1000"
+        - categoria: "sueldo"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: utter_ok_no_problem
+
+- story: flujo_registrar_gasto con sugerencia rechazada y nueva sugerencia aceptada
+  steps:
+    - intent: registrar_gasto
+      entities:
+        - monto: "300"
+        - categoria: "ocio"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: utter_ok_no_problem
+    - slot_was_set:
+        - sugerencia_pendiente: "action_analizar_gastos"
     - intent: affirm
     - action: action_follow_suggestion
 
-- story: flujo_consultar_informacion_financiera con sugerencia
+- story: flujo_registrar_ingreso con sugerencia rechazada y nueva sugerencia aceptada
   steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
+    - intent: registrar_ingreso
+      entities:
+        - monto: "1500"
+        - categoria: "freelance"
+        - fecha: "marzo"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: utter_ok_no_problem
     - slot_was_set:
         - sugerencia_pendiente: "action_comparar_meses"
     - intent: affirm
     - action: action_follow_suggestion
+
+- story: flujo_registrar_ingreso con rechazo sin nueva sugerencia
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "700"
+        - categoria: "bono"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: utter_ok_no_problem
+
+- story: flujo_saludo
+  steps:
+    - intent: saludo
+    - action: action_bienvenida
+
+- story: flujo_despedida
+  steps:
+    - intent: despedida
+    - action: utter_despedida
+
+- story: flujo_ayuda_general
+  steps:
+    - intent: ayuda_general
+    - action: utter_ayuda_general

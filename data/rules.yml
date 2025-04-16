@@ -4,13 +4,8 @@ rules:
 
 - rule: Analizar o Clasificar Gastos
   steps:
-    - intent: analizar_o_clasificar_gastos
-    - action: action_analizar_o_clasificar_gastos
-
-- rule: Clasificar Gasto
-  steps:
-    - intent: analizar_o_clasificar_gastos
-    - action: action_analizar_o_clasificar_gastos
+    - intent: analizar_gastos
+    - action: action_analizar_gastos
 
 - rule: Comparar Meses
   steps:
@@ -22,35 +17,25 @@ rules:
     - intent: consultar_configuracion
     - action: action_consultar_configuracion
 
-- rule: Consultar Gasto
-  steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
-
-- rule: Consultar Ingreso
-  steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
-
-- rule: Consultar Resumen Mensual
-  steps:
-    - intent: consultar_informacion_financiera
-    - action: action_consultar_informacion_financiera
-
 - rule: Consultar Saldo
   steps:
     - intent: consultar_informacion_financiera
     - action: action_consultar_informacion_financiera
 
-- rule: Gestionar Presupuesto o Alerta
+- rule: Crear Configuración de Presupuesto o Alerta
   steps:
-    - intent: gestionar_configuracion
-    - action: action_gestionar_configuracion
+    - intent: crear_configuracion
+    - action: action_crear_configuracion
 
-- rule: Eliminar Configuración
+- rule: Modificar Configuración de Presupuesto o Alerta
   steps:
-    - intent: gestionar_configuracion
-    - action: action_gestionar_configuracion
+    - intent: modificar_configuracion
+    - action: action_modificar_configuracion
+
+- rule: Eliminar Configuración de Presupuesto o Alerta
+  steps:
+    - intent: eliminar_configuracion
+    - action: action_eliminar_configuracion
 
 - rule: Entrada No Entendida
   steps:
@@ -59,8 +44,8 @@ rules:
 
 - rule: Exportar Información
   steps:
-    - intent: exportar_informacion
-    - action: action_exportar_informacion
+    - intent: ver_historial_completo
+    - action: action_ver_historial_completo
 
 - rule: Registrar Gasto
   steps:
@@ -82,27 +67,12 @@ rules:
     - intent: ver_historial_completo
     - action: action_ver_historial_completo
 
-- rule: Saludo
-  steps:
-    - intent: interaccion_general
-    - action: utter_interaccion_general
-
-- rule: Despedida
-  steps:
-    - intent: interaccion_general
-    - action: utter_interaccion_general
-
-- rule: Agradecimiento
-  steps:
-    - intent: interaccion_general
-    - action: utter_interaccion_general
-
-- rule: Ayuda
-  steps:
-    - intent: interaccion_general
-    - action: utter_interaccion_general
+# 🔁 Reglas de conversación generales
 
 - rule: Ejecutar sugerencia después de afirmación
+  condition:
+    - slot_was_set:
+        - sugerencia_pendiente: true
   steps:
     - intent: affirm
     - action: action_follow_suggestion
@@ -116,3 +86,18 @@ rules:
   steps:
     - action: action_follow_suggestion
     - action: action_listen
+
+- rule: Responder a una despedida
+  steps:
+    - intent: despedida
+    - action: utter_despedida
+
+- rule: Proveer ayuda general
+  steps:
+    - intent: ayuda_general
+    - action: utter_ayuda_general
+
+- rule: Saludo con bienvenida
+  steps:
+    - intent: saludo
+    - action: action_bienvenida

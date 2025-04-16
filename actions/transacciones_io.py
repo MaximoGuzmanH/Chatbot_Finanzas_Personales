@@ -5,20 +5,21 @@ from datetime import datetime
 # Ruta absoluta al archivo transacciones.json
 RUTA_ARCHIVO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "transacciones.json")
 
-def cargar_transacciones():
+def cargar_transacciones(filtrar_activos=True):
     if not os.path.exists(RUTA_ARCHIVO):
         return []
     try:
         with open(RUTA_ARCHIVO, "r", encoding="utf-8") as f:
-            return json.load(f)
+            transacciones = json.load(f)
+            if filtrar_activos:
+                transacciones = [t for t in transacciones if t.get("status", 1) == 1]
+            return transacciones
     except json.JSONDecodeError:
-        # Si el archivo está vacío o mal formado, retornamos una lista vacía
         return []
 
 def guardar_transaccion(transaccion):
-    transacciones = cargar_transacciones()
+    transacciones = cargar_transacciones(filtrar_activos=False)
 
-    # Fecha en formato actual
     ahora = datetime.now()
 
     # Si no se proporciona fecha, se usa la actual
@@ -27,14 +28,12 @@ def guardar_transaccion(transaccion):
         fecha_str = ahora.strftime("%d/%m/%Y")
         transaccion["fecha"] = fecha_str
 
-    # Intentar extraer día, mes y año de la fecha
     try:
-        # Soporta fechas tipo '5 de marzo', '05/03/2024', etc.
         if "de" in fecha_str:
             partes = fecha_str.lower().split(" de ")
             dia = int(partes[0])
             mes = partes[1]
-            año = ahora.year  # Asumimos año actual
+            año = ahora.year
         else:
             dia, mes_num, año = map(int, fecha_str.split("/"))
             meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
@@ -51,7 +50,41 @@ def guardar_transaccion(transaccion):
     transaccion["mes"] = mes
     transaccion["año"] = año
     transaccion["timestamp"] = ahora.isoformat()
+    transaccion["status"] = transaccion.get("status", 1)  # 👈 importante aquí
 
     transacciones.append(transaccion)
     with open(RUTA_ARCHIVO, "w", encoding="utf-8") as f:
         json.dump(transacciones, f, ensure_ascii=False, indent=2)
+        
+def eliminar_transaccion_logicamente(condiciones):
+    """
+    Marca como inactiva (status = 0) la primera transacción que coincida con las condiciones dadas.
+
+    condiciones: diccionario con los campos clave que deben coincidir. Ejemplo:
+        {
+            "tipo": "alerta",
+            "categoria": "ropa",
+            "periodo": "abril"
+        }
+    """
+    transacciones = cargar_transacciones(filtrar_activos=False)  # Trae todas, incluso inactivas
+    modificada = False
+
+    for transaccion in transacciones:
+        if transaccion.get("status", 1) == 0:
+            continue  # Ya está desactivada
+
+        coincide = all(transaccion.get(k) == v for k, v in condiciones.items())
+        if coincide:
+            transaccion["status"] = 0
+            transaccion["timestamp_modificacion"] = datetime.now().isoformat()
+            modificada = True
+            break
+
+    if modificada:
+        with open(RUTA_ARCHIVO, "w", encoding="utf-8") as f:
+            json.dump(transacciones, f, ensure_ascii=False, indent=2)
+        print(f"[INFO] Transacción eliminada lógicamente: {condiciones}")
+    else:
+        print(f"[WARN] No se encontró ninguna transacción activa que coincida con: {condiciones}")
+
