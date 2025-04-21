@@ -1,0 +1,187 @@
+{
+  "analizar_gastos": {
+    "precision": 0.9007832898172323,
+    "recall": 0.8984375,
+    "f1-score": 0.8996088657105606,
+    "support": 384,
+    "confused_with": {
+      "consultar_informacion_financiera": 20,
+      "comparar_meses": 10
+    }
+  },
+  "despedida": {
+    "precision": 0.9482758620689655,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.8870967741935484,
+    "support": 66,
+    "confused_with": {
+      "deny": 3,
+      "affirm": 3
+    }
+  },
+  "modificar_configuracion": {
+    "precision": 0.9716981132075472,
+    "recall": 0.9856459330143541,
+    "f1-score": 0.9786223277909739,
+    "support": 209,
+    "confused_with": {
+      "crear_configuracion": 3
+    }
+  },
+  "registrar_ingreso": {
+    "precision": 0.9788732394366197,
+    "recall": 0.9788732394366197,
+    "f1-score": 0.9788732394366197,
+    "support": 142,
+    "confused_with": {
+      "registrar_gasto": 2,
+      "consultar_informacion_financiera": 1
+    }
+  },
+  "deny": {
+    "precision": 0.8153846153846154,
+    "recall": 0.9137931034482759,
+    "f1-score": 0.8617886178861788,
+    "support": 58,
+    "confused_with": {
+      "entrada_no_entendida": 4,
+      "consultar_configuracion": 1
+    }
+  },
+  "entrada_no_entendida": {
+    "precision": 0.8525641025641025,
+    "recall": 0.8417721518987342,
+    "f1-score": 0.8471337579617834,
+    "support": 158,
+    "confused_with": {
+      "consultar_informacion_financiera": 5,
+      "deny": 5
+    }
+  },
+  "affirm": {
+    "precision": 0.8837209302325582,
+    "recall": 0.6909090909090909,
+    "f1-score": 0.7755102040816326,
+    "support": 55,
+    "confused_with": {
+      "entrada_no_entendida": 9,
+      "saludo": 3
+    }
+  },
+  "consultar_configuracion": {
+    "precision": 0.9548872180451128,
+    "recall": 0.9883268482490273,
+    "f1-score": 0.9713193116634798,
+    "support": 257,
+    "confused_with": {
+      "ver_historial_completo": 1,
+      "consultar_informacion_financiera": 1
+    }
+  },
+  "consultar_informacion_financiera": {
+    "precision": 0.9104477611940298,
+    "recall": 0.8970588235294118,
+    "f1-score": 0.9037037037037037,
+    "support": 476,
+    "confused_with": {
+      "analizar_gastos": 23,
+      "ver_historial_completo": 13
+    }
+  },
+  "resetear_categoria_gastos": {
+    "precision": 0.9724137931034482,
+    "recall": 0.9527027027027027,
+    "f1-score": 0.9624573378839592,
+    "support": 148,
+    "confused_with": {
+      "eliminar_configuracion": 5,
+      "ver_historial_completo": 1
+    }
+  },
+  "ver_historial_completo": {
+    "precision": 0.8926829268292683,
+    "recall": 0.9432989690721649,
+    "f1-score": 0.9172932330827066,
+    "support": 194,
+    "confused_with": {
+      "consultar_informacion_financiera": 9,
+      "analizar_gastos": 1
+    }
+  },
+  "ayuda_general": {
+    "precision": 0.8636363636363636,
+    "recall": 0.76,
+    "f1-score": 0.8085106382978724,
+    "support": 75,
+    "confused_with": {
+      "analizar_gastos": 7,
+      "ver_historial_completo": 2
+    }
+  },
+  "saludo": {
+    "precision": 0.8947368421052632,
+    "recall": 0.85,
+    "f1-score": 0.8717948717948718,
+    "support": 60,
+    "confused_with": {
+      "entrada_no_entendida": 5,
+      "analizar_gastos": 1
+    }
+  },
+  "crear_configuracion": {
+    "precision": 0.9723502304147466,
+    "recall": 0.9768518518518519,
+    "f1-score": 0.97459584295612,
+    "support": 216,
+    "confused_with": {
+      "modificar_configuracion": 4,
+      "eliminar_configuracion": 1
+    }
+  },
+  "eliminar_configuracion": {
+    "precision": 0.966824644549763,
+    "recall": 0.9855072463768116,
+    "f1-score": 0.9760765550239234,
+    "support": 207,
+    "confused_with": {
+      "crear_configuracion": 1,
+      "resetear_categoria_gastos": 1
+    }
+  },
+  "comparar_meses": {
+    "precision": 0.9692780337941628,
+    "recall": 0.9752704791344667,
+    "f1-score": 0.9722650231124808,
+    "support": 647,
+    "confused_with": {
+      "analizar_gastos": 6,
+      "consultar_informacion_financiera": 4
+    }
+  },
+  "registrar_gasto": {
+    "precision": 0.9781021897810219,
+    "recall": 1.0,
+    "f1-score": 0.988929889298893,
+    "support": 268,
+    "confused_with": {}
+  },
+  "accuracy": 0.938121546961326,
+  "macro avg": {
+    "precision": 0.9250976562449895,
+    "recall": 0.9101047807621674,
+    "f1-score": 0.9162105996399594,
+    "support": 3620
+  },
+  "weighted avg": {
+    "precision": 0.9378238743573701,
+    "recall": 0.938121546961326,
+    "f1-score": 0.9375138153529079,
+    "support": 3620
+  },
+  "micro avg": {
+    "precision": 0.938121546961326,
+    "recall": 0.938121546961326,
+    "f1-score": 0.938121546961326,
+    "support": 3620
+  }
+}

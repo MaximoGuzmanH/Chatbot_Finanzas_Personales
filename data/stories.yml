@@ -2,6 +2,10 @@ version: "3.1"
 
 stories:
 
+# ══════════════════════════════════════════════
+# 🔧 FUNCIONALES DIRECTOS POR INTENCIÓN
+# ══════════════════════════════════════════════
+
 - story: flujo_analizar_gastos
   steps:
     - intent: analizar_gastos
@@ -27,10 +31,19 @@ stories:
     - intent: crear_configuracion
     - action: action_crear_configuracion
 
-- story: flujo_modificar_configuracion
+- story: flujo_modificar_configuracion_confirmada
   steps:
     - intent: modificar_configuracion
     - action: action_modificar_configuracion
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: flujo_modificar_configuracion_cancelada
+  steps:
+    - intent: modificar_configuracion
+    - action: action_modificar_configuracion
+    - intent: deny
+    - action: action_negacion
 
 - story: flujo_eliminar_configuracion
   steps:
@@ -62,135 +75,9 @@ stories:
     - intent: resetear_categoria_gastos
     - action: action_resetear_categoria_gastos
 
-- story: flujo_ver_historial_completo
-  steps:
-    - intent: ver_historial_completo
-    - action: action_ver_historial_completo
-
-- story: El usuario acepta la sugerencia del bot
-  steps:
-    - intent: affirm
-    - action: action_follow_suggestion
-
-- story: flujo_registrar_ingreso con sugerencia
-  steps:
-    - intent: registrar_ingreso
-      entities:
-        - monto: "500"
-        - categoria: "sueldo"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_ingreso
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: affirm
-    - action: action_follow_suggestion
-
-- story: flujo_registrar_gasto con sugerencia
-  steps:
-    - intent: registrar_gasto
-      entities:
-        - monto: "120"
-        - categoria: "comida"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_gasto
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: affirm
-    - action: action_follow_suggestion
-
-- story: flujo_usuario_rechaza_sugerencia
-  steps:
-    - intent: registrar_gasto
-      entities:
-        - monto: "150"
-        - categoria: "transporte"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_gasto
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: deny
-    - action: utter_ok_no_problem
-
-- story: flujo_registrar_gasto con sugerencia rechazada
-  steps:
-    - intent: registrar_gasto
-      entities:
-        - monto: "200"
-        - categoria: "comida"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_gasto
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: deny
-    - action: utter_ok_no_problem
-
-- story: flujo_registrar_ingreso con sugerencia rechazada
-  steps:
-    - intent: registrar_ingreso
-      entities:
-        - monto: "1000"
-        - categoria: "sueldo"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_ingreso
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: deny
-    - action: utter_ok_no_problem
-
-- story: flujo_registrar_gasto con sugerencia rechazada y nueva sugerencia aceptada
-  steps:
-    - intent: registrar_gasto
-      entities:
-        - monto: "300"
-        - categoria: "ocio"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_gasto
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: deny
-    - action: utter_ok_no_problem
-    - slot_was_set:
-        - sugerencia_pendiente: "action_analizar_gastos"
-    - intent: affirm
-    - action: action_follow_suggestion
-
-- story: flujo_registrar_ingreso con sugerencia rechazada y nueva sugerencia aceptada
-  steps:
-    - intent: registrar_ingreso
-      entities:
-        - monto: "1500"
-        - categoria: "freelance"
-        - fecha: "marzo"
-        - medio: "debito"
-    - action: action_registrar_ingreso
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: deny
-    - action: utter_ok_no_problem
-    - slot_was_set:
-        - sugerencia_pendiente: "action_comparar_meses"
-    - intent: affirm
-    - action: action_follow_suggestion
-
-- story: flujo_registrar_ingreso con rechazo sin nueva sugerencia
-  steps:
-    - intent: registrar_ingreso
-      entities:
-        - monto: "700"
-        - categoria: "bono"
-        - fecha: "abril"
-        - medio: "debito"
-    - action: action_registrar_ingreso
-    - slot_was_set:
-        - sugerencia_pendiente: "action_consultar_informacion_financiera"
-    - intent: deny
-    - action: utter_ok_no_problem
+# ══════════════════════════════════════════════
+# 💬 CONVERSACIONALES
+# ══════════════════════════════════════════════
 
 - story: flujo_saludo
   steps:
@@ -206,3 +93,118 @@ stories:
   steps:
     - intent: ayuda_general
     - action: utter_ayuda_general
+
+# ══════════════════════════════════════════════
+# 🤖 SUGERENCIAS DEL BOT: FLUJOS DINÁMICOS
+# ══════════════════════════════════════════════
+
+- story: sugerencia aceptada
+  steps:
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: registrar_ingreso con sugerencia aceptada
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "500"
+        - categoria: "sueldo"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: registrar_gasto con sugerencia aceptada
+  steps:
+    - intent: registrar_gasto
+      entities:
+        - monto: "120"
+        - categoria: "comida"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: registrar_ingreso con sugerencia rechazada
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "1000"
+        - categoria: "sueldo"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: action_negacion
+
+- story: registrar_gasto con sugerencia rechazada
+  steps:
+    - intent: registrar_gasto
+      entities:
+        - monto: "200"
+        - categoria: "comida"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: action_negacion
+
+- story: registrar_gasto con sugerencia rechazada y nueva sugerencia aceptada
+  steps:
+    - intent: registrar_gasto
+      entities:
+        - monto: "300"
+        - categoria: "ocio"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_gasto
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: action_negacion
+    - slot_was_set:
+        - sugerencia_pendiente: "action_analizar_gastos"
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: registrar_ingreso con sugerencia rechazada y nueva sugerencia aceptada
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "1500"
+        - categoria: "freelance"
+        - fecha: "marzo"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: action_negacion
+    - slot_was_set:
+        - sugerencia_pendiente: "action_comparar_meses"
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- story: registrar_ingreso con rechazo sin nueva sugerencia
+  steps:
+    - intent: registrar_ingreso
+      entities:
+        - monto: "700"
+        - categoria: "bono"
+        - fecha: "abril"
+        - medio: "debito"
+    - action: action_registrar_ingreso
+    - slot_was_set:
+        - sugerencia_pendiente: "action_consultar_informacion_financiera"
+    - intent: deny
+    - action: action_negacion

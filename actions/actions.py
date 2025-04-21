@@ -62,48 +62,66 @@ class ActionRegistrarGasto(Action):
         try:
             texto_usuario = tracker.latest_message.get("text", "").lower()
 
+            # Establecer el tipo en el slot para mantener el contexto
+            tipo_actual = tracker.get_slot("tipo") or "gasto"
+
             monto_raw = get_entity(tracker, "monto") or tracker.get_slot("monto")
             categoria = get_entity(tracker, "categoria") or tracker.get_slot("categoria")
             fecha_raw = get_entity(tracker, "fecha") or tracker.get_slot("fecha")
             medio = get_entity(tracker, "medio") or tracker.get_slot("medio")
 
-            # Validar monto
+            campos_faltantes = []
             if not monto_raw:
-                guardar_transaccion({
-                    "tipo": "entrada_incompleta",
-                    "descripcion": texto_usuario,
-                    "timestamp": datetime.now().isoformat()
-                })
-                dispatcher.utter_message(text="No entendí el monto del gasto. ¿Podrías repetirlo?")
-                return []
+                campos_faltantes.append("monto")
+            if not categoria:
+                campos_faltantes.append("categoría")
+            if not medio:
+                campos_faltantes.append("medio")
+
+            # Preguntar por los campos faltantes sin guardar aún
+            if campos_faltantes:
+                mensaje = "Para registrar tu gasto, necesito también:\n"
+                for campo in campos_faltantes:
+                    if campo == "medio":
+                        mensaje += "• ¿Con qué medio realizaste el gasto? (efectivo, débito o crédito)\n"
+                    elif campo == "monto":
+                        mensaje += "• ¿Cuál fue el monto?\n"
+                    elif campo == "categoría":
+                        mensaje += "• ¿En qué categoría clasificarías este gasto?\n"
+
+                dispatcher.utter_message(text=mensaje)
+                return [
+                    SlotSet("tipo", "gasto"),
+                    SlotSet("monto", monto_raw),
+                    SlotSet("categoria", categoria),
+                    SlotSet("fecha", fecha_raw),
+                    SlotSet("medio", medio)
+                ]
 
             monto = parse_monto(monto_raw)
             if monto == 0.0:
-                dispatcher.utter_message(text="El monto ingresado no es válido. Inténtalo de nuevo.")
+                dispatcher.utter_message(text="El monto ingresado no es válido. Intenta nuevamente.")
                 return []
 
-            # Validar categoría
-            if not categoria:
-                dispatcher.utter_message(text="¿En qué categoría deseas registrar este gasto?")
-                return []
+            # Procesamiento de fecha
+            if not fecha_raw:
+                fecha_raw = datetime.now().strftime("%d/%m/%Y")
+            elif len(fecha_raw.split("/")) == 2:
+                fecha_raw += f"/{datetime.now().year}"
+            fecha = formatear_fecha(fecha_raw)
 
-            # Interpretar y estandarizar fecha
-            fecha = formatear_fecha(fecha_raw or texto_usuario)
-
-            # Crear objeto de transacción
             transaccion = {
                 "tipo": "gasto",
                 "monto": monto,
                 "categoria": categoria,
                 "fecha": fecha,
-                "medio": medio,
-                "descripcion": texto_usuario
+                "medio": medio
             }
 
             guardar_transaccion(transaccion)
             mes_actual = transaccion.get("mes", "").lower()
 
-            # Verificar alertas activas
+            # Verificar alertas
             alertas = cargar_alertas()
             alertas_activas = [
                 a for a in alertas
@@ -120,7 +138,6 @@ class ActionRegistrarGasto(Action):
                     and t.get("categoria", "").lower() == categoria.lower()
                     and t.get("mes", "").lower() == mes_actual
                 )
-
                 if total_categoria > limite:
                     exceso = total_categoria - limite
                     dispatcher.utter_message(
@@ -128,16 +145,20 @@ class ActionRegistrarGasto(Action):
                              f"Te has excedido por {exceso:.2f} soles."
                     )
 
-            # Confirmación al usuario
-            respuesta = f"💸 Gasto registrado:\n• Monto: {monto:.2f} soles\n• Categoría: {categoria}"
-            if fecha:
-                respuesta += f"\n• Fecha: {fecha}"
-            if medio:
-                respuesta += f"\n• Medio: {medio}"
-            respuesta += "\n\n¿Deseas registrar otro gasto o consultar tu saldo?"
+            # Confirmación clara
+            mensaje = (
+                f"💸 Gasto registrado:\n"
+                f"• Monto: {monto:.2f} soles\n"
+                f"• Categoría: {categoria}\n"
+                f"• Fecha: {fecha}\n"
+                f"• Medio: {medio}\n\n"
+                f"¿Deseas registrar otro gasto o consultar tu saldo?"
+            )
 
-            dispatcher.utter_message(text=respuesta)
+            dispatcher.utter_message(text=mensaje)
+
             return [
+                SlotSet("tipo", None),
                 SlotSet("sugerencia_pendiente", "action_consultar_saldo"),
                 SlotSet("categoria", None),
                 SlotSet("monto", None),
@@ -156,26 +177,52 @@ class ActionRegistrarIngreso(Action):
 
     def run(self, dispatcher, tracker, domain):
         try:
+            texto_usuario = tracker.latest_message.get("text", "").lower()
+            tipo_actual = tracker.get_slot("tipo") or "ingreso"
+
             monto_raw = get_entity(tracker, "monto") or tracker.get_slot("monto")
             categoria = get_entity(tracker, "categoria") or tracker.get_slot("categoria")
-            fecha = get_entity(tracker, "fecha") or tracker.get_slot("fecha")
+            fecha_raw = get_entity(tracker, "fecha") or tracker.get_slot("fecha")
             medio = get_entity(tracker, "medio") or tracker.get_slot("medio")
 
+            campos_faltantes = []
             if not monto_raw:
-                dispatcher.utter_message(text="No entendí el monto del ingreso. ¿Podrías repetirlo?")
-                return []
+                campos_faltantes.append("monto")
+            if not categoria:
+                campos_faltantes.append("categoría")
+            if not medio:
+                campos_faltantes.append("medio")
+
+            if campos_faltantes:
+                mensaje = "Para registrar tu ingreso, necesito también:\n"
+                for campo in campos_faltantes:
+                    if campo == "medio":
+                        mensaje += "• ¿Con qué medio recibiste el ingreso? (efectivo, tarjeta de débito, etc.)\n"
+                    elif campo == "monto":
+                        mensaje += "• ¿Cuál fue el monto?\n"
+                    elif campo == "categoría":
+                        mensaje += "• ¿Qué tipo de ingreso fue? (sueldo, venta, etc.)\n"
+
+                dispatcher.utter_message(text=mensaje)
+                return [
+                    SlotSet("tipo", "ingreso"),
+                    SlotSet("monto", monto_raw),
+                    SlotSet("categoria", categoria),
+                    SlotSet("fecha", fecha_raw),
+                    SlotSet("medio", medio)
+                ]
 
             monto = parse_monto(monto_raw)
             if monto == 0.0:
-                dispatcher.utter_message(text="El monto ingresado no es válido. Inténtalo de nuevo.")
+                dispatcher.utter_message(text="El monto ingresado no es válido. Intenta nuevamente.")
                 return []
 
-            if not categoria:
-                dispatcher.utter_message(text="¿Cuál es la categoría de este ingreso?")
-                return []
-
-            if fecha and len(fecha.split("/")) == 2:
-                fecha += f"/{datetime.now().year}"
+            # Procesamiento de fecha
+            if not fecha_raw:
+                fecha_raw = datetime.now().strftime("%d/%m/%Y")
+            elif len(fecha_raw.split("/")) == 2:
+                fecha_raw += f"/{datetime.now().year}"
+            fecha = formatear_fecha(fecha_raw)
 
             transaccion = {
                 "tipo": "ingreso",
@@ -187,13 +234,19 @@ class ActionRegistrarIngreso(Action):
 
             guardar_transaccion(transaccion)
 
-            respuesta = f"Tu ingreso de {monto} soles por {categoria} ha sido registrado."
-            if fecha:
-                respuesta += f" Fecha: {fecha}."
-            respuesta += " ¿Te gustaría consultar tu saldo o registrar otro ingreso?"
+            mensaje = (
+                f"💰 Ingreso registrado:\n"
+                f"• Monto: {monto:.2f} soles\n"
+                f"• Categoría: {categoria}\n"
+                f"• Fecha: {fecha}\n"
+                f"• Medio: {medio}\n\n"
+                f"¿Deseas registrar otro ingreso o consultar tu saldo?"
+            )
 
-            dispatcher.utter_message(text=respuesta)
+            dispatcher.utter_message(text=mensaje)
+
             return [
+                SlotSet("tipo", None),
                 SlotSet("sugerencia_pendiente", "action_consultar_saldo"),
                 SlotSet("categoria", None),
                 SlotSet("monto", None),
@@ -247,55 +300,60 @@ class ActionVerHistorialCompleto(Action):
         return "action_ver_historial_completo"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[EventType]:
-        from actions.transacciones_io import cargar_transacciones
-        from actions import formatear_fecha
+        try:
+            from actions.transacciones_io import cargar_transacciones
+            from actions import formatear_fecha
 
-        transacciones = cargar_transacciones(filtrar_activos=True)
-        periodo = get_entity(tracker, "periodo")
+            transacciones = cargar_transacciones(filtrar_activos=True)
+            periodo = get_entity(tracker, "periodo")
 
-        # Filtrar solo ingresos y gastos
-        transacciones_filtradas = [
-            t for t in transacciones if t.get("tipo") in ["ingreso", "gasto"]
-        ]
-
-        # Si se menciona un periodo, filtrar por 'mes' o por contenido de la fecha
-        if periodo:
-            periodo = periodo.lower()
             transacciones_filtradas = [
-                t for t in transacciones_filtradas
-                if periodo in t.get("fecha", "").lower() or periodo == t.get("mes", "").lower()
+                t for t in transacciones if t.get("tipo") in ["ingreso", "gasto"]
             ]
 
-        if not transacciones_filtradas:
             if periodo:
-                dispatcher.utter_message(text=f"No se encontraron movimientos registrados para el periodo {periodo}.")
-            else:
-                dispatcher.utter_message(text="No se encontraron transacciones registradas.")
+                periodo = periodo.lower()
+                transacciones_filtradas = [
+                    t for t in transacciones_filtradas
+                    if periodo in str(t.get("fecha", "")).lower() or periodo == str(t.get("mes", "")).lower()
+                ]
+
+            if not transacciones_filtradas:
+                mensaje = f"No se encontraron movimientos registrados para el periodo {periodo}." if periodo else "No se encontraron transacciones registradas."
+                dispatcher.utter_message(text=mensaje)
+                return []
+
+            mensaje = "📋 Estas son tus transacciones registradas"
+            if periodo:
+                mensaje += f" para el periodo {periodo}"
+            mensaje += ":\n"
+
+            for t in transacciones_filtradas:
+                tipo = t.get("tipo", "transacción")
+                monto = t.get("monto", 0)
+                categoria = t.get("categoria", "sin categoría")
+                fecha = t.get("fecha", "")
+                medio = t.get("medio", "")
+
+                linea = f"- {tipo}: {monto:.2f} soles en {categoria}"
+                if fecha:
+                    try:
+                        linea += f" el {formatear_fecha(fecha)}"
+                    except Exception:
+                        linea += f" el {fecha}"
+                if medio:
+                    linea += f" con {medio}"
+                mensaje += linea + "\n"
+
+            mensaje += "\n¿Deseas registrar algo nuevo o consultar tu resumen mensual?"
+            dispatcher.utter_message(text=mensaje)
+
+            return [SlotSet("sugerencia_pendiente", "action_consultar_resumen_mensual")]
+
+        except Exception as e:
+            print(f"[ERROR] Fallo en action_ver_historial_completo: {e}")
+            dispatcher.utter_message(text="Ocurrió un error al mostrar tu historial. Por favor, intenta nuevamente.")
             return []
-
-        mensaje = "📋 Estas son tus transacciones registradas"
-        if periodo:
-            mensaje += f" para el periodo {periodo}"
-        mensaje += ":\n"
-
-        for t in transacciones_filtradas:
-            tipo = t.get("tipo", "transacción")
-            monto = t.get("monto", 0)
-            categoria = t.get("categoria", "sin categoría")
-            fecha = t.get("fecha", "")
-            medio = t.get("medio", "")
-
-            mensaje += f"- {tipo}: {monto} soles en {categoria}"
-            if fecha:
-                mensaje += f" el {formatear_fecha(fecha)}"
-            if medio:
-                mensaje += f" con {medio}"
-            mensaje += "\n"
-
-        mensaje += "\n¿Deseas registrar algo nuevo o consultar tu resumen mensual?"
-        dispatcher.utter_message(text=mensaje)
-
-        return [SlotSet("sugerencia_pendiente", "action_consultar_resumen_mensual")]
 
 from collections import Counter, defaultdict
 
@@ -304,84 +362,112 @@ class ActionAnalizarGastos(Action):
         return "action_analizar_gastos"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[EventType]:
-        from collections import Counter
+        from collections import Counter, defaultdict
+        from datetime import datetime
+        import re
 
-        def obtener_mes_actual_nombre():
-            return datetime.now().strftime("%B").lower()
-
-        transacciones = cargar_transacciones()
+        transacciones = cargar_transacciones(filtrar_activos=True)
         texto_usuario = tracker.latest_message.get("text", "").lower()
-        periodo = get_entity(tracker, "periodo")
+
+        # 🔍 Extraer entidades
+        periodo_raw = get_entity(tracker, "periodo")
         categoria = get_entity(tracker, "categoria")
 
-        if not periodo and "este mes" in texto_usuario:
-            periodo = obtener_mes_actual_nombre()
+        # 📆 Normalizar periodo
+        periodo = None
+        if "este mes" in texto_usuario and not periodo_raw:
+            periodo = f"{datetime.now().strftime('%B').lower()} de {datetime.now().year}"
+        elif periodo_raw:
+            match = re.search(r"([a-záéíóúñ]+)(?:\s+de\s+)?(\d{4})?", periodo_raw.lower())
+            if match:
+                mes = match.group(1).strip()
+                año = match.group(2) or str(datetime.now().year)
+                periodo = f"{mes} de {año}"
+            else:
+                periodo = periodo_raw.strip().lower()
 
-        # Filtrar solo gastos válidos
+        # 🎯 Filtrar solo gastos válidos
         gastos = [
             t for t in transacciones
             if t.get("tipo") == "gasto" and t.get("monto") and t.get("categoria")
         ]
 
-        if not gastos:
-            dispatcher.utter_message(text="No se han registrado gastos aún. ¿Deseas ingresar uno?")
-            return []
-
-        # Filtrar por periodo si se indica
         if periodo:
-            gastos = [
-                g for g in gastos
-                if periodo in g.get("fecha", "").lower() or periodo == g.get("mes", "").lower()
-            ]
+            gastos = [g for g in gastos if g.get("periodo", "").lower() == periodo.lower()]
 
         if not gastos:
-            dispatcher.utter_message(text=f"No se encontraron gastos para el periodo {periodo}.")
+            if periodo:
+                dispatcher.utter_message(text=f"No se encontraron gastos registrados para el periodo *{periodo}*.")
+            else:
+                dispatcher.utter_message(text="No se han registrado gastos aún. ¿Deseas ingresar uno?")
             return []
 
-        # Si preguntó por una categoría específica
+        # ⚠️ Advertencia si hay registros sin categoría
+        sin_categoria = [g for g in gastos if not g.get("categoria")]
+        if sin_categoria:
+            dispatcher.utter_message(
+                text=f"⚠️ Se encontraron {len(sin_categoria)} gasto(s) sin categoría. Esto podría afectar el análisis."
+            )
+
+        # 📂 Si se indicó categoría específica
         if categoria:
-            gastos_categoria = [
-                g for g in gastos if categoria.lower() in g.get("categoria", "").lower()
-            ]
+            gastos_categoria = [g for g in gastos if categoria.lower() in g.get("categoria", "").lower()]
             total_categoria = sum(float(g["monto"]) for g in gastos_categoria)
 
             if not gastos_categoria:
-                dispatcher.utter_message(text=f"No se encontraron gastos en la categoría '{categoria}'.")
+                dispatcher.utter_message(
+                    text=f"No se encontraron gastos en la categoría *{categoria}*" +
+                         (f" durante *{periodo}*" if periodo else "") + "."
+                )
             else:
                 dispatcher.utter_message(
-                    text=f"Has gastado un total de {total_categoria:.2f} soles en la categoría '{categoria}'."
+                    text=f"Has gastado un total de *{total_categoria:.2f} soles* en *{categoria}*" +
+                         (f" durante *{periodo}*" if periodo else "") + "."
                 )
 
-            dispatcher.utter_message(text="¿Te gustaría consultar otra categoría o revisar tu resumen mensual?")
             return [SlotSet("sugerencia_pendiente", "action_consultar_resumen_mensual")]
 
-        # Agrupar por categoría y calcular totales
-        conteo_categorias = Counter(g.get("categoria", "Desconocida") for g in gastos)
-        top_categorias = conteo_categorias.most_common(3)
-        total_gasto = sum(float(g.get("monto", 0)) for g in gastos)
+        # 📊 Agrupar por categoría y calcular totales
+        categorias_sumadas = defaultdict(float)
+        for g in gastos:
+            nombre = g.get("categoria", "Sin categoría").strip().lower()
+            categorias_sumadas[nombre] += float(g.get("monto", 0))
 
-        respuesta = "🧾 Análisis de tus hábitos de consumo"
+        total_gasto = sum(categorias_sumadas.values())
+        top_categorias = sorted(categorias_sumadas.items(), key=lambda x: x[1], reverse=True)[:3]
+
+        # 🧾 Generar mensaje principal
+        respuesta = "🧾 *Análisis de tus hábitos de consumo*"
         if periodo:
-            respuesta += f" durante {periodo}"
+            respuesta += f" durante *{periodo}*"
         respuesta += ":\n\n"
 
-        respuesta += "📊 Categorías más frecuentes:\n"
-        for cat, freq in top_categorias:
-            respuesta += f"• {cat}: {freq} registro(s)\n"
+        respuesta += "📊 *Categorías con mayor gasto*:\n"
+        for cat, total in top_categorias:
+            porcentaje = (total / total_gasto) * 100
+            respuesta += f"• {cat.title()}: {total:.2f} soles ({porcentaje:.1f}%)\n"
 
-        respuesta += f"\n💸 Total gastado: {total_gasto:.2f} soles"
+        respuesta += f"\n💸 *Total gastado*: *{total_gasto:.2f} soles*\n"
 
-        # Detalle de transacciones (máximo 5 más recientes)
-        respuesta += "\n\n📋 Ejemplos recientes:\n"
-        for g in sorted(gastos, key=lambda x: x.get("fecha", ""), reverse=True)[:5]:
+        # 🧾 Ejemplos recientes (ordenados por fecha)
+        def parse_fecha(fecha_str):
+            try:
+                return datetime.strptime(fecha_str, "%Y-%m-%d")
+            except:
+                return datetime.min
+
+        recientes = sorted(gastos, key=lambda x: parse_fecha(x.get("fecha", "")), reverse=True)[:5]
+
+        respuesta += "\n📋 *Ejemplos recientes*:\n"
+        for g in recientes:
             fecha = g.get("fecha", "sin fecha")
             monto = g.get("monto", 0)
-            cat = g.get("categoria", "desconocida")
-            respuesta += f"- {cat}: {monto} soles ({fecha})\n"
+            cat = g.get("categoria", "Sin categoría")
+            respuesta += f"- {cat.title()}: {monto:.2f} soles ({fecha})\n"
 
         respuesta += "\n¿Quieres comparar tus gastos entre meses o configurar una alerta?"
-
         dispatcher.utter_message(text=respuesta.strip())
+
         return [SlotSet("sugerencia_pendiente", "action_comparar_meses")]
 
 def extraer_mes(fecha: str) -> str:
@@ -407,68 +493,101 @@ class ActionCompararMeses(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[EventType]:
         try:
-            transacciones = cargar_transacciones()
-            texto_usuario = tracker.latest_message.get("text", "").lower()
+            from datetime import datetime
+            transacciones = cargar_transacciones(filtrar_activos=True)
+            texto = tracker.latest_message.get("text", "").lower()
 
-            # Detectar tipo: ingreso o gasto
-            if "ingreso" in texto_usuario or "ingresos" in texto_usuario:
-                tipo = "ingreso"
-            else:
-                tipo = "gasto"
-
-            # Detectar los meses
-            texto_normalizado = texto_usuario
-            for sep in [" y ", " o ", " vs ", " versus ", " entre ", "contra", "comparar "]:
-                texto_normalizado = texto_normalizado.replace(sep, " y ")
+            tipo = "ingreso" if "ingreso" in texto or "ingresos" in texto else "gasto"
+            año_actual = str(datetime.now().year)
 
             posibles_meses = [
                 "enero", "febrero", "marzo", "abril", "mayo", "junio",
                 "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
             ]
-            meses_detectados = [mes for mes in posibles_meses if mes in texto_normalizado]
-            meses_detectados = list(dict.fromkeys(meses_detectados))  # quitar duplicados
 
-            if len(meses_detectados) != 2:
-                dispatcher.utter_message(text="Por favor, indícame dos meses diferentes para comparar. Ejemplo: 'febrero y marzo'.")
-                return []
+            # 🔍 Normalizar conectores comunes
+            texto_normalizado = texto
+            for sep in [" y ", " o ", " vs ", " versus ", " entre ", "contra", "comparar "]:
+                texto_normalizado = texto_normalizado.replace(sep, " y ")
 
-            mes1, mes2 = meses_detectados
-            total = defaultdict(float)
+            # 📅 Buscar dos periodos explícitos (mes y año)
+            matches = re.findall(rf"({'|'.join(posibles_meses)})(?:\s+de)?\s+(\d{{4}})", texto_normalizado)
+            if len(matches) == 2:
+                periodo1 = f"{matches[0][0]} de {matches[0][1]}"
+                periodo2 = f"{matches[1][0]} de {matches[1][1]}"
 
-            for t in transacciones:
-                if t.get("tipo") != tipo:
-                    continue
-                if t.get("mes") == mes1:
-                    total[mes1] += float(t.get("monto", 0))
-                elif t.get("mes") == mes2:
-                    total[mes2] += float(t.get("monto", 0))
+                if periodo1 == periodo2:
+                    dispatcher.utter_message(text="Por favor, proporciona dos periodos diferentes para la comparación.")
+                    return []
 
-            valor1 = total.get(mes1, 0)
-            valor2 = total.get(mes2, 0)
+                total = defaultdict(float)
+                for t in transacciones:
+                    if t.get("tipo") != tipo:
+                        continue
+                    if t.get("periodo", "").lower() == periodo1:
+                        total[periodo1] += float(t.get("monto", 0))
+                    elif t.get("periodo", "").lower() == periodo2:
+                        total[periodo2] += float(t.get("monto", 0))
 
-            if valor1 == 0 and valor2 == 0:
-                dispatcher.utter_message(text=f"No se encontraron {tipo}s para {mes1} ni para {mes2}.")
-                return []
+                v1, v2 = total.get(periodo1, 0), total.get(periodo2, 0)
+                if v1 == 0 and v2 == 0:
+                    dispatcher.utter_message(
+                        text=f"No se encontraron {tipo}s registrados para *{periodo1}* ni *{periodo2}*."
+                    )
+                    return []
 
-            # Mensaje comparativo
-            msg = f"📊 Comparativa de {tipo}s:\n"
-            msg += f"- {mes1.capitalize()}: {valor1:.2f} soles\n"
-            msg += f"- {mes2.capitalize()}: {valor2:.2f} soles\n"
+                mensaje = f"📊 Comparativa de *{tipo}s*:\n"
+                mensaje += f"- {periodo1.capitalize()}: {v1:.2f} soles\n"
+                mensaje += f"- {periodo2.capitalize()}: {v2:.2f} soles\n"
 
-            if valor1 > valor2:
-                msg += f"⬅️ En {mes1} tuviste más {tipo}s que en {mes2}."
-            elif valor2 > valor1:
-                msg += f"➡️ En {mes2} tuviste más {tipo}s que en {mes1}."
+                if v1 > v2:
+                    mensaje += f"⬅️ En *{periodo1}* tuviste más {tipo}s que en *{periodo2}*."
+                elif v2 > v1:
+                    mensaje += f"➡️ En *{periodo2}* tuviste más {tipo}s que en *{periodo1}*."
+                else:
+                    mensaje += f"✅ Tus {tipo}s fueron iguales en ambos periodos."
+
+                dispatcher.utter_message(text=mensaje)
+                dispatcher.utter_message(text="¿Quieres configurar un presupuesto o consultar tus ingresos recientes?")
+                return [SlotSet("sugerencia_pendiente", "action_crear_configuracion")]
+
+            # 🧠 No hay 2 periodos explícitos → Asumir análisis de todo el año
+            elif "en qué mes" in texto:
+                totales_por_mes = defaultdict(float)
+                for t in transacciones:
+                    if t.get("tipo") != tipo:
+                        continue
+                    mes = t.get("mes", "").lower()
+                    año = str(t.get("año"))
+                    if mes in posibles_meses and año == año_actual:
+                        totales_por_mes[mes] += float(t.get("monto", 0))
+
+                if not totales_por_mes:
+                    dispatcher.utter_message(text=f"No se encontraron {tipo}s registrados durante el año {año_actual}.")
+                    return []
+
+                mes_max = max(totales_por_mes.items(), key=lambda x: x[1])[0]
+                monto_max = totales_por_mes[mes_max]
+
+                mensaje = (
+                    f"📅 En el año {año_actual}, el mes con mayor {tipo} fue *{mes_max}* "
+                    f"con un total de *{monto_max:.2f} soles*."
+                )
+                dispatcher.utter_message(text=mensaje)
+                dispatcher.utter_message(text="¿Deseas comparar otros periodos o revisar tu historial completo?")
+                return [SlotSet("sugerencia_pendiente", "action_ver_historial_completo")]
+
             else:
-                msg += f"✅ Tus {tipo}s fueron iguales en ambos meses."
-
-            dispatcher.utter_message(text=msg)
-            dispatcher.utter_message(text="¿Deseas analizar tus hábitos o configurar un presupuesto para este mes?")
-            return []
+                dispatcher.utter_message(
+                    text="Por favor, indícame dos periodos válidos con mes y año. Ejemplo: 'marzo de 2024 y abril de 2024'."
+                )
+                return []
 
         except Exception as e:
             print(f"[ERROR] Fallo en action_comparar_meses: {e}")
-            dispatcher.utter_message(text="Ocurrió un error al comparar los meses.")
+            dispatcher.utter_message(
+                text="Ocurrió un error al comparar los meses. Intenta de nuevo usando dos periodos como 'marzo de 2024 y abril de 2024'."
+            )
             return []
 
 from dateparser import parse as parse_fecha_relativa
@@ -478,14 +597,34 @@ class ActionConsultarInformacionFinanciera(Action):
         return "action_consultar_informacion_financiera"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[EventType]:
-        transacciones = cargar_transacciones()
-        tipo = get_entity(tracker, "tipo")
-        categoria = get_entity(tracker, "categoria")
-        medio = get_entity(tracker, "medio")
-        fecha_raw = get_entity(tracker, "fecha")
-        periodo = get_entity(tracker, "periodo")
+        from datetime import datetime
+        from collections import defaultdict
 
-        # Interpretar fechas como "lunes pasado"
+        transacciones = cargar_transacciones(filtrar_activos=True)
+        texto = tracker.latest_message.get("text", "").strip().lower()
+        tokens = texto.split()
+
+        tipo = get_entity(tracker, "tipo") or tracker.get_slot("tipo")
+        categoria = get_entity(tracker, "categoria") or tracker.get_slot("categoria")
+        medio = get_entity(tracker, "medio") or tracker.get_slot("medio")
+        fecha_raw = get_entity(tracker, "fecha") or tracker.get_slot("fecha")
+        periodo_raw = get_entity(tracker, "periodo") or tracker.get_slot("periodo")
+
+        # 🧠 Verificar si la frase parece ambigua o incompleta
+        verbos_clave = [
+            "gasté", "gaste", "pagué", "ingresé", "recibí", "consulté", "usé",
+            "muestra", "consultar", "ver", "registré", "gané", "cuánto", "invertí"
+        ]
+        contiene_verbo = any(v in texto for v in verbos_clave)
+
+        if not contiene_verbo and len(tokens) <= 5:
+            dispatcher.utter_message(text=f"No logré entender tu intención con: “{texto}”. ¿Podrías reformularlo?")
+            return [
+                SlotSet("sugerencia_pendiente", "action_ayuda_general"),
+                FollowupAction("action_entrada_no_entendida")
+            ]
+
+        # 📆 Interpretar fecha relativa como "lunes pasado"
         fecha = None
         if fecha_raw:
             try:
@@ -494,16 +633,27 @@ class ActionConsultarInformacionFinanciera(Action):
             except:
                 fecha = fecha_raw
 
-        # Aplicar filtros
+        # 📅 Normalizar periodo
+        periodo = None
+        if periodo_raw:
+            match = re.search(r"([a-záéíóúñ]+)(?:\s+de\s+)?(\d{4})?", periodo_raw.lower())
+            if match:
+                mes = match.group(1).strip()
+                año = match.group(2) or str(datetime.now().year)
+                periodo = f"{mes} de {año}"
+            else:
+                periodo = periodo_raw.strip().lower()
+
+        # 🔍 Filtrar transacciones
         resultados = []
         for t in transacciones:
             if tipo and t.get("tipo") != tipo:
                 continue
-            if medio and t.get("medio") != medio:
+            if medio and t.get("medio", "").lower() != medio.lower():
                 continue
             if categoria and categoria.lower() not in t.get("categoria", "").lower():
                 continue
-            if periodo and periodo.lower() not in t.get("fecha", "").lower():
+            if periodo and periodo.lower() != t.get("periodo", "").lower():
                 continue
             if fecha and fecha not in t.get("fecha", ""):
                 continue
@@ -511,22 +661,48 @@ class ActionConsultarInformacionFinanciera(Action):
 
         total = sum(t["monto"] for t in resultados)
 
-        # Generar mensaje
-        if categoria:
-            msg = f"Tu gasto total en la categoría {categoria} es de {total:.2f} soles."
+        # 🚫 Si no hay resultados
+        if not resultados:
+            if categoria and periodo:
+                dispatcher.utter_message(
+                    text=f"No se encontraron {tipo}s registrados en la categoría *{categoria}* durante *{periodo}*."
+                )
+            elif tipo and periodo:
+                dispatcher.utter_message(
+                    text=f"No se encontraron {tipo}s registrados durante *{periodo}*."
+                )
+            elif tipo:
+                dispatcher.utter_message(
+                    text=f"No se encontraron registros de tipo *{tipo}*."
+                )
+            else:
+                dispatcher.utter_message(text="No se encontraron registros financieros con los criterios proporcionados.")
+            return []
+
+        # ✅ Generar respuesta
+        if categoria and periodo:
+            msg = f"Tu {tipo} total en la categoría *{categoria}* durante *{periodo}* es de *{total:.2f} soles*."
+        elif tipo and periodo:
+            msg = f"Tu {tipo} total durante *{periodo}* es de *{total:.2f} soles*."
         elif tipo:
-            msg = f"Tu {tipo} total es de {total:.2f} soles."
-        elif periodo or fecha or medio:
-            msg = f"📊 Resumen filtrado:\n"
-            msg += f"- Total: {total:.2f} soles"
+            resumen_cat = defaultdict(float)
+            for t in resultados:
+                resumen_cat[t.get("categoria", "Sin categoría")] += t["monto"]
+
+            msg = f"📊 Tu resumen de *{tipo}s*"
+            if periodo:
+                msg += f" durante *{periodo}*"
+            msg += " por categoría:\n"
+            for cat, monto in resumen_cat.items():
+                msg += f"- {cat}: {monto:.2f} soles\n"
+        elif medio:
+            msg = f"Total registrado usando *{medio}*: *{total:.2f} soles*."
         else:
-            msg = f"📊 Resumen general:\n"
-            msg += f"- Ingresos totales: {sum(t['monto'] for t in transacciones if t['tipo'] == 'ingreso'):.2f} soles\n"
-            msg += f"- Gastos totales: {sum(t['monto'] for t in transacciones if t['tipo'] == 'gasto'):.2f} soles"
+            msg = f"📊 Total filtrado: *{total:.2f} soles*."
 
-        dispatcher.utter_message(text=msg)
+        dispatcher.utter_message(text=msg.strip())
         return [SlotSet("sugerencia_pendiente", "action_analizar_gastos")]
-
+        
 class ActionEntradaNoEntendida(Action):
     def name(self) -> Text:
         return "action_entrada_no_entendida"
@@ -534,29 +710,40 @@ class ActionEntradaNoEntendida(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[EventType]:
         try:
             texto = tracker.latest_message.get("text", "")
+            intent = tracker.latest_message.get("intent", {}).get("name", "")
             entidades_detectadas = [e.get("entity") for e in tracker.latest_message.get("entities", [])]
 
-            if entidades_detectadas:
-                mensaje = (
-                    f"No logré entender completamente tu mensaje: \"{texto}\".\n"
-                    f"Detecté estas entidades: {', '.join(entidades_detectadas)}.\n"
-                    f"¿Podrías darme más contexto o reformularlo?"
-                )
-            else:
-                mensaje = (
-                    f"No entendí bien tu mensaje: \"{texto}\".\n"
-                    f"¿Podrías reformularlo o especificar mejor qué deseas hacer?"
-                )
+            # ⛔️ Evitar guardar afirmaciones, negaciones o saludos como entradas no entendidas
+            if intent not in ["entrada_no_entendida", "nlu_fallback"]:
+                dispatcher.utter_message(text="No logré entender completamente tu mensaje. ¿Podrías reformularlo o dar más detalles?")
+                return []
 
+            # 🧠 Guardar solo si el intent es realmente no entendido
             guardar_transaccion({
                 "tipo": "entrada_no_entendida",
                 "descripcion": texto,
                 "timestamp": datetime.now().isoformat()
             })
 
+            if entidades_detectadas:
+                mensaje = (
+                    f"No logré entender completamente tu mensaje: “{texto}”.\n\n"
+                    f"📌 Detecté estas entidades: *{', '.join(entidades_detectadas)}*.\n"
+                    f"¿Podrías darme más contexto o reformularlo?"
+                )
+            else:
+                mensaje = (
+                    f"No logré entender tu mensaje: “{texto}”.\n\n"
+                    f"👉 Prueba con frases como:\n"
+                    f"- “Registré un gasto de 100 soles en comida”\n"
+                    f"- “¿Cuánto ingresé en marzo?”\n"
+                    f"- “Configura una alerta de 300 soles para abril”\n"
+                )
+
             dispatcher.utter_message(text=mensaje)
-            dispatcher.utter_message(text="Puedes preguntarme por tus gastos, ingresos, historial o configuración de alertas.")
-            return []
+            dispatcher.utter_message(text="Estoy aquí para ayudarte con tus finanzas. ¿Qué te gustaría hacer ahora?")
+
+            return [SlotSet("sugerencia_pendiente", "action_ayuda_general")]
 
         except Exception as e:
             print(f"[ERROR] Fallo en action_entrada_no_entendida: {e}")
@@ -569,36 +756,64 @@ class ActionResetearCategoriaGastos(Action):
     def name(self) -> Text:
         return "action_resetear_categoria_gastos"
 
-    def run(self, dispatcher, tracker, domain):
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
         categoria = get_entity(tracker, "categoria")
         periodo = get_entity(tracker, "periodo")
+        texto_usuario = tracker.latest_message.get("text", "").lower()
 
-        # Preguntar por la categoría si falta
-        if not categoria:
-            dispatcher.utter_message(text="¿Qué categoría deseas reiniciar?")
+        if not categoria or not periodo:
+            dispatcher.utter_message(text="Necesito la categoría y el mes con año para resetear los gastos.")
             return []
 
-        # Preguntar por el periodo si falta
-        if not periodo:
-            dispatcher.utter_message(text=f"¿Para qué periodo deseas reiniciar los datos de gasto en {categoria}?")
+        # Normalizar periodo
+        match = re.search(r"([a-záéíóúñ]+)(?:\s+de\s+)?(\d{4})", periodo.lower())
+        if not match:
+            dispatcher.utter_message(text="El formato del periodo debe ser 'marzo de 2025', por ejemplo.")
             return []
 
-        # Registrar en alertas.json una nueva alerta con monto 0 para ese periodo
-        try:
-            guardar_alerta({
-                "categoria": categoria,
-                "periodo": periodo,
-                "monto": 0.0
-            })
+        mes = match.group(1).strip().lower()
+        año = int(match.group(2))
 
-            dispatcher.utter_message(
-                text=f"He reiniciado los datos de gasto en {categoria} para {periodo}. "
-                     f"¿Deseas hacer otro cambio o consultar tu configuración?"
-            )
-        except Exception as e:
-            print(f"[ERROR] No se pudo guardar el reinicio de categoría: {e}")
-            dispatcher.utter_message(text="Ocurrió un error al reiniciar la categoría. Intenta nuevamente.")
+        transacciones = cargar_transacciones()
+        ahora = datetime.now().isoformat()
+        modificadas = 0
 
+        for t in transacciones:
+            if (
+                t.get("tipo") == "gasto"
+                and t.get("categoria", "").lower() == categoria.lower()
+                and t.get("mes", "").lower() == mes
+                and t.get("año") == año
+                and t.get("status", 1) == 1
+            ):
+                t["status"] = 0
+                t["timestamp_modificacion"] = ahora
+                modificadas += 1
+
+        # Agregar registro de reinicio
+        transacciones.append({
+            "tipo": "reinicio",
+            "categoria": categoria,
+            "mes": mes,
+            "año": año,
+            "motivo": "reseteo de gastos",
+            "timestamp": ahora,
+            "status": 1
+        })
+
+        # Guardar en transacciones.json
+        with open(RUTA_TRANSACCIONES, "w", encoding="utf-8") as f:
+            json.dump(transacciones, f, ensure_ascii=False, indent=2)
+
+        if modificadas > 0:
+            mensaje = f"🔄 Se han reseteado {modificadas} registros de gasto en *{categoria}* para *{mes} {año}*."
+        else:
+            mensaje = f"No se encontraron gastos activos en *{categoria}* para *{mes} {año}*, pero el reinicio ha sido registrado."
+
+        dispatcher.utter_message(text=mensaje)
         return []
 
 import actions.alertas_io as alertas_io
@@ -632,31 +847,47 @@ class ActionCrearConfiguracion(Action):
 
         periodo = periodo.lower().strip()
 
+        # 🔍 Extraer mes y año del periodo
+        match = re.search(r"([a-záéíóúñ]+)(?:\s+de\s+)?(\d{4})", periodo)
+        if not match:
+            dispatcher.utter_message(text="El formato del periodo debe ser 'abril de 2024', por ejemplo.")
+            return []
+
+        mes = match.group(1).strip().lower()
+        año = int(match.group(2))
+        periodo_normalizado = f"{mes} de {año}"
+
         # Verificar si ya existe una alerta activa con la misma clave
         alertas = cargar_alertas()
         ya_existe = any(
-            a["categoria"].lower() == categoria.lower() and a["periodo"].lower() == periodo
+            a["categoria"].lower() == categoria.lower() and a["periodo"].lower() == periodo_normalizado
             for a in alertas
         )
 
         if ya_existe:
-            dispatcher.utter_message(text=f"Ya existe una alerta activa para *{categoria}* en *{periodo}*. Usa 'modificar' si deseas actualizarla.")
+            dispatcher.utter_message(
+                text=f"Ya existe una alerta activa para *{categoria}* en *{periodo_normalizado}*. Usa 'modificar' si deseas actualizarla."
+            )
             return []
 
         nueva_alerta = {
             "categoria": categoria,
             "monto": monto_float,
-            "periodo": periodo
+            "periodo": periodo_normalizado,
+            "mes": mes,
+            "año": año,
+            "timestamp": datetime.now().isoformat(),
+            "status": 1
         }
 
         guardar_alerta(nueva_alerta)
 
         dispatcher.utter_message(
-            text=f"✅ Se ha creado una alerta de *{monto_float} soles* para *{categoria}* en *{periodo}*."
+            text=f"✅ Se ha creado una alerta de *{monto_float} soles* para *{categoria}* en *{periodo_normalizado}*."
         )
 
         return []
-
+            
 class ActionModificarConfiguracion(Action):
     def name(self) -> Text:
         return "action_modificar_configuracion"
@@ -668,15 +899,12 @@ class ActionModificarConfiguracion(Action):
         categoria = get_entity(tracker, "categoria")
         monto = get_entity(tracker, "monto")
         periodo = get_entity(tracker, "periodo")
-
         texto_usuario = tracker.latest_message.get("text", "").lower()
 
-        # Validación de campos clave
         if not categoria or not monto or not periodo:
             dispatcher.utter_message(text="Para modificar una configuración necesito la categoría, el monto y el mes con año.")
             return []
 
-        # Parseo de monto
         try:
             monto_float = parse_monto(monto)
         except Exception:
@@ -687,24 +915,158 @@ class ActionModificarConfiguracion(Action):
             dispatcher.utter_message(text="El monto debe ser mayor a cero para configurar una alerta.")
             return []
 
-        # Estandarizar periodo
-        periodo = periodo.lower().strip()
+        # Normalizar periodo
+        match = re.search(r"([a-záéíóúñ]+)(?:\s+de\s+)?(\d{4})", periodo.lower())
+        if not match:
+            dispatcher.utter_message(text="El formato del periodo debe ser 'abril de 2024', por ejemplo.")
+            return []
 
-        # Crear nueva configuración única
-        nueva_alerta = [{
-            "categoria": categoria,
-            "monto": monto_float,
-            "periodo": periodo
-        }]
+        mes = match.group(1).strip().lower()
+        año = int(match.group(2))
+        periodo_normalizado = f"{mes} de {año}"
 
-        # Guardar nueva configuración sobrescribiendo las anteriores
-        guardar_todas_las_alertas(nueva_alerta)
+        # Buscar alerta existente
+        alertas = cargar_alertas()
+        alerta_existente = next((
+            a for a in alertas
+            if a.get("categoria", "").lower() == categoria.lower()
+            and a.get("periodo", "").lower() == periodo_normalizado
+            and a.get("status", 1) == 1
+        ), None)
 
-        mensaje = f"🔁 Tu presupuesto para *{categoria}* en *{periodo}* ha sido actualizado a *{monto_float} soles*."
-        mensaje += " Puedes seguir modificando otras categorías si lo deseas."
+        if alerta_existente:
+            # Guardar información actual y nueva para confirmar modificación
+            return [
+                SlotSet("categoria", categoria),
+                SlotSet("monto", monto_float),
+                SlotSet("periodo", periodo_normalizado),
+                SlotSet("mes", mes),
+                SlotSet("año", año),
+                SlotSet("alerta_original", json.dumps(alerta_existente)),
+                SlotSet("sugerencia_pendiente", "confirmar_modificacion_alerta")
+            ]
+        else:
+            dispatcher.utter_message(
+                text=f"No encontré una alerta activa para *{categoria}* en *{periodo_normalizado}*. ¿Deseas crear una nueva alerta?"
+            )
+            return [
+                SlotSet("categoria", categoria),
+                SlotSet("monto", monto_float),
+                SlotSet("periodo", periodo_normalizado),
+                SlotSet("mes", mes),
+                SlotSet("año", año),
+                SlotSet("sugerencia_pendiente", "action_crear_configuracion")
+            ]
 
+class ActionConfirmarModificacionAlerta(Action):
+    def name(self) -> Text:
+        return "confirmar_modificacion_alerta"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        categoria = tracker.get_slot("categoria")
+        monto = tracker.get_slot("monto")
+        periodo = tracker.get_slot("periodo")
+
+        # Verificar si existe alerta activa
+        alertas = cargar_alertas()
+        alerta_existente = next((
+            a for a in alertas
+            if a.get("categoria", "").lower() == categoria.lower()
+            and a.get("periodo", "").lower() == periodo.lower()
+            and a.get("status", 1) == 1
+        ), None)
+
+        if not alerta_existente:
+            dispatcher.utter_message(text="La alerta a modificar ya no está activa o no existe.")
+            return []
+
+        # Preparar mensaje de confirmación
+        mensaje = (
+            f"Tienes esta alerta activa:\n"
+            f"• Categoría: {alerta_existente['categoria']}\n"
+            f"• Monto actual: {alerta_existente['monto']:.2f} soles\n"
+            f"• Periodo: {alerta_existente['periodo']}\n\n"
+            f"¿Deseas actualizarla a:\n"
+            f"• Monto nuevo: {monto:.2f} soles?\n\n"
+            f"Responde con 'sí' para confirmar o 'no' para cancelar."
+        )
         dispatcher.utter_message(text=mensaje)
-        return []
+
+        return [
+            SlotSet("alerta_original", json.dumps(alerta_existente))  # para que luego pueda ser modificada
+        ]
+
+class ActionEjecutarModificacionAlerta(Action):
+    def name(self) -> Text:
+        return "action_ejecutar_modificacion_alerta"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        try:
+            categoria = tracker.get_slot("categoria")
+            monto = tracker.get_slot("monto")
+            periodo = tracker.get_slot("periodo")
+            alerta_json = tracker.get_slot("alerta_original")
+
+            if not (categoria and monto and periodo and alerta_json):
+                dispatcher.utter_message(text="No se pudo completar la modificación porque faltan datos.")
+                return []
+
+            alerta_original = json.loads(alerta_json)
+            alertas = cargar_alertas()
+            ahora = datetime.now()
+
+            # Desactivar la alerta original
+            for alerta in alertas:
+                if (alerta.get("categoria", "").lower() == alerta_original.get("categoria", "").lower() and
+                        alerta.get("periodo", "").lower() == alerta_original.get("periodo", "").lower() and
+                        alerta.get("status", 1) == 1):
+                    alerta["status"] = 0
+                    alerta["timestamp_modificacion"] = ahora.isoformat()
+
+            # Crear nueva alerta
+            nueva_alerta = {
+                "categoria": categoria,
+                "monto": float(monto),
+                "periodo": periodo,
+                "status": 1,
+                "timestamp": ahora.isoformat()
+            }
+            alertas.append(nueva_alerta)
+
+            # Guardar en archivo
+            with open(RUTA_ALERTAS, "w", encoding="utf-8") as f:
+                json.dump(alertas, f, ensure_ascii=False, indent=2)
+
+            dispatcher.utter_message(
+                text=f"✅ Alerta modificada correctamente:\n• Categoría: {categoria}\n"
+                     f"• Nuevo monto: {monto} soles\n• Periodo: {periodo}"
+            )
+
+            return [
+                SlotSet("categoria", None),
+                SlotSet("monto", None),
+                SlotSet("periodo", None),
+                SlotSet("alerta_original", None),
+                SlotSet("sugerencia_pendiente", None),
+            ]
+
+        except Exception as e:
+            print(f"[ERROR] Fallo en action_ejecutar_modificacion_alerta: {e}")
+            dispatcher.utter_message(text="Hubo un error al intentar modificar la alerta. Intenta nuevamente.")
+            return []
+
+def desactivar_alerta(categoria: str, periodo: str):
+    alertas = cargar_alertas()
+    for alerta in alertas:
+        if alerta["categoria"].lower() == categoria.lower() and alerta["periodo"].lower() == periodo.lower():
+            alerta["status"] = 0
+    guardar_todas_las_alertas(alertas)
 
 class ActionEliminarConfiguracion(Action):
     def name(self) -> Text:
@@ -722,18 +1084,76 @@ class ActionEliminarConfiguracion(Action):
             dispatcher.utter_message(text="Necesito la categoría y el mes con año para eliminar una configuración.")
             return []
 
-        condiciones = {
-            "categoria": categoria.lower(),
-            "periodo": periodo.lower().strip()
-        }
+        periodo = periodo.lower().strip()
+        alertas = cargar_alertas()
+        alerta = next((
+            a for a in alertas
+            if a.get("categoria", "").lower() == categoria.lower()
+            and a.get("periodo", "").lower() == periodo
+            and a.get("status", 1) == 1
+        ), None)
 
-        eliminar_alerta_logicamente(condiciones)
+        if not alerta:
+            dispatcher.utter_message(text=f"No encontré ninguna alerta activa para *{categoria}* en *{periodo}*.")
+            return []
 
-        dispatcher.utter_message(
-            text=f"🗑️ Se ha eliminado la alerta configurada para *{categoria}* en *{periodo}*."
+        mensaje = (
+            f"🔔 Se encontró esta alerta activa:\n"
+            f"• Categoría: {alerta['categoria']}\n"
+            f"• Monto: {alerta['monto']:.2f} soles\n"
+            f"• Periodo: {alerta['periodo']}\n\n"
+            f"¿Estás seguro de que deseas eliminarla?"
         )
+        dispatcher.utter_message(text=mensaje)
 
-        return []
+        return [
+            SlotSet("categoria", categoria),
+            SlotSet("periodo", periodo),
+            SlotSet("sugerencia_pendiente", "confirmar_eliminacion_alerta")
+        ]
+
+class ActionConfirmarEliminacionAlerta(Action):
+    def name(self) -> Text:
+        return "confirmar_eliminacion_alerta"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        intent_confirmacion = tracker.latest_message.get("intent", {}).get("name")
+        categoria = tracker.get_slot("categoria")
+        periodo = tracker.get_slot("periodo")
+
+        if intent_confirmacion != "affirm":
+            dispatcher.utter_message(text="Perfecto, no se ha eliminado la alerta.")
+            return [SlotSet("sugerencia_pendiente", None)]
+
+        alertas = cargar_alertas()
+        encontrado = False
+
+        for alerta in alertas:
+            if alerta.get("categoria", "").lower() == categoria.lower() and alerta.get("periodo", "").lower() == periodo.lower() and alerta.get("status", 1) == 1:
+                alerta["status"] = 0
+                alerta["timestamp_modificacion"] = datetime.now().isoformat()
+                encontrado = True
+
+        if encontrado:
+            with open(RUTA_ALERTAS, "w", encoding="utf-8") as f:
+                json.dump(alertas, f, ensure_ascii=False, indent=2)
+
+            dispatcher.utter_message(
+                text=f"🗑️ La alerta para *{categoria}* en *{periodo}* ha sido eliminada correctamente."
+            )
+        else:
+            dispatcher.utter_message(
+                text="No se encontró una alerta activa para eliminar."
+            )
+
+        return [
+            SlotSet("categoria", None),
+            SlotSet("periodo", None),
+            SlotSet("sugerencia_pendiente", None)
+        ]
 
 class ActionConsultarConfiguracion(Action):
     def name(self) -> Text:
@@ -813,18 +1233,16 @@ class ActionFollowSuggestion(Action):
 
     def run(self, dispatcher, tracker, domain):
         sugerencia = tracker.get_slot("sugerencia_pendiente")
+
         if sugerencia:
-            dispatcher.utter_message(text="Perfecto, procedo con eso.")
+            dispatcher.utter_message(text="Perfecto, procedo con tu solicitud.")
             return [
                 FollowupAction(sugerencia),
-                SlotSet("sugerencia_pendiente", None),
-                SlotSet("categoria", None),
-                SlotSet("monto", None),
-                SlotSet("fecha", None),
-                SlotSet("medio", None),
-                SlotSet("periodo", None)
+                SlotSet("sugerencia_pendiente", None)
             ]
-        dispatcher.utter_message(text="No entendí a qué te refieres. ¿Podrías repetirlo?")
+        
+        # Si no hay sugerencia válida
+        dispatcher.utter_message(text="No tengo ninguna acción pendiente que ejecutar.")
         return []
     
 class ActionBienvenida(Action):
@@ -832,21 +1250,53 @@ class ActionBienvenida(Action):
         return "action_bienvenida"
 
     def run(self, dispatcher, tracker, domain):
-        hoy = datetime.now().strftime("%B").lower()
+        # Diccionario de traducción de meses
+        meses_es = {
+            "January": "enero", "February": "febrero", "March": "marzo", "April": "abril",
+            "May": "mayo", "June": "junio", "July": "julio", "August": "agosto",
+            "September": "septiembre", "October": "octubre", "November": "noviembre", "December": "diciembre"
+        }
+
+        ahora = datetime.now()
+        nombre_mes_en = ahora.strftime("%B")
+        nombre_mes_es = meses_es.get(nombre_mes_en, nombre_mes_en).capitalize()
+        fecha_formateada = f"{ahora.day} de {nombre_mes_es} de {ahora.year}"
+
         mensaje = (
             f"¡Hola! Bienvenido 👋\n\n"
-            f"Hoy es {hoy.capitalize()} y estoy listo para ayudarte con tus finanzas.\n"
+            f"Hoy es {fecha_formateada} y estoy listo para ayudarte con tus finanzas.\n"
             f"Puedo ayudarte a:\n"
             f"• Registrar ingresos y gastos\n"
             f"• Ver tu historial o saldo\n"
             f"• Configurar alertas\n"
             f"• Comparar tus gastos entre meses\n"
-            f"Ejemplo: 'Muéstrame mis gastos de {hoy}'\n"
+            f"Ejemplo: 'Muéstrame mis gastos de {nombre_mes_es.lower()}'\n"
             f"¿Qué deseas hacer hoy?"
+        )
+
+        dispatcher.utter_message(text=mensaje)
+        return []
+
+class ActionAyudaGeneral(Action):
+    def name(self) -> Text:
+        return "action_ayuda_general"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[EventType]:
+
+        mensaje = (
+            "🧭 Aquí tienes algunas cosas que puedo hacer:\n"
+            "- Registrar ingresos o gastos\n"
+            "- Consultar tu saldo o historial\n"
+            "- Configurar o eliminar alertas por categoría\n"
+            "- Analizar tus hábitos de gasto\n"
+            "- Comparar meses\n\n"
+            "Ejemplo: *'Gaste 80 soles en comida con débito el 2 de abril'*"
         )
         dispatcher.utter_message(text=mensaje)
         return []
-    
+
 from rasa_sdk.events import SessionStarted, ActionExecuted, EventType
 
 class ActionSessionStart(Action):
@@ -864,3 +1314,19 @@ class ActionSessionStart(Action):
         bienvenida.run(dispatcher, tracker, domain)
 
         return events
+
+class ActionNegacion(Action):
+    def name(self) -> Text:
+        return "action_negacion"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[EventType]:
+        sugerencia = tracker.get_slot("sugerencia_pendiente")
+
+        # 🧾 Si había una sugerencia pendiente y se niega, entonces se despide
+        if sugerencia:
+            dispatcher.utter_message(text="Entendido. ¡Hasta luego! Recuerda que puedes volver cuando lo necesites.")
+            return [SlotSet("sugerencia_pendiente", None)]
+
+        # ❓ Si no había sugerencia, responde de forma neutra
+        dispatcher.utter_message(text="Está bien, dime si deseas hacer otra consulta o registrar algo.")
+        return []

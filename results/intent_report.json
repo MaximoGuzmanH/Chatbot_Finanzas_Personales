@@ -1,23 +1,68 @@
 {
-  "analizar_gastos": {
+  "consultar_informacion_financiera": {
+    "precision": 0.9978813559322034,
+    "recall": 0.9894957983193278,
+    "f1-score": 0.9936708860759494,
+    "support": 476,
+    "confused_with": {
+      "analizar_gastos": 3,
+      "registrar_ingreso": 1
+    }
+  },
+  "ayuda_general": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 71,
+    "support": 75,
     "confused_with": {}
   },
-  "crear_configuracion": {
+  "affirm": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 150,
+    "support": 55,
+    "confused_with": {}
+  },
+  "eliminar_configuracion": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 207,
     "confused_with": {}
   },
   "entrada_no_entendida": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 76,
+    "support": 158,
+    "confused_with": {}
+  },
+  "modificar_configuracion": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 209,
+    "confused_with": {}
+  },
+  "registrar_ingreso": {
+    "precision": 0.993006993006993,
+    "recall": 1.0,
+    "f1-score": 0.9964912280701755,
+    "support": 142,
+    "confused_with": {}
+  },
+  "analizar_gastos": {
+    "precision": 0.9896907216494846,
+    "recall": 1.0,
+    "f1-score": 0.9948186528497409,
+    "support": 384,
+    "confused_with": {}
+  },
+  "consultar_configuracion": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 257,
     "confused_with": {}
   },
   "saludo": {
@@ -27,116 +72,75 @@
     "support": 60,
     "confused_with": {}
   },
-  "consultar_informacion_financiera": {
-    "precision": 0.998468606431853,
-    "recall": 1.0,
-    "f1-score": 0.9992337164750957,
-    "support": 652,
-    "confused_with": {}
-  },
-  "consultar_configuracion": {
+  "despedida": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 97,
+    "support": 66,
     "confused_with": {}
   },
-  "ayuda_general": {
+  "ver_historial_completo": {
     "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 75,
-    "confused_with": {}
+    "recall": 0.9896907216494846,
+    "f1-score": 0.9948186528497409,
+    "support": 194,
+    "confused_with": {
+      "analizar_gastos": 1,
+      "consultar_informacion_financiera": 1
+    }
   },
   "registrar_gasto": {
-    "precision": 1.0,
+    "precision": 0.9962825278810409,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 120,
+    "f1-score": 0.9981378026070763,
+    "support": 268,
     "confused_with": {}
   },
   "deny": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 60,
-    "confused_with": {}
-  },
-  "comparar_meses": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 315,
-    "confused_with": {}
-  },
-  "modificar_configuracion": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 150,
-    "confused_with": {}
-  },
-  "registrar_ingreso": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 112,
-    "confused_with": {}
-  },
-  "despedida": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 60,
+    "support": 58,
     "confused_with": {}
   },
   "resetear_categoria_gastos": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 150,
+    "support": 148,
     "confused_with": {}
   },
-  "eliminar_configuracion": {
+  "crear_configuracion": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 151,
+    "support": 216,
     "confused_with": {}
   },
-  "ver_historial_completo": {
-    "precision": 1.0,
-    "recall": 0.9949494949494949,
-    "f1-score": 0.9974683544303797,
-    "support": 198,
-    "confused_with": {
-      "consultar_informacion_financiera": 1
-    }
-  },
-  "affirm": {
+  "comparar_meses": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 60,
+    "support": 647,
     "confused_with": {}
   },
-  "accuracy": 0.9996089166992569,
+  "accuracy": 0.9980662983425415,
   "macro avg": {
-    "precision": 0.9999099180254031,
-    "recall": 0.9997029114676174,
-    "f1-score": 0.9998060041709103,
-    "support": 2557
+    "precision": 0.9986389175570425,
+    "recall": 0.9987756776452243,
+    "f1-score": 0.9987021895560401,
+    "support": 3620
   },
   "weighted avg": {
-    "precision": 0.9996095156017083,
-    "recall": 0.9996089166992569,
-    "f1-score": 0.9996085714974491,
-    "support": 2557
+    "precision": 0.9980783074630506,
+    "recall": 0.9980662983425415,
+    "f1-score": 0.9980649747524762,
+    "support": 3620
   },
   "micro avg": {
-    "precision": 0.9996089166992569,
-    "recall": 0.9996089166992569,
-    "f1-score": 0.9996089166992569,
-    "support": 2557
+    "precision": 0.9980662983425415,
+    "recall": 0.9980662983425415,
+    "f1-score": 0.9980662983425415,
+    "support": 3620
   }
 }

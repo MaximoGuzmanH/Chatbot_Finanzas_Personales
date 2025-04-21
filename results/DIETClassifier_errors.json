@@ -1,5 +1,1695 @@
 [
   {
+    "text": "Haz un resumen de egresos por categoría",
+    "entities": [
+      {
+        "start": 18,
+        "end": 25,
+        "value": "egresos",
+        "entity": "tipo"
+      },
+      {
+        "start": 30,
+        "end": 39,
+        "value": "categoría",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 18,
+        "end": 25,
+        "confidence_entity": 0.9998812675476074,
+        "value": "egresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Haz un desglose de mis egresos por categoría",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "value": "egresos",
+        "entity": "tipo"
+      },
+      {
+        "start": 35,
+        "end": 44,
+        "value": "categoría",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 23,
+        "end": 30,
+        "confidence_entity": 0.9999508857727051,
+        "value": "egresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el rubro con más gastos este mes?",
+    "entities": [
+      {
+        "start": 27,
+        "end": 33,
+        "value": "gastos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 27,
+        "end": 33,
+        "confidence_entity": 0.9839630722999573,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 39,
+        "end": 42,
+        "confidence_entity": 0.8395783305168152,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Haz un gráfico con mis gastos de este mes",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "value": "gastos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 23,
+        "end": 29,
+        "confidence_entity": 0.9999624490737915,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 38,
+        "end": 41,
+        "confidence_entity": 0.5722268223762512,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue la categoría con más gasto en abril?",
+    "entities": [
+      {
+        "start": 31,
+        "end": 36,
+        "value": "gasto",
+        "entity": "tipo"
+      },
+      {
+        "start": 40,
+        "end": 45,
+        "value": "abril",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "categoria",
+        "start": 13,
+        "end": 22,
+        "confidence_entity": 0.5950824618339539,
+        "value": "categoría",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 31,
+        "end": 36,
+        "confidence_entity": 0.9996711015701294,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 40,
+        "end": 45,
+        "confidence_entity": 0.9999626874923706,
+        "value": "abril",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuáles son mis principales áreas de gasto?",
+    "entities": [
+      {
+        "start": 37,
+        "end": 42,
+        "value": "gasto",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "¿En qué categorías he gastado más este mes?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 39,
+        "end": 42,
+        "confidence_entity": 0.9201796650886536,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue la categoría con mayor gasto en febrero?",
+    "entities": [
+      {
+        "start": 33,
+        "end": 38,
+        "value": "gasto",
+        "entity": "tipo"
+      },
+      {
+        "start": 42,
+        "end": 49,
+        "value": "febrero",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "categoria",
+        "start": 13,
+        "end": 22,
+        "confidence_entity": 0.6837804317474365,
+        "value": "categoría",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 33,
+        "end": 38,
+        "confidence_entity": 0.9997043013572693,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 42,
+        "end": 49,
+        "confidence_entity": 0.999988317489624,
+        "value": "febrero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Analiza mis gastos por categoría de este mes",
+    "entities": [
+      {
+        "start": 12,
+        "end": 18,
+        "value": "gastos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 12,
+        "end": 18,
+        "confidence_entity": 0.9999779462814331,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 23,
+        "end": 32,
+        "confidence_entity": 0.7515198588371277,
+        "value": "categoría",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál es la categoría con mayor gasto este mes?",
+    "entities": [
+      {
+        "start": 32,
+        "end": 37,
+        "value": "gasto",
+        "entity": "tipo"
+      },
+      {
+        "start": 43,
+        "end": 46,
+        "value": "mes",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "categoria",
+        "start": 12,
+        "end": 21,
+        "confidence_entity": 0.912850558757782,
+        "value": "categoría",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 32,
+        "end": 37,
+        "confidence_entity": 0.9992194175720215,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 43,
+        "end": 46,
+        "confidence_entity": 0.9998188614845276,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue la categoría más cara en mis gastos recientes?",
+    "entities": [
+      {
+        "start": 39,
+        "end": 45,
+        "value": "gastos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 39,
+        "end": 45,
+        "confidence_entity": 0.9999039173126221,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 46,
+        "end": 55,
+        "confidence_entity": 0.5293091535568237,
+        "value": "recientes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿En qué mes usé más la tarjeta de crédito?",
+    "entities": [
+      {
+        "start": 23,
+        "end": 41,
+        "value": "tarjeta de crédito",
+        "entity": "medio"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 8,
+        "end": 11,
+        "confidence_entity": 0.6229031085968018,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "medio",
+        "start": 23,
+        "end": 41,
+        "confidence_entity": 0.999371349811554,
+        "value": "tarjeta de crédito",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Dónde gasté más en ropa: febrero o mayo?",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "ropa",
+        "entity": "categoria"
+      },
+      {
+        "start": 26,
+        "end": 33,
+        "value": "febrero",
+        "entity": "periodo"
+      },
+      {
+        "start": 36,
+        "end": 40,
+        "value": "mayo",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 7,
+        "end": 12,
+        "confidence_entity": 0.9724940061569214,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9999957084655762,
+        "value": "ropa",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 26,
+        "end": 33,
+        "confidence_entity": 0.9999896287918091,
+        "value": "febrero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 36,
+        "end": 40,
+        "confidence_entity": 0.9999892711639404,
+        "value": "mayo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el mes con menos ingresos?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 27,
+        "end": 35,
+        "confidence_entity": 0.9547180533409119,
+        "value": "ingresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Tuve más gastos con efectivo en abril o junio?",
+    "entities": [
+      {
+        "start": 21,
+        "end": 29,
+        "value": "efectivo",
+        "entity": "medio"
+      },
+      {
+        "start": 33,
+        "end": 38,
+        "value": "abril",
+        "entity": "periodo"
+      },
+      {
+        "start": 41,
+        "end": 46,
+        "value": "junio",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 10,
+        "end": 16,
+        "confidence_entity": 0.9567924737930298,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "medio",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.9999575614929199,
+        "value": "efectivo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 33,
+        "end": 38,
+        "confidence_entity": 0.9999880790710449,
+        "value": "abril",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 41,
+        "end": 46,
+        "confidence_entity": 0.9999892711639404,
+        "value": "junio",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Entre abril y junio, cuándo gasté más?",
+    "entities": [
+      {
+        "start": 7,
+        "end": 12,
+        "value": "abril",
+        "entity": "periodo"
+      },
+      {
+        "start": 15,
+        "end": 20,
+        "value": "junio",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 7,
+        "end": 12,
+        "confidence_entity": 0.9999786615371704,
+        "value": "abril",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.9999445676803589,
+        "value": "junio",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 29,
+        "end": 34,
+        "confidence_entity": 0.9629551768302917,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes gasté más en educación?",
+    "entities": [
+      {
+        "start": 22,
+        "end": 31,
+        "value": "educación",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.8034337162971497,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 22,
+        "end": 31,
+        "confidence_entity": 0.9999798536300659,
+        "value": "educación",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Mis egresos fueron mayores en abril o mayo?",
+    "entities": [
+      {
+        "start": 31,
+        "end": 36,
+        "value": "abril",
+        "entity": "periodo"
+      },
+      {
+        "start": 39,
+        "end": 43,
+        "value": "mayo",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 5,
+        "end": 12,
+        "confidence_entity": 0.8741098046302795,
+        "value": "egresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 31,
+        "end": 36,
+        "confidence_entity": 0.9999724626541138,
+        "value": "abril",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 39,
+        "end": 43,
+        "confidence_entity": 0.9999862909317017,
+        "value": "mayo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el mes con mayor gasto total?",
+    "entities": [
+      {
+        "start": 27,
+        "end": 32,
+        "value": "gasto",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 13,
+        "end": 16,
+        "confidence_entity": 0.5585931539535522,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 27,
+        "end": 32,
+        "confidence_entity": 0.9999592304229736,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes tuvo más egresos: abril o mayo?",
+    "entities": [
+      {
+        "start": 27,
+        "end": 32,
+        "value": "abril",
+        "entity": "periodo"
+      },
+      {
+        "start": 35,
+        "end": 39,
+        "value": "mayo",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9872649908065796,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 27,
+        "end": 32,
+        "confidence_entity": 0.9999866485595703,
+        "value": "abril",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 35,
+        "end": 39,
+        "confidence_entity": 0.9999837875366211,
+        "value": "mayo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Gasté más en enero o en febrero?",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "value": "enero",
+        "entity": "periodo"
+      },
+      {
+        "start": 25,
+        "end": 32,
+        "value": "febrero",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 1,
+        "end": 6,
+        "confidence_entity": 0.8479428887367249,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 14,
+        "end": 19,
+        "confidence_entity": 0.9998756647109985,
+        "value": "enero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 25,
+        "end": 32,
+        "confidence_entity": 0.9999909400939941,
+        "value": "febrero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Entre julio y agosto, ¿en cuál gasté más?",
+    "entities": [
+      {
+        "start": 6,
+        "end": 11,
+        "value": "julio",
+        "entity": "periodo"
+      },
+      {
+        "start": 14,
+        "end": 20,
+        "value": "agosto",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 6,
+        "end": 11,
+        "confidence_entity": 0.9999700784683228,
+        "value": "julio",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 14,
+        "end": 20,
+        "confidence_entity": 0.9999488592147827,
+        "value": "agosto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 31,
+        "end": 36,
+        "confidence_entity": 0.672626256942749,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Hubo más gastos en febrero o en marzo?",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "value": "febrero",
+        "entity": "periodo"
+      },
+      {
+        "start": 33,
+        "end": 38,
+        "value": "marzo",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 10,
+        "end": 16,
+        "confidence_entity": 0.8350986838340759,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 20,
+        "end": 27,
+        "confidence_entity": 0.9999696016311646,
+        "value": "febrero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 33,
+        "end": 38,
+        "confidence_entity": 0.9999791383743286,
+        "value": "marzo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes tuvo más egresos, febrero o marzo?",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "value": "febrero",
+        "entity": "periodo"
+      },
+      {
+        "start": 37,
+        "end": 42,
+        "value": "marzo",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9137079119682312,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 27,
+        "end": 34,
+        "confidence_entity": 0.9999905824661255,
+        "value": "febrero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 37,
+        "end": 42,
+        "confidence_entity": 0.9999879598617554,
+        "value": "marzo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue mayor, el ingreso de septiembre o de octubre?",
+    "entities": [
+      {
+        "start": 31,
+        "end": 41,
+        "value": "septiembre",
+        "entity": "periodo"
+      },
+      {
+        "start": 47,
+        "end": 54,
+        "value": "octubre",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 20,
+        "end": 27,
+        "confidence_entity": 0.5002875924110413,
+        "value": "ingreso",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 31,
+        "end": 41,
+        "confidence_entity": 0.9998581409454346,
+        "value": "septiembre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 47,
+        "end": 54,
+        "confidence_entity": 0.9999868869781494,
+        "value": "octubre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes fue más alto en ingresos?",
+    "entities": [
+      {
+        "start": 25,
+        "end": 33,
+        "value": "ingresos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.8405539393424988,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 25,
+        "end": 33,
+        "confidence_entity": 0.9990511536598206,
+        "value": "ingresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿En qué periodo tuve más ingresos?",
+    "entities": [
+      {
+        "start": 25,
+        "end": 33,
+        "value": "ingresos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 8,
+        "end": 15,
+        "confidence_entity": 0.8551125526428223,
+        "value": "periodo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 25,
+        "end": 33,
+        "confidence_entity": 0.9990897178649902,
+        "value": "ingresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue mi mes con más gasto?",
+    "entities": [
+      {
+        "start": 25,
+        "end": 30,
+        "value": "gasto",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 13,
+        "end": 16,
+        "confidence_entity": 0.7058043479919434,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 25,
+        "end": 30,
+        "confidence_entity": 0.9991958737373352,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Haz una comparación de ingresos entre enero y marzo",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "value": "ingresos",
+        "entity": "tipo"
+      },
+      {
+        "start": 38,
+        "end": 43,
+        "value": "enero",
+        "entity": "periodo"
+      },
+      {
+        "start": 46,
+        "end": 51,
+        "value": "marzo",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 8,
+        "end": 19,
+        "confidence_entity": 0.9133668541908264,
+        "value": "comparación",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 23,
+        "end": 31,
+        "confidence_entity": 0.9999181032180786,
+        "value": "ingresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 38,
+        "end": 43,
+        "confidence_entity": 0.9999257326126099,
+        "value": "enero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 46,
+        "end": 51,
+        "confidence_entity": 0.9999773502349854,
+        "value": "marzo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿En qué mes gasté más?",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "gasté",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 8,
+        "end": 11,
+        "confidence_entity": 0.5636285543441772,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.9882000684738159,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el mes con menos ingresos?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 16,
+        "value": "mes",
+        "entity": "periodo"
+      },
+      {
+        "start": 27,
+        "end": 35,
+        "value": "ingresos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 27,
+        "end": 35,
+        "confidence_entity": 0.9547180533409119,
+        "value": "ingresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Comparar gastos por categoría entre abril y junio?",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "value": "gastos",
+        "entity": "tipo"
+      },
+      {
+        "start": 37,
+        "end": 42,
+        "value": "abril",
+        "entity": "periodo"
+      },
+      {
+        "start": 45,
+        "end": 50,
+        "value": "junio",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 10,
+        "end": 16,
+        "confidence_entity": 0.9999314546585083,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 21,
+        "end": 30,
+        "confidence_entity": 0.876960813999176,
+        "value": "categoría",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 37,
+        "end": 42,
+        "confidence_entity": 0.9999871253967285,
+        "value": "abril",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 45,
+        "end": 50,
+        "confidence_entity": 0.9999908208847046,
+        "value": "junio",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el mes más intenso en gastos?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 16,
+        "value": "mes",
+        "entity": "periodo"
+      },
+      {
+        "start": 32,
+        "end": 38,
+        "value": "gastos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 32,
+        "end": 38,
+        "confidence_entity": 0.9997029900550842,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes fue más fuerte en ropa?",
+    "entities": [
+      {
+        "start": 27,
+        "end": 31,
+        "value": "ropa",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.7923332452774048,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 27,
+        "end": 31,
+        "confidence_entity": 0.9999940395355225,
+        "value": "ropa",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes tuvo más pagos con tarjeta de crédito?",
+    "entities": [
+      {
+        "start": 28,
+        "end": 46,
+        "value": "tarjeta de crédito",
+        "entity": "medio"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9276825785636902,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "medio",
+        "start": 28,
+        "end": 46,
+        "confidence_entity": 0.9991670846939087,
+        "value": "tarjeta de crédito",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el mes con mayor movimiento financiero?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 16,
+        "value": "mes",
+        "entity": "periodo"
+      },
+      {
+        "start": 27,
+        "end": 48,
+        "value": "movimiento financiero",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 27,
+        "end": 48,
+        "confidence_entity": 0.9977580904960632,
+        "value": "movimiento financiero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál fue el mes con más egresos en hogar?",
+    "entities": [
+      {
+        "start": 25,
+        "end": 32,
+        "value": "egresos",
+        "entity": "tipo"
+      },
+      {
+        "start": 36,
+        "end": 41,
+        "value": "hogar",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 13,
+        "end": 16,
+        "confidence_entity": 0.5345348715782166,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 25,
+        "end": 32,
+        "confidence_entity": 0.9998741149902344,
+        "value": "egresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 36,
+        "end": 41,
+        "confidence_entity": 0.9998923540115356,
+        "value": "hogar",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes tuvo más compras en supermercado?",
+    "entities": [
+      {
+        "start": 29,
+        "end": 41,
+        "value": "supermercado",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.564521074295044,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 29,
+        "end": 41,
+        "confidence_entity": 0.9999442100524902,
+        "value": "supermercado",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿En qué mes tuve más gastos usando débito?",
+    "entities": [
+      {
+        "start": 21,
+        "end": 27,
+        "value": "gastos",
+        "entity": "tipo"
+      },
+      {
+        "start": 35,
+        "end": 41,
+        "value": "débito",
+        "entity": "medio"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 8,
+        "end": 11,
+        "confidence_entity": 0.5793917179107666,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 21,
+        "end": 27,
+        "confidence_entity": 0.9999144077301025,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "medio",
+        "start": 35,
+        "end": 41,
+        "confidence_entity": 0.9988241791725159,
+        "value": "débito",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué mes tuvo más movimiento financiero con débito?",
+    "entities": [
+      {
+        "start": 18,
+        "end": 39,
+        "value": "movimiento financiero",
+        "entity": "tipo"
+      },
+      {
+        "start": 44,
+        "end": 50,
+        "value": "débito",
+        "entity": "medio"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.8740028738975525,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 18,
+        "end": 39,
+        "confidence_entity": 0.9900469183921814,
+        "value": "movimiento financiero",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "medio",
+        "start": 44,
+        "end": 50,
+        "confidence_entity": 0.9986715316772461,
+        "value": "débito",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
     "text": "¿Qué mes fue más caro según mis egresos?",
     "entities": [
       {
@@ -14,7 +1704,7 @@
         "entity": "periodo",
         "start": 5,
         "end": 8,
-        "confidence_entity": 0.7046427130699158,
+        "confidence_entity": 0.6262616515159607,
         "value": "mes",
         "extractor": "DIETClassifier",
         "processors": [
@@ -25,43 +1715,8 @@
         "entity": "tipo",
         "start": 32,
         "end": 39,
-        "confidence_entity": 0.9998078942298889,
+        "confidence_entity": 0.9996793270111084,
         "value": "egresos",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "¿Cuál fue el mes más intenso en gastos?",
-    "entities": [
-      {
-        "start": 32,
-        "end": 38,
-        "value": "gastos",
-        "entity": "tipo"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "periodo",
-        "start": 13,
-        "end": 16,
-        "confidence_entity": 0.916114866733551,
-        "value": "mes",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      },
-      {
-        "entity": "tipo",
-        "start": 32,
-        "end": 38,
-        "confidence_entity": 0.9998001456260681,
-        "value": "gastos",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -84,7 +1739,7 @@
         "entity": "medio",
         "start": 15,
         "end": 23,
-        "confidence_entity": 0.9997351765632629,
+        "confidence_entity": 0.999858021736145,
         "value": "efectivo",
         "extractor": "DIETClassifier",
         "processors": [
@@ -95,7 +1750,7 @@
         "entity": "periodo",
         "start": 39,
         "end": 44,
-        "confidence_entity": 0.6783927083015442,
+        "confidence_entity": 0.9817050695419312,
         "value": "meses",
         "extractor": "DIETClassifier",
         "processors": [
@@ -119,7 +1774,7 @@
         "entity": "periodo",
         "start": 5,
         "end": 8,
-        "confidence_entity": 0.7741410136222839,
+        "confidence_entity": 0.6516522765159607,
         "value": "mes",
         "extractor": "DIETClassifier",
         "processors": [
@@ -130,7 +1785,7 @@
         "entity": "tipo",
         "start": 35,
         "end": 41,
-        "confidence_entity": 0.9997667670249939,
+        "confidence_entity": 0.9997593760490417,
         "value": "gastos",
         "extractor": "DIETClassifier",
         "processors": [
@@ -140,62 +1795,21 @@
     ]
   },
   {
-    "text": "¿Cuál fue el mes con más uso de tarjeta de crédito?",
+    "text": "¿Qué mes tuvo más ingresos?",
     "entities": [
       {
-        "start": 32,
-        "end": 50,
-        "value": "tarjeta de crédito",
-        "entity": "medio"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "periodo",
-        "start": 13,
-        "end": 16,
-        "confidence_entity": 0.6473629474639893,
-        "value": "mes",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      },
-      {
-        "entity": "medio",
-        "start": 32,
-        "end": 50,
-        "confidence_entity": 0.9786880016326904,
-        "value": "tarjeta de crédito",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "¿En qué mes usé más crédito para compras?",
-    "entities": [
-      {
-        "start": 20,
-        "end": 27,
-        "value": "crédito",
-        "entity": "medio"
-      },
-      {
-        "start": 33,
-        "end": 40,
-        "value": "compras",
+        "start": 18,
+        "end": 26,
+        "value": "ingresos",
         "entity": "tipo"
       }
     ],
     "predicted_entities": [
       {
         "entity": "periodo",
-        "start": 8,
-        "end": 11,
-        "confidence_entity": 0.8558089733123779,
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9076016545295715,
         "value": "mes",
         "extractor": "DIETClassifier",
         "processors": [
@@ -203,22 +1817,11 @@
         ]
       },
       {
-        "entity": "medio",
-        "start": 20,
-        "end": 27,
-        "confidence_entity": 0.9961864352226257,
-        "value": "crédito",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      },
-      {
         "entity": "tipo",
-        "start": 33,
-        "end": 40,
-        "confidence_entity": 0.9993798732757568,
-        "value": "compras",
+        "start": 18,
+        "end": 26,
+        "confidence_entity": 0.9989355206489563,
+        "value": "ingresos",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -227,67 +1830,67 @@
     ]
   },
   {
-    "text": "Consulta mi saldo actual por favor",
-    "entities": [],
-    "predicted_entities": [
-      {
-        "entity": "tipo",
-        "start": 12,
-        "end": 17,
-        "confidence_entity": 0.9812868237495422,
-        "value": "saldo",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "Consultar saldo actual en tarjeta tarjeta crédito",
+    "text": "Ver comparación entre ropa y salud en febrero",
     "entities": [
       {
-        "start": 26,
-        "end": 33,
-        "value": "tarjeta",
-        "entity": "medio"
+        "start": 22,
+        "end": 26,
+        "value": "ropa",
+        "entity": "categoria"
       },
       {
-        "start": 34,
-        "end": 49,
-        "value": "tarjeta crédito",
-        "entity": "medio"
+        "start": 29,
+        "end": 34,
+        "value": "salud",
+        "entity": "categoria"
+      },
+      {
+        "start": 38,
+        "end": 45,
+        "value": "febrero",
+        "entity": "periodo"
       }
     ],
     "predicted_entities": [
       {
         "entity": "tipo",
-        "start": 10,
+        "start": 4,
         "end": 15,
-        "confidence_entity": 0.9995212554931641,
-        "value": "saldo",
+        "confidence_entity": 0.6482683420181274,
+        "value": "comparación",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
         ]
       },
       {
-        "entity": "medio",
-        "start": 26,
-        "end": 33,
-        "confidence_entity": 0.6843650341033936,
-        "value": "tarjeta",
+        "entity": "categoria",
+        "start": 22,
+        "end": 26,
+        "confidence_entity": 0.999994158744812,
+        "value": "ropa",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
         ]
       },
       {
-        "entity": "medio",
-        "start": 34,
-        "end": 49,
-        "confidence_entity": 0.9327384829521179,
-        "value": "tarjeta crédito",
+        "entity": "categoria",
+        "start": 29,
+        "end": 34,
+        "confidence_entity": 0.9999755620956421,
+        "value": "salud",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 38,
+        "end": 45,
+        "confidence_entity": 0.9999946355819702,
+        "value": "febrero",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -296,13 +1899,340 @@
     ]
   },
   {
-    "text": "Saldo actual en mi cuenta de ahorros",
+    "text": "¿En qué mes ahorré más?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "periodo",
+        "start": 8,
+        "end": 11,
+        "confidence_entity": 0.6642151474952698,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Qué límite de gasto tengo en transporte este mes?",
     "entities": [
       {
-        "start": 29,
-        "end": 36,
-        "value": "ahorros",
-        "entity": "medio"
+        "start": 15,
+        "end": 20,
+        "value": "gasto",
+        "entity": "tipo"
+      },
+      {
+        "start": 30,
+        "end": 40,
+        "value": "transporte",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.9998132586479187,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 30,
+        "end": 40,
+        "confidence_entity": 0.9999656677246094,
+        "value": "transporte",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 46,
+        "end": 49,
+        "confidence_entity": 0.5394814610481262,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuáles son mis gastos en entretenimiento este mes?",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "value": "gastos",
+        "entity": "tipo"
+      },
+      {
+        "start": 26,
+        "end": 41,
+        "value": "entretenimiento",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.9995729327201843,
+        "value": "gastos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 26,
+        "end": 41,
+        "confidence_entity": 0.9921879768371582,
+        "value": "entretenimiento",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 47,
+        "end": 50,
+        "confidence_entity": 0.681754469871521,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Tuve algún gasto el fin de semana?",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "gasto",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.9999746084213257,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "fecha",
+        "start": 25,
+        "end": 27,
+        "confidence_entity": 0.5988053679466248,
+        "value": "de",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "¿Qué ingresos tuve esta semana?",
+    "entities": [
+      {
+        "start": 5,
+        "end": 13,
+        "value": "ingresos",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 5,
+        "end": 13,
+        "confidence_entity": 0.9999680519104004,
+        "value": "ingresos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 24,
+        "end": 30,
+        "confidence_entity": 0.8748490214347839,
+        "value": "semana",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿En qué categorías gasté más este mes?",
+    "entities": [
+      {
+        "start": 8,
+        "end": 18,
+        "value": "categorías",
+        "entity": "categoria"
+      },
+      {
+        "start": 19,
+        "end": 24,
+        "value": "gasté",
+        "entity": "tipo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "categoria",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.9995366334915161,
+        "value": "categorías",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 19,
+        "end": 24,
+        "confidence_entity": 0.9924128651618958,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 34,
+        "end": 37,
+        "confidence_entity": 0.7133744359016418,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "¿Cuánto gasté en entretenimiento este mes?",
+    "entities": [
+      {
+        "start": 8,
+        "end": 13,
+        "value": "gasté",
+        "entity": "tipo"
+      },
+      {
+        "start": 17,
+        "end": 32,
+        "value": "entretenimiento",
+        "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 8,
+        "end": 13,
+        "confidence_entity": 0.9985338449478149,
+        "value": "gasté",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "categoria",
+        "start": 17,
+        "end": 32,
+        "confidence_entity": 0.9998419284820557,
+        "value": "entretenimiento",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "periodo",
+        "start": 38,
+        "end": 41,
+        "confidence_entity": 0.9060436487197876,
+        "value": "mes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "gasto ayer",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "monto",
+        "start": 6,
+        "end": 10,
+        "confidence_entity": 0.691967248916626,
+        "value": "ayer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "gasté 220 el 5 de abril en comida",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "gasté",
+        "entity": "tipo"
+      },
+      {
+        "start": 6,
+        "end": 9,
+        "value": "220",
+        "entity": "monto"
+      },
+      {
+        "start": 13,
+        "end": 23,
+        "value": "5 de abril",
+        "entity": "fecha"
+      },
+      {
+        "start": 27,
+        "end": 33,
+        "value": "comida",
+        "entity": "categoria"
       }
     ],
     "predicted_entities": [
@@ -310,125 +2240,30 @@
         "entity": "tipo",
         "start": 0,
         "end": 5,
-        "confidence_entity": 0.9928321838378906,
-        "value": "saldo",
+        "confidence_entity": 0.9990320205688477,
+        "value": "gasté",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
         ]
       },
       {
-        "entity": "medio",
-        "start": 29,
-        "end": 36,
-        "confidence_entity": 0.9993962049484253,
-        "value": "ahorros",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "Consulta de saldo actual en mi tarjeta Diners",
-    "entities": [
-      {
-        "start": 31,
-        "end": 45,
-        "value": "tarjeta Diners",
-        "entity": "medio"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "tipo",
-        "start": 12,
-        "end": 17,
-        "confidence_entity": 0.9995976090431213,
-        "value": "saldo",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      },
-      {
-        "entity": "medio",
-        "start": 31,
-        "end": 45,
-        "confidence_entity": 0.9986366629600525,
-        "value": "tarjeta Diners",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "Ver saldo actual en cuenta de ahorros",
-    "entities": [
-      {
-        "start": 30,
-        "end": 37,
-        "value": "ahorros",
-        "entity": "medio"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "tipo",
-        "start": 4,
+        "entity": "fecha",
+        "start": 6,
         "end": 9,
-        "confidence_entity": 0.9971346855163574,
-        "value": "saldo",
+        "confidence_entity": 0.5107966661453247,
+        "value": "220",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
         ]
       },
       {
-        "entity": "medio",
-        "start": 30,
-        "end": 37,
-        "confidence_entity": 0.9994288086891174,
-        "value": "ahorros",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "Quiero registrar un gasto de 50 soles en comida",
-    "entities": [
-      {
-        "start": 20,
-        "end": 25,
-        "value": "gasto",
-        "entity": "tipo"
-      },
-      {
-        "start": 29,
-        "end": 31,
-        "value": "50",
-        "entity": "monto"
-      },
-      {
-        "start": 41,
-        "end": 47,
-        "value": "comida",
-        "entity": "categoria"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "monto",
-        "start": 29,
-        "end": 31,
-        "confidence_entity": 0.9999264478683472,
-        "value": "50",
+        "entity": "fecha",
+        "start": 13,
+        "end": 23,
+        "confidence_entity": 0.9892483353614807,
+        "value": "5 de abril",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -436,9 +2271,9 @@
       },
       {
         "entity": "categoria",
-        "start": 41,
-        "end": 47,
-        "confidence_entity": 0.9999499320983887,
+        "start": 27,
+        "end": 33,
+        "confidence_entity": 0.9999346733093262,
         "value": "comida",
         "extractor": "DIETClassifier",
         "processors": [
@@ -448,12 +2283,12 @@
     ]
   },
   {
-    "text": "Marca 180 soles en hogar como gasto",
+    "text": "Marca 200 soles en hogar como gasto",
     "entities": [
       {
         "start": 6,
         "end": 9,
-        "value": "180",
+        "value": "200",
         "entity": "monto"
       },
       {
@@ -461,32 +2296,37 @@
         "end": 24,
         "value": "hogar",
         "entity": "categoria"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "monto",
+        "start": 6,
+        "end": 9,
+        "confidence_entity": 0.9999788999557495,
+        "value": "200",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
       },
       {
+        "entity": "categoria",
+        "start": 19,
+        "end": 24,
+        "confidence_entity": 0.999992847442627,
+        "value": "hogar",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
         "start": 30,
         "end": 35,
+        "confidence_entity": 0.8567870855331421,
         "value": "gasto",
-        "entity": "tipo"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "monto",
-        "start": 6,
-        "end": 9,
-        "confidence_entity": 0.9981093406677246,
-        "value": "180",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      },
-      {
-        "entity": "categoria",
-        "start": 19,
-        "end": 24,
-        "confidence_entity": 0.9999464750289917,
-        "value": "hogar",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -495,34 +2335,28 @@
     ]
   },
   {
-    "text": "Registra 85 soles en ropa como gasto",
+    "text": "Registra los 30 soles de ropa como gasto",
     "entities": [
       {
-        "start": 9,
-        "end": 11,
-        "value": "85",
+        "start": 13,
+        "end": 15,
+        "value": "30",
         "entity": "monto"
       },
       {
-        "start": 21,
-        "end": 25,
+        "start": 25,
+        "end": 29,
         "value": "ropa",
         "entity": "categoria"
-      },
-      {
-        "start": 31,
-        "end": 36,
-        "value": "gasto",
-        "entity": "tipo"
       }
     ],
     "predicted_entities": [
       {
         "entity": "monto",
-        "start": 9,
-        "end": 11,
-        "confidence_entity": 0.9999558925628662,
-        "value": "85",
+        "start": 13,
+        "end": 15,
+        "confidence_entity": 0.9999555349349976,
+        "value": "30",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -530,10 +2364,21 @@
       },
       {
         "entity": "categoria",
-        "start": 21,
-        "end": 25,
-        "confidence_entity": 0.9999443292617798,
+        "start": 25,
+        "end": 29,
+        "confidence_entity": 0.9999853372573853,
         "value": "ropa",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 35,
+        "end": 40,
+        "confidence_entity": 0.7072858214378357,
+        "value": "gasto",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -542,23 +2387,17 @@
     ]
   },
   {
-    "text": "Apunta los gastos de 60 soles en ropa",
+    "text": "Clasifica los 40 soles de ropa como gasto",
     "entities": [
       {
-        "start": 11,
-        "end": 17,
-        "value": "gastos",
-        "entity": "tipo"
-      },
-      {
-        "start": 21,
-        "end": 23,
-        "value": "60",
+        "start": 14,
+        "end": 16,
+        "value": "40",
         "entity": "monto"
       },
       {
-        "start": 33,
-        "end": 37,
+        "start": 26,
+        "end": 30,
         "value": "ropa",
         "entity": "categoria"
       }
@@ -566,10 +2405,10 @@
     "predicted_entities": [
       {
         "entity": "monto",
-        "start": 21,
-        "end": 23,
-        "confidence_entity": 0.9999330043792725,
-        "value": "60",
+        "start": 14,
+        "end": 16,
+        "confidence_entity": 0.9999630451202393,
+        "value": "40",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -577,10 +2416,53 @@
       },
       {
         "entity": "categoria",
-        "start": 33,
-        "end": 37,
-        "confidence_entity": 0.9999716281890869,
+        "start": 26,
+        "end": 30,
+        "confidence_entity": 0.9999881982803345,
         "value": "ropa",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "tipo",
+        "start": 36,
+        "end": 41,
+        "confidence_entity": 0.891330361366272,
+        "value": "gasto",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Muéstrame mi historial de abril de 2024",
+    "entities": [
+      {
+        "start": 26,
+        "end": 39,
+        "value": "abril de 2024",
+        "entity": "periodo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "tipo",
+        "start": 13,
+        "end": 22,
+        "confidence_entity": 0.8770594596862793,
+        "value": "historial",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "periodo",
+        "start": 26,
+        "end": 39,
+        "confidence_entity": 0.9995040893554688,
+        "value": "abril de 2024",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"

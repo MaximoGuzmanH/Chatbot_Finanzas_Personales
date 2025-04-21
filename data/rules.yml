@@ -2,6 +2,10 @@ version: "3.1"
 
 rules:
 
+# ════════════════════════════════════════════════════════════════════
+# 🔧 FUNCIONALES: Reglas principales por intención
+# ════════════════════════════════════════════════════════════════════
+
 - rule: Analizar o Clasificar Gastos
   steps:
     - intent: analizar_gastos
@@ -37,16 +41,6 @@ rules:
     - intent: eliminar_configuracion
     - action: action_eliminar_configuracion
 
-- rule: Entrada No Entendida
-  steps:
-    - intent: entrada_no_entendida
-    - action: action_entrada_no_entendida
-
-- rule: Exportar Información
-  steps:
-    - intent: ver_historial_completo
-    - action: action_ver_historial_completo
-
 - rule: Registrar Gasto
   steps:
     - intent: registrar_gasto
@@ -67,37 +61,83 @@ rules:
     - intent: ver_historial_completo
     - action: action_ver_historial_completo
 
-# 🔁 Reglas de conversación generales
-
-- rule: Ejecutar sugerencia después de afirmación
-  condition:
-    - slot_was_set:
-        - sugerencia_pendiente: true
+- rule: Entrada No Entendida
   steps:
-    - intent: affirm
-    - action: action_follow_suggestion
+    - intent: entrada_no_entendida
+    - action: action_entrada_no_entendida
 
-- rule: Rechazar sugerencia
+- rule: Exportar Información
   steps:
-    - intent: deny
-    - action: utter_ok_no_problem
+    - intent: ver_historial_completo
+    - action: action_ver_historial_completo
 
-- rule: Después de seguir la sugerencia
-  steps:
-    - action: action_follow_suggestion
-    - action: action_listen
+# ════════════════════════════════════════════════════════════════════
+# 💬 CONVERSACIONALES: saludos, ayuda, despedida
+# ════════════════════════════════════════════════════════════════════
 
-- rule: Responder a una despedida
+- rule: Saludo con bienvenida
   steps:
-    - intent: despedida
-    - action: utter_despedida
+    - intent: saludo
+    - action: action_bienvenida
 
 - rule: Proveer ayuda general
   steps:
     - intent: ayuda_general
     - action: utter_ayuda_general
 
-- rule: Saludo con bienvenida
+- rule: Responder a una despedida
   steps:
-    - intent: saludo
-    - action: action_bienvenida
+    - intent: despedida
+    - action: utter_despedida
+
+# ════════════════════════════════════════════════════════════════════
+# 🧠 CONTROL DE SLOTS / SUGERENCIAS
+# ════════════════════════════════════════════════════════════════════
+
+- rule: Reintentar ingreso con tipo=ingreso
+  condition:
+    - slot_was_set:
+        - tipo: ingreso
+  steps:
+    - intent: registrar_ingreso
+    - action: action_registrar_ingreso
+
+- rule: Reintentar gasto con tipo=gasto
+  condition:
+    - slot_was_set:
+        - tipo: gasto
+  steps:
+    - intent: registrar_gasto
+    - action: action_registrar_gasto
+
+- rule: Después de seguir la sugerencia
+  steps:
+    - action: action_follow_suggestion
+    - action: action_listen
+
+- rule: Ejecutar sugerencia si está pendiente
+  condition:
+    - slot_was_set:
+        - sugerencia_pendiente: true
+  steps:
+    - intent: affirm
+    - action: action_follow_suggestion
+    - slot_was_set:
+        - sugerencia_pendiente: null
+
+- rule: Ejecutar sugerencia pendiente
+  steps:
+    - slot_was_set:
+        - sugerencia_pendiente
+    - intent: affirm
+    - action: action_follow_suggestion
+
+- rule: Cancelar sugerencia pendiente
+  condition:
+    - slot_was_set:
+        - sugerencia_pendiente: true
+  steps:
+    - intent: deny
+    - action: action_negacion
+    - slot_was_set:
+        - sugerencia_pendiente: null

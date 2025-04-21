@@ -1,10 +1,58 @@
 [
   {
-    "text": "¿Cuál es mi historial total por tarjeta débito?",
+    "text": "¿Cuánto pagué con tarjeta de débito en entretenimiento?",
+    "intent": "consultar_informacion_financiera",
+    "intent_prediction": {
+      "name": "registrar_gasto",
+      "confidence": 0.8009529709815979
+    }
+  },
+  {
+    "text": "Dime cuánto he gastado en supermercado",
+    "intent": "consultar_informacion_financiera",
+    "intent_prediction": {
+      "name": "analizar_gastos",
+      "confidence": 0.9994490742683411
+    }
+  },
+  {
+    "text": "Dame un resumen de gastos en servicios básicos",
+    "intent": "consultar_informacion_financiera",
+    "intent_prediction": {
+      "name": "analizar_gastos",
+      "confidence": 0.717637300491333
+    }
+  },
+  {
+    "text": "Muéstrame los egresos por rubro",
+    "intent": "consultar_informacion_financiera",
+    "intent_prediction": {
+      "name": "analizar_gastos",
+      "confidence": 0.7535321712493896
+    }
+  },
+  {
+    "text": "¿Cuánto he recibido en enero por freelance?",
+    "intent": "consultar_informacion_financiera",
+    "intent_prediction": {
+      "name": "registrar_ingreso",
+      "confidence": 0.9085710048675537
+    }
+  },
+  {
+    "text": "Quiero el resumen mensual de mis registros de alimentación en mayo",
+    "intent": "ver_historial_completo",
+    "intent_prediction": {
+      "name": "analizar_gastos",
+      "confidence": 0.8775466680526733
+    }
+  },
+  {
+    "text": "Mostrar todos mis gastos en entretenimiento este abril",
     "intent": "ver_historial_completo",
     "intent_prediction": {
       "name": "consultar_informacion_financiera",
-      "confidence": 0.9905343055725098
+      "confidence": 0.9003086686134338
     }
   }
 ]
